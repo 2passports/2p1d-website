@@ -1,26 +1,251 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: #FFF9EF;
+  --color-foreground: #243238;
+  --color-primary: #174E5D;
+  --color-accent: #E76F51;
+  --color-accent-dark: #C85A3D;
+  --color-secondary: #74C7D8;
+  --color-muted: #65747A;
+  --color-surface: #FFF4DF;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #FAF8F5;
+  color: #1C1917;
+}
+
+/* Sub-page header gradient (About, Videos, Work With Us etc).
+   Deep teal, warm and travel-inspired. White text works on this.
+   Update here to change all sub-page headers at once. */
+.hero-bg {
+  background:
+    radial-gradient(ellipse at 15% 55%, rgba(116, 199, 216, 0.20) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 25%, rgba(255, 209, 102, 0.14) 0%, transparent 45%),
+    linear-gradient(150deg, #0c3545 0%, #174E5D 60%, #1e5a6e 100%);
+}
+
+/* Homepage hero only: bright, airy, morning-travel gradient.
+   Uses dark teal text because the background is light.
+   Only applied in page.tsx on the homepage hero section. */
+.home-hero-bg {
+  background:
+    radial-gradient(ellipse at 18% 62%, rgba(191, 231, 245, 0.68) 0%, transparent 55%),
+    radial-gradient(ellipse at 84% 22%, rgba(255, 209, 102, 0.48) 0%, transparent 50%),
+    radial-gradient(ellipse at 52% 92%, rgba(231, 111, 81, 0.10) 0%, transparent 42%),
+    linear-gradient(145deg, #ddf2fb 0%, #fff9ef 55%, #fff2d8 100%);
+}
+
+/* Homepage animations
+   fadeInUp  : hero content fades in and rises on page load.
+   glowDrift : accent glow blob drifts slowly behind the hero.
+   To adjust speed, change the duration values (0.65s and 16s).
+   To disable, remove the class from the element in page.tsx. */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowDrift {
+  0%, 100% {
+    transform: translate(0%, 0%) scale(1);
+    opacity: 0.7;
+  }
+  40% {
+    transform: translate(8%, -12%) scale(1.12);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(-6%, 8%) scale(0.94);
+    opacity: 0.8;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.65s ease-out both;
+}
+
+.animate-glow-drift {
+  animation: glowDrift 16s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .animate-glow-drift {
+    animation: none;
+  }
+}
+
+/* ================================================================
+   SCROLL REVEAL ANIMATIONS
+   The 'reveal' class is added by ScrollReveal.tsx to each wrapped
+   section. JavaScript adds 'revealed' when the element enters the
+   viewport. To disable reveals, remove the ScrollReveal wrapper
+   from the section in page.tsx.
+   ================================================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger cards: add .stagger-card to each grid card, then
+   .stagger-2 / .stagger-3 / .stagger-4 to the 2nd, 3rd, 4th card.
+   The parent .reveal must receive .revealed for delays to fire. */
+.stagger-card {
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal:not(.revealed) .stagger-card {
+  opacity: 0;
+  transform: translateY(18px);
+}
+.reveal.revealed .stagger-card   { opacity: 1; transform: translateY(0); }
+.reveal.revealed .stagger-2 { transition-delay: 0.09s; }
+.reveal.revealed .stagger-3 { transition-delay: 0.18s; }
+.reveal.revealed .stagger-4 { transition-delay: 0.27s; }
+.reveal.revealed .stagger-5 { transition-delay: 0.36s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.revealed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .reveal:not(.revealed) .stagger-card {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ================================================================
+   RETRO CAR DIVIDER
+   .car-drive is applied to the inner wrapper of the car SVG.
+   To pause: remove the .car-drive class from the wrapper div.
+   To remove entirely: delete the block marked "RETRO CAR DIVIDER"
+   in page.tsx.
+   ================================================================ */
+
+@keyframes carDrive {
+  from { transform: translateX(-140px); }
+  to   { transform: translateX(calc(100vw + 140px)); }
+}
+.car-drive {
+  animation: carDrive 11s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .car-drive {
+    animation: none;
+    transform: translateX(calc(50vw - 45px));
+  }
+}
+
+/* ================================================================
+   DISCOUNT CODES CAROUSEL
+   .deals-track : auto-scrolls left on desktop, pauses on hover.
+   .deals-card-dup : duplicate cards for seamless loop, hidden when
+   reduced motion is preferred so users see a clean scrollable row.
+   ================================================================ */
+
+@keyframes dealsMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.deals-track {
+  animation: dealsMarquee 42s linear infinite;
+}
+
+.deals-track-wrapper:hover .deals-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deals-track {
+    animation: none;
+  }
+  .deals-track-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .deals-card-dup {
+    display: none;
+  }
+}
+
+/* ================================================================
+   WHAT WE EXPLORE SECTION
+   .explore-section : dark teal gradient background with dot grid
+   .explore-dots    : dot pattern overlay
+   .explore-card    : extends .stagger-card with hover lift + glow
+   ================================================================ */
+
+.explore-section {
+  background:
+    radial-gradient(ellipse at 18% 65%, rgba(116, 199, 216, 0.13) 0%, transparent 50%),
+    radial-gradient(ellipse at 82% 20%, rgba(255, 209, 102, 0.09) 0%, transparent 45%),
+    linear-gradient(155deg, #0c3545 0%, #174E5D 55%, #1a5570 100%);
+}
+
+.explore-dots {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.explore-card {
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease;
+}
+.explore-card:hover {
+  transform: translateY(-7px) scale(1.01);
+  box-shadow:
+    0 28px 60px rgba(12, 53, 69, 0.30),
+    0 8px 22px rgba(0, 0, 0, 0.12);
+}
+.explore-card:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.70);
+  outline-offset: 3px;
+}
+
+/* Route line animated dot: hidden when reduced motion is preferred */
+@media (prefers-reduced-motion: reduce) {
+  .explore-card,
+  .explore-card:hover {
+    transition: none;
+    transform: none;
+    box-shadow: none;
+  }
+  .explore-route-dot-circle,
+  .explore-route-dot-glow {
+    display: none;
+  }
 }
