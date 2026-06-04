@@ -34,13 +34,13 @@ export default function ShortsRow({ shorts }: { shorts: ShortVideo[] }) {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-3">
-            Shorts
+            Short form
           </p>
           <h2 id="shorts-heading" className="text-3xl font-bold text-primary mb-3">
             Quick travel moments
           </h2>
           <p className="text-muted text-sm leading-relaxed max-w-xl mx-auto">
-            Short clips, funny moments and quick travel finds from our latest trips.
+            Short clips and travel moments from our latest trips.
           </p>
         </div>
 
@@ -98,22 +98,22 @@ export default function ShortsRow({ shorts }: { shorts: ShortVideo[] }) {
                 <div className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-stone-200 shadow-md ring-1 ring-black/5 group-hover:shadow-xl group-hover:-translate-y-1.5 transition-all duration-300">
                   <Image
                     src={`https://img.youtube.com/vi/${short.id}/hqdefault.jpg`}
-                    alt=""
+                    alt={`Short: ${short.title}`}
                     fill
                     sizes="(max-width: 640px) 176px, (max-width: 1024px) 192px, 224px"
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" aria-hidden="true" />
+                  {/* Soft wash that lifts on hover. No caption text: the cards
+                      stay clean and visual, with the title carried by the link
+                      aria-label and image alt for accessibility. */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" aria-hidden="true" />
                   <div className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
-                    <div className="w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-200">
-                      <svg width="13" height="13" fill="#1C1917" viewBox="0 0 24 24" className="ml-0.5">
+                    <div className="w-11 h-11 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-200">
+                      <svg width="15" height="15" fill="#1C1917" viewBox="0 0 24 24" className="ml-0.5">
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     </div>
                   </div>
-                  <p className="absolute bottom-0 left-0 right-0 px-3 pb-3 pt-6 text-xs font-semibold text-white leading-snug line-clamp-2">
-                    {short.title}
-                  </p>
                 </div>
               </a>
             ))}

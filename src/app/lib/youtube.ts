@@ -1,6 +1,8 @@
 import { videoSummaries } from '../data/video-summaries'
 
-const CHANNEL_ID = 'UCBQjTfMEcxMlI49KCQAHwYQ'
+// Channel ID is read from YOUTUBE_CHANNEL_ID when set, otherwise it falls back
+// to the known 2Passports1Dream channel ID. Server-side only, never exposed.
+const CHANNEL_ID = process.env.YOUTUBE_CHANNEL_ID || 'UCBQjTfMEcxMlI49KCQAHwYQ'
 const RSS_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`
 
 // ---------------------------------------------------------------------------

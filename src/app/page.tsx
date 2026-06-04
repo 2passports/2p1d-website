@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { videos as staticVideos } from './data/videos'
+import { shorts as staticShorts } from './data/shorts'
 import { fetchYoutubeVideos, formatPublishDate, fetchSubscriberCount } from './lib/youtube'
 import ScrollReveal from './components/ScrollReveal'
 import PhotoGrid from './components/PhotoGrid'
@@ -9,8 +10,15 @@ import DiscountCarousel from './components/DiscountCarousel'
 import LatestVideos from './components/LatestVideos'
 import ShortsRow from './components/ShortsRow'
 
+// Revalidate the whole homepage at most once every 24 hours (ISR). The live
+// YouTube data fetches in lib/youtube.ts each carry the same revalidate, so
+// the YouTube API is hit on a background regeneration roughly once a day rather
+// than on every page view. Setting it here too makes the 24h cadence explicit
+// at the route level. 86400 seconds = 24 hours.
+export const revalidate = 86400
+
 const homeDescription =
-  'Join Adriana and Dylan from 2Passports1Dream for honest travel videos, destination guides, cruise adventures, food finds, hotel stays and useful discount codes from the road.'
+  'Join Adriana and Dylan from 2Passports1Dream for honest travel videos, destination guides, cruises, food, hotels and useful discount codes.'
 
 export const metadata: Metadata = {
   // absolute avoids the layout title template appending the brand a second time
@@ -62,11 +70,15 @@ export default async function Home() {
 
   const { longForm, shorts } = youtubeResult
 
-  // Shorts come from the live YouTube API only (no static fallback). Already
-  // sorted newest-first by lib/youtube.ts. Cap at 10 for the homepage row.
-  const latestShorts = shorts.slice(0, 10).map((s) => ({
+  // Shorts come from the live YouTube API (sorted newest-first by
+  // lib/youtube.ts). When the live fetch returns none, for example on a deploy
+  // with no API key where the RSS feed cannot separate Shorts from long-form,
+  // fall back to the curated static set so the section never disappears.
+  // Titles are stripped of hashtags so accessible labels stay clean. Cap at 10.
+  const shortsSource = shorts.length > 0 ? shorts : staticShorts
+  const latestShorts = shortsSource.slice(0, 10).map((s) => ({
     id: s.id,
-    title: s.title,
+    title: s.title.replace(/#\S+/g, '').replace(/\s{2,}/g, ' ').trim(),
     youtubeUrl: s.youtubeUrl,
   }))
 
@@ -109,6 +121,26 @@ export default async function Home() {
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight mb-5 text-primary max-w-xl mx-auto lg:mx-0">
                 Honest travel videos, useful guides and discount codes from the road
               </h1>
+
+              {/* Mobile-only personal photo. Shown high in the hero, just after
+                  the headline, so the page immediately feels like Adriana and
+                  Dylan rather than a wall of text. Kept compact (a constrained
+                  square) so it does not push the CTA buttons too far down.
+                  Hidden on desktop, where the thumbnail collage fills the
+                  right-hand column instead. */}
+              <div className="lg:hidden mb-7 flex justify-center">
+                <div className="relative w-44 sm:w-52 aspect-square rounded-2xl overflow-hidden ring-4 ring-white shadow-xl">
+                  <Image
+                    src="/images/about-adriana-dylan.jpg"
+                    alt="Adriana and Dylan, the couple behind 2Passports1Dream, smiling together"
+                    fill
+                    sizes="(max-width: 640px) 176px, 208px"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+
               <p className="text-base text-foreground leading-relaxed mb-4 max-w-md mx-auto lg:mx-0">
                 We&rsquo;re Adriana &amp; Dylan, the couple behind 2Passports1Dream. We make fun,
                 honest travel videos about places we actually visit, from American road trips and
@@ -568,6 +600,7 @@ export default async function Home() {
             {/* 01 American Road Trips */}
             <Link
               href="/about"
+              aria-label="American road trips: read more about us"
               className="stagger-card explore-card group relative bg-white rounded-2xl p-6 shadow-xl ring-1 ring-white/25 flex flex-col overflow-hidden"
             >
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E76F51] to-[#FF9B6C] rounded-t-2xl" aria-hidden="true" />
@@ -590,6 +623,7 @@ export default async function Home() {
             {/* 02 Cruise Travel */}
             <Link
               href="/about"
+              aria-label="Cruise travel: read more about us"
               className="stagger-card stagger-2 explore-card group relative bg-white rounded-2xl p-6 shadow-xl ring-1 ring-white/25 flex flex-col overflow-hidden"
             >
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#74C7D8] to-[#A5DCE7] rounded-t-2xl" aria-hidden="true" />
@@ -613,6 +647,7 @@ export default async function Home() {
             {/* 03 Food & Hotels */}
             <Link
               href="/about"
+              aria-label="Food and hotels: read more about us"
               className="stagger-card stagger-3 explore-card group relative bg-white rounded-2xl p-6 shadow-xl ring-1 ring-white/25 flex flex-col overflow-hidden"
             >
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FFD166] to-[#FFBC2D] rounded-t-2xl" aria-hidden="true" />
@@ -634,6 +669,7 @@ export default async function Home() {
             {/* 04 City Breaks & Europe - col-start-2 at lg creates the centred 2nd row */}
             <Link
               href="/about"
+              aria-label="City breaks and Europe: read more about us"
               className="stagger-card stagger-4 explore-card group relative bg-white rounded-2xl p-6 shadow-xl ring-1 ring-white/25 flex flex-col overflow-hidden lg:col-start-2 xl:[grid-column-start:auto]"
             >
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#7EAD78] to-[#A8C9A2] rounded-t-2xl" aria-hidden="true" />
@@ -655,6 +691,7 @@ export default async function Home() {
             {/* 05 Asia Travel */}
             <Link
               href="/about"
+              aria-label="Asia travel: read more about us"
               className="stagger-card stagger-5 explore-card group relative bg-white rounded-2xl p-6 shadow-xl ring-1 ring-white/25 flex flex-col overflow-hidden"
             >
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#C77DB6] to-[#E0A5D4] rounded-t-2xl" aria-hidden="true" />

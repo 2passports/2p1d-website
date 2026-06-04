@@ -46,7 +46,7 @@ export function BrandPage({ data }: { data: BrandPageData }) {
                 {logoImage && (
                   <div className="flex justify-center lg:justify-start mb-5">
                     <div className="w-14 h-14 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center p-2.5">
-                      <img src={logoImage} alt={name} className="w-full h-full object-contain" />
+                      <img src={logoImage} alt={`${name} logo`} className="w-full h-full object-contain" />
                     </div>
                   </div>
                 )}
@@ -131,7 +131,7 @@ export function BrandPage({ data }: { data: BrandPageData }) {
             {logoImage && (
               <div className="flex justify-center mb-5">
                 <div className="w-16 h-16 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center p-2.5">
-                  <img src={logoImage} alt={name} className="w-full h-full object-contain" />
+                  <img src={logoImage} alt={`${name} logo`} className="w-full h-full object-contain" />
                 </div>
               </div>
             )}
@@ -254,7 +254,7 @@ export function BrandPage({ data }: { data: BrandPageData }) {
                   >
                     <Image
                       src={`https://img.youtube.com/vi/${realExample.videoId}/hqdefault.jpg`}
-                      alt=""
+                      alt={`Thumbnail for the video ${realExample.title}`}
                       fill
                       sizes="(max-width: 1024px) 100vw, 480px"
                       className="object-cover group-hover:scale-105 transition-transform duration-300"

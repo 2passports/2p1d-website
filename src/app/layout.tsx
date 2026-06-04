@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | 2Passports1Dream",
   },
   description:
-    "Join Adriana and Dylan from 2Passports1Dream for honest travel videos, destination guides, cruise adventures, food finds, hotel stays and useful discount codes from the road.",
+    "Join Adriana and Dylan from 2Passports1Dream for honest travel videos, destination guides, cruises, food, hotels and useful discount codes.",
   applicationName: "2Passports1Dream",
   keywords: [
     "2Passports1Dream",
@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     url: siteUrl,
     title: "2Passports1Dream | Travel Videos, Guides and Discount Codes",
     description:
-      "Join Adriana and Dylan from 2Passports1Dream for honest travel videos, destination guides, cruise adventures, food finds, hotel stays and useful discount codes from the road.",
+      "Join Adriana and Dylan from 2Passports1Dream for honest travel videos, destination guides, cruises, food, hotels and useful discount codes.",
   },
   twitter: {
     card: "summary_large_image",
     title: "2Passports1Dream | Travel Videos, Guides and Discount Codes",
     description:
-      "Honest travel videos, destination guides, cruise adventures, food and hotel finds and useful discount codes from Adriana and Dylan.",
+      "Join Adriana and Dylan from 2Passports1Dream for honest travel videos, destination guides, cruises, food, hotels and useful discount codes.",
   },
   icons: {
     icon: [

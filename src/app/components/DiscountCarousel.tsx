@@ -34,7 +34,7 @@ function DealCard({
         {item.logoImage ? (
           <Image
             src={item.logoImage}
-            alt=""
+            alt={`${item.name} logo`}
             width={32}
             height={32}
             className="object-contain w-8 h-8"

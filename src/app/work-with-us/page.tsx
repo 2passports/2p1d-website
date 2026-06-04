@@ -229,7 +229,7 @@ export default async function WorkWithUsPage() {
                   <div className="relative w-full h-12 mb-3">
                     <Image
                       src={brand.logoImage}
-                      alt=""
+                      alt={`${brand.name} logo`}
                       fill
                       sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 200px"
                       className="object-contain"

@@ -135,7 +135,7 @@ export default function DiscountCodesPage() {
                           {item.logoImage ? (
                             <img
                               src={item.logoImage}
-                              alt={item.name}
+                              alt={`${item.name} logo`}
                               className="w-full h-full object-contain"
                             />
                           ) : (
@@ -252,7 +252,7 @@ export default function DiscountCodesPage() {
                 <div className="flex justify-center mb-5">
                   <img
                     src={link.logoImage}
-                    alt={link.name}
+                    alt={`${link.name} logo`}
                     className="h-10 w-auto object-contain"
                   />
                 </div>
