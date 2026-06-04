@@ -265,6 +265,17 @@ export default async function Home() {
 
             {/* Thumbnail collage */}
             <div className="lg:w-1/2 w-full">
+              {/* Mobile-only cue. One subtle line above the thumbnail row so it
+                  is clear these are the latest videos, without crowding the
+                  mobile hero. The arrow points down to the previews below. */}
+              <div className="lg:hidden flex items-center justify-center gap-1.5 mb-2 text-accent" aria-hidden="true">
+                <span className="text-xs font-semibold italic">Our latest YouTube videos</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <polyline points="6 13 12 19 18 13" />
+                </svg>
+              </div>
+
               {/* Mobile: horizontal scroll row */}
               <div className="flex lg:hidden gap-3 overflow-x-auto pb-3 -mx-1 px-1">
                 {latestVideos.slice(0, 3).map((video) => (
@@ -293,6 +304,24 @@ export default async function Home() {
               <div className="hidden lg:block relative h-[27rem]">
                 {/* Soft sun glow behind the stack */}
                 <div className="absolute -top-10 right-0 w-80 h-80 rounded-full bg-[#FFD166]/30 blur-3xl pointer-events-none" aria-hidden="true" />
+
+                {/* Playful cue in the open space above the stack. The label sits
+                    near the top-right and the hand-drawn arrow sweeps down and to
+                    the left, pointing at the latest video card. Sits above the
+                    cards (z-30) but is pointer-events-none so it never blocks a
+                    click on a video. Desktop only. */}
+                <div className="absolute -top-8 right-3 z-30 flex flex-col items-end pointer-events-none select-none" aria-hidden="true">
+                  <span className="text-[15px] font-semibold italic text-accent -rotate-3 whitespace-nowrap">
+                    Our latest YouTube videos
+                  </span>
+                  <svg className="text-accent mt-1 mr-24" width="96" height="84" viewBox="0 0 96 84" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+                    {/* Curved shaft sweeping from under the label down to the left */}
+                    <path d="M88 12 Q 40 20 18 76" />
+                    {/* Clear V arrowhead pointing down and to the left, at the latest card */}
+                    <path d="M14 54 L 18 78 L 40 70" />
+                  </svg>
+                </div>
+
                 {latestVideos.slice(0, 3).map((video, index) => (
                   <a
                     key={video.id}
