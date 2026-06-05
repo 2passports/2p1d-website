@@ -69,7 +69,7 @@ export function BrandPage({ data }: { data: BrandPageData }) {
                     <CopyCodeButton code={code as string} dark />
                   ) : (
                     <p className="text-sm text-white/70 font-medium mt-1">
-                      No code needed, just use our link
+                      Click here
                     </p>
                   )}
                   <p className="text-white/40 text-xs mt-2">
@@ -152,7 +152,7 @@ export function BrandPage({ data }: { data: BrandPageData }) {
                 <CopyCodeButton code={code as string} dark />
               ) : (
                 <p className="text-sm text-white/70 font-medium mt-1">
-                  No code needed, just use our link
+                  Click here
                 </p>
               )}
               <p className="text-white/40 text-xs mt-2">
@@ -313,7 +313,7 @@ export function BrandPage({ data }: { data: BrandPageData }) {
                       {offer}
                     </span>
                     <p className="text-sm text-muted font-medium mt-2">
-                      No code needed, just use our link.
+                      Click here to get the offer.
                     </p>
                   </div>
                 )}

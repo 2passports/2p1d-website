@@ -120,6 +120,27 @@ export const discountCodes: DiscountCode[] = [
     category: 'Connectivity and Online Safety',
   },
   {
+    name: 'Simify',
+    offer: '15% off',
+    code: 'PASSPORT',
+    affiliateUrl: 'https://simify.com/PASSPORT?c=1',
+    description:
+      'Simify offers travel eSIMs that help you get mobile data before you land, so you can stay connected without airport SIM queues or roaming surprises.',
+    shortDescription:
+      'Travel eSIMs that let you get mobile data before you land, without airport SIM queues or roaming surprises.',
+    whyUseIt:
+      'It removes a lot of travel friction, with no need to queue for an airport SIM card or hunt for a local phone shop after a long flight.',
+    bestFor: 'International travel, multi-country trips, city breaks and avoiding surprise roaming charges.',
+    personalNote:
+      'It is especially useful when you want maps, messages and transport apps working as soon as you arrive.',
+    bestForTags: ['Travel eSIMs', 'Multi-country trips', 'Data on arrival'],
+    buttonLabel: 'Visit Simify',
+    slug: 'simify',
+    badgeText: 'Simify',
+    logoImage: '/logos/simify.png',
+    category: 'Connectivity and Online Safety',
+  },
+  {
     name: 'NordVPN',
     offer: '4 months free',
     code: null,
@@ -138,6 +159,27 @@ export const discountCodes: DiscountCode[] = [
     slug: 'nordvpn',
     badgeText: 'NordVPN',
     logoImage: '/logos/NordVPN.webp',
+    category: 'Connectivity and Online Safety',
+  },
+  {
+    name: 'Proton VPN',
+    offer: '70% off',
+    code: null,
+    affiliateUrl: 'http://protonvpn.com/2passports1dream',
+    description:
+      'Proton VPN helps protect your privacy when travelling, especially when using public WiFi in hotels, airports, cafes and cruise ships.',
+    shortDescription:
+      'Helps protect your privacy when travelling, especially on public WiFi in hotels, airports, cafes and cruise ships.',
+    whyUseIt:
+      'When travelling we are constantly connecting to public WiFi, which is not always the most secure place to be, so having extra privacy ready can be useful.',
+    bestFor: 'Public WiFi, hotel WiFi, airport WiFi, cruise WiFi and everyday online privacy while travelling.',
+    personalNote:
+      'It is one of those tools you might not think about until you are on hotel, airport or cruise WiFi.',
+    bestForTags: ['Public WiFi', 'Hotel & airport WiFi', 'Travel privacy'],
+    buttonLabel: 'Visit Proton VPN',
+    slug: 'protonvpn',
+    badgeText: 'Proton VPN',
+    logoImage: '/logos/protonvpn.png',
     category: 'Connectivity and Online Safety',
   },
   {
@@ -316,6 +358,27 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'Currensea',
     logoImage: '/logos/Currensea.webp',
     category: 'Money and Travel Cards',
+  },
+  {
+    name: 'FoundersCard',
+    offer: 'Free 1-year preview',
+    code: 'VIP2PASSPORTS',
+    affiliateUrl: 'https://founderscard.com/VIP2PASSPORTS',
+    description:
+      'FoundersCard is a membership, not a credit card, that gives you access to VIP perks and preferred pricing across travel, lifestyle and business brands.',
+    shortDescription:
+      'A membership that gives you access to VIP perks and preferred pricing across travel, lifestyle and business brands.',
+    whyUseIt:
+      'It is less about changing your whole trip and more about improving the trip you are already taking, with things like upgrades, added perks and preferred pricing.',
+    bestFor: 'Hotels, flights, car rentals, food experiences and other trip extras.',
+    personalNote:
+      'We think it is worth a quick check before booking travel, just to see what benefits are available.',
+    bestForTags: ['Travel perks', 'Hotels & flights', 'Frequent travellers'],
+    buttonLabel: 'Visit FoundersCard',
+    slug: 'founderscard',
+    badgeText: 'FoundersCard',
+    logoImage: '/logos/Founderscard.avif',
+    category: 'Memberships and Perks',
   },
 ]
 

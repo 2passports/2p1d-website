@@ -13,22 +13,34 @@ function DealCard({
   isDuplicate?: boolean
   mobile?: boolean
 }) {
-  const href = item.slug ? `/discount-codes/${item.slug}` : item.affiliateUrl
-  const isExternal = !item.slug
+  // The whole card is a stretched link to the affiliate offer, so clicking the
+  // logo, code area or anywhere else goes straight to the deal. "View deal"
+  // floats above it and links to the brand's internal discount code page.
+  const detailsHref = item.slug ? `/discount-codes/${item.slug}` : item.affiliateUrl
+  const detailsIsExternal = !item.slug
 
   return (
-    <a
-      href={href}
-      {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+    <div
       aria-hidden={isDuplicate ? true : undefined}
-      tabIndex={isDuplicate ? -1 : undefined}
-      aria-label={
-        isDuplicate
-          ? undefined
-          : `${item.name}: ${item.offer}${item.code ? `. Discount code: ${item.code}` : '. No code needed'}.`
-      }
-      className={`${isDuplicate ? 'deals-card-dup' : ''} flex-shrink-0 ${mobile ? 'w-52 snap-start' : 'w-56'} bg-white rounded-2xl shadow-sm border border-stone-100 p-4 flex flex-col gap-3 hover:-translate-y-1.5 hover:shadow-[0_8px_24px_rgba(23,78,93,0.12)] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2`}
+      className={`${isDuplicate ? 'deals-card-dup' : ''} relative flex-shrink-0 ${mobile ? 'w-52 snap-start' : 'w-56'} bg-white rounded-2xl shadow-sm border border-stone-100 p-4 flex flex-col gap-3 hover:-translate-y-1.5 hover:shadow-[0_8px_24px_rgba(23,78,93,0.12)] transition-all duration-200`}
     >
+      {/* Stretched primary link: covers the whole card and goes to the offer */}
+      <a
+        href={item.affiliateUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-hidden={isDuplicate ? true : undefined}
+        tabIndex={isDuplicate ? -1 : undefined}
+        aria-label={
+          isDuplicate
+            ? undefined
+            : `${item.name}: ${item.offer}${item.code ? `. Discount code: ${item.code}` : '. Click here'}.`
+        }
+        className="absolute inset-0 rounded-2xl focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+      >
+        <span className="sr-only">{`Visit ${item.name}`}</span>
+      </a>
+
       {/* Logo badge */}
       <div className="w-11 h-11 rounded-xl bg-[#FFF4DF] border border-[#F0DDB0] flex items-center justify-center flex-shrink-0 overflow-hidden">
         {item.logoImage ? (
@@ -66,12 +78,19 @@ function DealCard({
             </p>
           </>
         ) : (
-          <p className="text-[10px] font-medium text-muted">No code needed</p>
+          <p className="text-[10px] font-medium text-muted">Click here</p>
         )}
       </div>
 
-      {/* View deal */}
-      <p className="text-[11px] font-semibold text-accent mt-auto flex items-center gap-1">
+      {/* View deal: floats above the stretched link, goes to the details page */}
+      <a
+        href={detailsHref}
+        {...(detailsIsExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        aria-hidden={isDuplicate ? true : undefined}
+        tabIndex={isDuplicate ? -1 : undefined}
+        aria-label={isDuplicate ? undefined : `View deal: ${item.name} details`}
+        className="relative z-10 self-start text-[11px] font-semibold text-accent mt-auto inline-flex items-center gap-1 rounded hover:text-accent-dark focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+      >
         View deal
         <svg
           width="10"
@@ -87,8 +106,8 @@ function DealCard({
           <line x1="5" y1="12" x2="19" y2="12" />
           <polyline points="12 5 19 12 12 19" />
         </svg>
-      </p>
-    </a>
+      </a>
+    </div>
   )
 }
 

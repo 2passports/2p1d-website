@@ -561,3 +561,238 @@ export const vessi: BrandPageData = {
   importantNotes:
     'Offers can change, so always check the current price and availability before buying.',
 }
+
+export const founderscard: BrandPageData = {
+  name: 'FoundersCard',
+  slug: 'founderscard',
+  affiliateUrl: 'https://founderscard.com/VIP2PASSPORTS',
+  offer: 'Free 1-year preview',
+  code: 'VIP2PASSPORTS',
+  buttonLabel: 'Visit FoundersCard',
+  logoImage: '/logos/Founderscard.avif',
+  badgeText: 'FoundersCard',
+  seoTitle: 'FoundersCard Discount Code | Free Preview and 70% Off Elite Upgrade',
+  seoDescription:
+    'Use our FoundersCard code VIP2PASSPORTS to get a free one-year preview with access to over 200 perks, plus the option to upgrade to Elite in your first week for 70% off.',
+  heroHeading: 'FoundersCard Discount Code',
+  heroTagline:
+    'FoundersCard is a membership, not a credit card, giving you access to VIP perks and preferred pricing across travel, lifestyle and business brands. Use our code VIP2PASSPORTS to get your free one-year preview.',
+  intro:
+    'FoundersCard is a membership that gives you access to VIP perks and preferred pricing across travel, lifestyle and business brands. Whether you are booking hotels, flights, car rentals or experiences, it is designed to give you access to benefits you would not normally get when booking everything yourself.',
+  seoIntro: [
+    'If you are looking for a FoundersCard discount code or FoundersCard promo code, you can use our code VIP2PASSPORTS to start a free one-year preview of the FoundersCard membership, with access to over 200 perks.',
+    'FoundersCard membership is built around FoundersCard travel perks and preferred pricing, including hotel perks, flight perks and car rental perks, so it can be worth a look if you want VIP travel benefits before booking your next trip.',
+  ],
+  whatItIs: [
+    'FoundersCard is a membership, not a credit card. It gives you access to VIP perks and preferred pricing across a range of travel, lifestyle and business brands, with over 200 perks available through the membership.',
+    'Through our link you can sign up for a free one-year preview of FoundersCard. During your first week you also have the option to upgrade to Elite membership for 70% off, though that upgrade is completely optional.',
+  ],
+  whyUseful: [
+    'We find it useful because it is not about changing your whole trip. It is more about improving the trip you are already taking, with things like upgrades, added perks, preferred pricing or a slightly better overall experience.',
+    'It is something worth checking before booking travel, hotels, car hire, food experiences or other trip extras, just to see what benefits are available.',
+  ],
+  bestFor: [
+    'Travellers who like extra perks',
+    'People booking hotels, flights or car rentals',
+    'People who travel often enough to check for benefits',
+    'Anyone who wants to preview FoundersCard before fully committing',
+  ],
+  howToUseSteps: [
+    'Click through to FoundersCard using our link.',
+    'Sign up for the free one-year preview.',
+    'Use code VIP2PASSPORTS if required.',
+    'Check the Elite upgrade option in your first week if you want to upgrade for 70% off.',
+  ],
+  faqs: [
+    {
+      question: 'What is FoundersCard?',
+      answer:
+        'FoundersCard is a membership that gives you access to VIP perks and preferred pricing across travel, lifestyle and business brands. It is a membership, not a credit card.',
+    },
+    {
+      question: 'Is FoundersCard a credit card?',
+      answer:
+        'No. FoundersCard is a membership, not a credit card. It is designed to give members access to perks and preferred pricing across a range of travel, lifestyle and business brands.',
+    },
+    {
+      question: 'What does the free preview include?',
+      answer:
+        'The free one-year preview gives you access to the FoundersCard membership and its perks, with over 200 perks available. Perks and partners can change, so it is worth checking what is currently available.',
+    },
+    {
+      question: 'What is the FoundersCard Elite upgrade offer?',
+      answer:
+        'During your first week as a member, you have the option to upgrade to Elite membership for 70% off. This upgrade is optional, so you can stay on the free preview if you prefer.',
+    },
+    {
+      question: 'How do I use the code VIP2PASSPORTS?',
+      answer:
+        'Click through using our link, sign up for the free one-year preview and enter the code VIP2PASSPORTS if a code field is shown. Then check the Elite upgrade option in your first week if you want it.',
+    },
+  ],
+  importantNotes:
+    'FoundersCard is a membership, not a credit card. Perks, partners and offers can change, and benefits are not guaranteed. The free one-year preview gives you access to the membership, and the option to upgrade to Elite membership for 70% off is optional and available during your first week. Always check the current terms before signing up.',
+}
+
+export const protonvpn: BrandPageData = {
+  name: 'Proton VPN',
+  slug: 'protonvpn',
+  affiliateUrl: 'http://protonvpn.com/2passports1dream',
+  offer: '70% off',
+  code: null,
+  buttonLabel: 'Visit Proton VPN',
+  logoImage: '/logos/protonvpn.png',
+  badgeText: 'Proton VPN',
+  seoTitle: 'Proton VPN Discount | 70% Off for Travel Privacy',
+  seoDescription:
+    'Get 70% off Proton VPN with our 2Passports1Dream link. A useful VPN for travel, public WiFi, hotel WiFi, airport WiFi, cruise WiFi and everyday online privacy.',
+  heroHeading: 'Proton VPN Discount',
+  heroTagline:
+    'Proton VPN helps protect your privacy when travelling, especially on public WiFi in hotels, airports, cafes and cruise ships. Use our link to get 70% off, with a 30-day money-back guarantee.',
+  intro:
+    'When we travel, we are constantly connecting to public WiFi, from hotels and airports to cafes, trains and cruise ships. That is useful when you need to check emails, upload content, do online banking or just scroll, but public WiFi is not always the most secure place to be.',
+  seoIntro: [
+    'If you are looking for a Proton VPN discount, you can use our 2Passports1Dream link to get 70% off. It is a useful travel VPN for staying a little more private when you are away from your usual home network.',
+    'A VPN for travel can be handy for public WiFi protection, whether that is a VPN for hotel WiFi, a VPN for airport WiFi or a VPN for cruise WiFi. Proton VPN is one option for online privacy while travelling, and our link includes a 30-day money-back guarantee.',
+  ],
+  whatItIs: [
+    'Proton VPN creates a secure, encrypted connection between your device and the internet, helping protect what you are doing online from people on the same network. It can also help hide your IP address and reduce tracking, which makes it a useful tool to have on your phone, laptop or tablet while travelling.',
+    'We like Proton VPN because it is built around privacy, with a strict no-logs policy and a privacy-focused setup based in Switzerland. It is one of those travel tools you might not think about until you are on hotel, airport or cruise WiFi, but it is worth having ready before you need it.',
+  ],
+  whyUseful: [
+    'When travelling, we regularly connect to public WiFi in hotels, airports, cafes, trains and on cruise ships. Public WiFi can be less secure than your connection at home, so having a VPN ready can add a layer of privacy when you are checking emails, banking or signing into accounts.',
+    'Proton VPN can also help hide your IP address and reduce tracking, which is useful when you want a bit more online privacy while travelling. It is the kind of tool that is worth setting up before a trip rather than once you are already connected to an unfamiliar network.',
+  ],
+  bestFor: [
+    'Travellers using public WiFi',
+    'Hotel, airport and cruise WiFi',
+    'People who want more online privacy while travelling',
+    'Anyone checking emails, banking or accounts on the road',
+    'Creators and remote workers who work online while travelling',
+  ],
+  howToUseSteps: [
+    'Click through to Proton VPN using our link.',
+    'Choose the Proton VPN plan that suits you.',
+    'The 70% discount should be available through our link.',
+    'Check the final price and terms before signing up.',
+    'Remember there is a 30-day money-back guarantee.',
+  ],
+  faqs: [
+    {
+      question: 'What is Proton VPN?',
+      answer:
+        'Proton VPN is a VPN service that creates a secure, encrypted connection between your device and the internet. It can help protect what you are doing online from others on the same network, help hide your IP address and reduce tracking.',
+    },
+    {
+      question: 'Why use a VPN when travelling?',
+      answer:
+        'When travelling, you often connect to public WiFi, which can be less secure than your home network. A VPN can add a layer of privacy when you are checking emails, banking or signing into accounts while away.',
+    },
+    {
+      question: 'Is Proton VPN useful on hotel, airport or cruise WiFi?',
+      answer:
+        'Yes. Hotel, airport and cruise WiFi are all shared, public networks, so a VPN can be a useful tool to have ready when you connect to them while travelling.',
+    },
+    {
+      question: 'Does Proton VPN hide my IP address?',
+      answer:
+        'Proton VPN can help hide your IP address and reduce tracking. No VPN makes you completely anonymous, but it can add privacy when you are online while travelling.',
+    },
+    {
+      question: 'How do I get the 70% Proton VPN discount?',
+      answer:
+        'Click through using our Proton VPN link, choose the plan that suits you and the 70% discount should be available through the link. Always check the final price and terms before signing up.',
+    },
+    {
+      question: 'Does Proton VPN have a money-back guarantee?',
+      answer:
+        'Our Proton VPN link includes a 30-day money-back guarantee. Check the current terms when you sign up, as offers and terms can change.',
+    },
+  ],
+  importantNotes:
+    'Public WiFi can be less secure than your home network, and a VPN adds privacy rather than guaranteeing total protection or complete anonymity. The 70% discount is available through our link, along with a 30-day money-back guarantee. Offers and terms can change, so always check the final price and current terms before signing up.',
+}
+
+export const simify: BrandPageData = {
+  name: 'Simify',
+  slug: 'simify',
+  affiliateUrl: 'https://simify.com/PASSPORT?c=1',
+  offer: '15% off',
+  code: 'PASSPORT',
+  buttonLabel: 'Visit Simify',
+  logoImage: '/logos/simify.png',
+  badgeText: 'Simify',
+  seoTitle: 'Simify Discount Code | 15% Off Travel eSIMs',
+  seoDescription:
+    'Use our Simify discount code PASSPORT for 15% off travel eSIMs. Get mobile data before you fly for holidays, road trips, city breaks and multi-country travel.',
+  heroHeading: 'Simify Discount Code',
+  heroTagline:
+    'Simify offers travel eSIMs that help you get mobile data before you land, so you can stay connected without airport SIM queues or roaming surprises. Use code PASSPORT for 15% off.',
+  intro:
+    'Simify is a travel eSIM provider that lets you sort your mobile data before you fly. Instead of buying a physical SIM card when you arrive, you can download an eSIM directly to your phone, choose a plan for your destination and get connected shortly after landing.',
+  seoIntro: [
+    'If you are looking for a Simify discount code or Simify promo code, you can use code PASSPORT to get 15% off a Simify eSIM. It is a travel eSIM that lets you sort mobile data abroad before you fly.',
+    'A travel eSIM can be a handy way to get prepaid travel data for holidays, road trips and city breaks. Simify offers an international eSIM that works in many destinations, including options that suit an eSIM for USA, an eSIM for Europe, an eSIM for Asia, an eSIM for Australia and an eSIM for multi-country travel.',
+  ],
+  whatItIs: [
+    'Simify is a travel eSIM provider that lets you sort your mobile data before you fly. Instead of buying a physical SIM card when you arrive, you can download an eSIM directly to your phone, choose a plan for your destination and get connected shortly after landing.',
+    'With Simify, you can manage your eSIM through their app, purchase a plan for your destination and install the eSIM before you travel. When you land, you switch to the Simify eSIM in your phone settings, turn on data roaming and get connected. Simify works in over 150 destinations worldwide, with plans starting from under two dollars a day, plus unlimited data options and global plans for travelling between countries. Everything is prepaid, so you can avoid surprise roaming charges when you get home.',
+  ],
+  whyUseful: [
+    'We find Simify useful because it removes a lot of travel friction. There is no need to queue for an airport SIM card, swap tiny plastic SIMs or hunt for a local phone shop after a long flight. It is especially useful when you want maps, messages, transport apps, hotel details or emails as soon as you arrive.',
+    'Because everything is prepaid, it can help you avoid surprise roaming charges when you get home. The global and multi-country plans can also be handy when a trip involves more than one country, so you are not sorting out a new SIM at every border.',
+  ],
+  bestFor: [
+    'Travellers who want data ready before they land',
+    'Trips where you need maps, messages and transport apps straight away',
+    'People who want to avoid airport SIM queues',
+    'Multi-country trips',
+    'Travellers who want prepaid data instead of surprise roaming charges',
+  ],
+  howToUseSteps: [
+    'Click through to Simify using our link.',
+    'Choose the eSIM plan for your destination.',
+    'Use code PASSPORT at checkout.',
+    'Check the final price, coverage and plan details.',
+    'Install the eSIM before you travel and follow Simify’s setup instructions.',
+  ],
+  faqs: [
+    {
+      question: 'What is Simify?',
+      answer:
+        'Simify is a travel eSIM provider that lets you buy mobile data for your destination before you fly. You download the eSIM to your phone, choose a plan and get connected shortly after landing.',
+    },
+    {
+      question: 'What is an eSIM?',
+      answer:
+        'An eSIM is a digital SIM card built into your phone. Instead of inserting a physical SIM, you install a data plan directly on your device, which you can do before you travel.',
+    },
+    {
+      question: 'How do I use the Simify discount code?',
+      answer:
+        'Click through using our link, choose your eSIM plan and enter code PASSPORT at checkout for 15% off. Always check the final price, coverage and plan details before buying.',
+    },
+    {
+      question: 'Does Simify work worldwide?',
+      answer:
+        'Simify works in over 150 destinations worldwide and offers global plans. Coverage varies by destination, so check that your destination is covered before purchasing.',
+    },
+    {
+      question: 'Can I use Simify for multi-country trips?',
+      answer:
+        'Yes. Simify offers global and multi-country plans, which can be useful if you are travelling between countries on one trip. Check the plan details to make sure it covers everywhere you are going.',
+    },
+    {
+      question: 'Do I need an unlocked phone for Simify?',
+      answer:
+        'You generally need an eSIM-compatible and unlocked phone to use a travel eSIM. Check your device compatibility before buying an eSIM.',
+    },
+    {
+      question: 'Should I install my eSIM before I fly?',
+      answer:
+        'It is usually easiest to install the eSIM before you travel while you still have your home connection, then switch to it and turn on data roaming once you land. Follow Simify’s setup instructions.',
+    },
+  ],
+  importantNotes:
+    'Check your device compatibility before buying an eSIM, as you generally need an eSIM-compatible, unlocked phone. Coverage, speeds and plans vary, and not every plan is unlimited, so check destination coverage, plan details and the final price before purchasing. Offers and terms can change.',
+}

@@ -18,6 +18,7 @@ const codeCategories = [
   'Travel Health and Lifestyle',
   'Skincare and Beauty',
   'Money and Travel Cards',
+  'Memberships and Perks',
 ]
 
 /** Converts a category name into a stable anchor ID, e.g. "Luggage and Packing" -> "luggage-and-packing" */
@@ -40,6 +41,8 @@ const categoryIntros: Record<string, string> = {
     'Simple skincare tools for keeping your routine manageable while on the road.',
   'Money and Travel Cards':
     'Cards and tools that make spending and managing money abroad feel simpler.',
+  'Memberships and Perks':
+    'Memberships that can unlock VIP perks and preferred pricing across travel, lifestyle and business brands.',
 }
 
 export default function DiscountCodesPage() {
@@ -169,10 +172,10 @@ export default function DiscountCodesPage() {
                           ) : (
                             <div className="rounded-xl bg-[#F8F6F2] border border-stone-100 p-3.5">
                               <p className="text-[10px] font-bold uppercase tracking-widest text-muted mb-1.5">
-                                No code needed
+                                Link offer
                               </p>
                               <p className="text-base font-medium text-muted leading-snug">
-                                Just use our link
+                                Click here
                               </p>
                               <p className="text-[10px] text-muted mt-1">
                                 Offer applies through our link
