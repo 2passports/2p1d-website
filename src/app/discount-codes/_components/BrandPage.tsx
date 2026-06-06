@@ -60,22 +60,38 @@ export function BrandPage({ data }: { data: BrandPageData }) {
                   {heroTagline}
                 </p>
 
-                {/* Offer + code display */}
-                <div className="bg-white/10 border border-white/20 rounded-2xl px-6 py-5 mb-6 max-w-sm mx-auto lg:mx-0">
-                  <span className="inline-block bg-accent text-white text-sm font-bold px-3.5 py-1.5 rounded-full shadow-sm mb-3">
-                    {offer}
-                  </span>
-                  {hasCode ? (
+                {/* Offer + code display. For code-based offers the card holds
+                    the copy-code button. For link-based offers (no manual code)
+                    the whole card links to the affiliate offer. */}
+                {hasCode ? (
+                  <div className="bg-white/10 border border-white/20 rounded-2xl px-6 py-5 mb-6 max-w-sm mx-auto lg:mx-0">
+                    <span className="inline-block bg-accent text-white text-sm font-bold px-3.5 py-1.5 rounded-full shadow-sm mb-3">
+                      {offer}
+                    </span>
                     <CopyCodeButton code={code as string} dark />
-                  ) : (
-                    <p className="text-sm text-white/70 font-medium mt-1">
+                    <p className="text-white/40 text-xs mt-2">
+                      Offers can change. Check at checkout.
+                    </p>
+                  </div>
+                ) : (
+                  <a
+                    href={affiliateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Get the ${name} offer`}
+                    className="block bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 rounded-2xl px-6 py-5 mb-6 max-w-sm mx-auto lg:mx-0 transition-colors"
+                  >
+                    <span className="inline-block bg-accent text-white text-sm font-bold px-3.5 py-1.5 rounded-full shadow-sm mb-3">
+                      {offer}
+                    </span>
+                    <p className="text-sm text-white/80 font-medium mt-1">
                       Click here
                     </p>
-                  )}
-                  <p className="text-white/40 text-xs mt-2">
-                    Offers can change. Check at checkout.
-                  </p>
-                </div>
+                    <p className="text-white/40 text-xs mt-2">
+                      Offers can change. Check at checkout.
+                    </p>
+                  </a>
+                )}
 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                   <a
@@ -143,22 +159,38 @@ export function BrandPage({ data }: { data: BrandPageData }) {
               {heroTagline}
             </p>
 
-            {/* Offer + code display */}
-            <div className="bg-white/10 border border-white/20 rounded-2xl px-6 py-5 mb-6 max-w-xs mx-auto">
-              <span className="inline-block bg-accent text-white text-sm font-bold px-3.5 py-1.5 rounded-full shadow-sm mb-3">
-                {offer}
-              </span>
-              {hasCode ? (
+            {/* Offer + code display. For code-based offers the card holds the
+                copy-code button. For link-based offers (no manual code) the
+                whole card links to the affiliate offer. */}
+            {hasCode ? (
+              <div className="bg-white/10 border border-white/20 rounded-2xl px-6 py-5 mb-6 max-w-xs mx-auto">
+                <span className="inline-block bg-accent text-white text-sm font-bold px-3.5 py-1.5 rounded-full shadow-sm mb-3">
+                  {offer}
+                </span>
                 <CopyCodeButton code={code as string} dark />
-              ) : (
-                <p className="text-sm text-white/70 font-medium mt-1">
+                <p className="text-white/40 text-xs mt-2">
+                  Offers can change. Check at checkout.
+                </p>
+              </div>
+            ) : (
+              <a
+                href={affiliateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Get the ${name} offer`}
+                className="block bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 rounded-2xl px-6 py-5 mb-6 max-w-xs mx-auto transition-colors"
+              >
+                <span className="inline-block bg-accent text-white text-sm font-bold px-3.5 py-1.5 rounded-full shadow-sm mb-3">
+                  {offer}
+                </span>
+                <p className="text-sm text-white/80 font-medium mt-1">
                   Click here
                 </p>
-              )}
-              <p className="text-white/40 text-xs mt-2">
-                Offers can change. Check at checkout.
-              </p>
-            </div>
+                <p className="text-white/40 text-xs mt-2">
+                  Offers can change. Check at checkout.
+                </p>
+              </a>
+            )}
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
@@ -313,7 +345,7 @@ export function BrandPage({ data }: { data: BrandPageData }) {
                       {offer}
                     </span>
                     <p className="text-sm text-muted font-medium mt-2">
-                      Click here to get the offer.
+                      No manual code needed. Use our link to access the current {name} offer.
                     </p>
                   </div>
                 )}

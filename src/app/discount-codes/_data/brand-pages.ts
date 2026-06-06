@@ -169,12 +169,16 @@ export const djiMicMini: BrandPageData = {
   buttonLabel: 'Shop DJI',
   logoImage: '/logos/djimicmini.webp',
   badgeText: 'DJI',
-  seoTitle: 'DJI Mic Mini Discount Link | 2Passports1Dream',
+  seoTitle: 'DJI Mic Mini Discount Code 2026 | 25% Off Through Our Link',
   seoDescription:
-    'Our DJI Mic Mini affiliate link for travel creators and vloggers. Compact wireless audio gear for filming on the go. Check the current offer through our link.',
+    'Looking for a DJI Mic Mini discount code in 2026? Our 25% off offer is applied through our link, so there is no manual code to enter at checkout. Compact wireless audio for travel creators and vloggers.',
   heroTagline: 'Compact wireless audio for creators, vloggers and travel filmmakers.',
   intro:
     'Good audio makes travel videos much easier to watch, especially when filming outdoors, in busy places or on the move. The DJI Mic Mini is a compact wireless microphone setup that can be a useful tool for creators who want to travel light.',
+  seoIntro: [
+    'Looking for a DJI Mic Mini discount code in 2026? Our DJI Mic Mini offer is applied through our link, so there is no manual code to enter at checkout. Just click through using our link and check the final price before buying.',
+    'Whether you are after a DJI promo code, voucher code or the latest DJI Mic Mini deal, there is nothing to type in by hand. The current 25% off offer is applied through our link where available.',
+  ],
   whatItIs: [
     'The DJI Mic Mini is a compact wireless microphone system designed for creators, vloggers and anyone who wants clean audio without carrying bulky gear.',
     'It is designed to connect easily to cameras, phones and other recording devices, making it a popular choice for travel content creators who need reliable audio in a small package.',
@@ -194,6 +198,18 @@ export const djiMicMini: BrandPageData = {
     'Check the current offer and pricing through the link.',
     'Add the product to your basket.',
     'Check the final price at checkout before paying.',
+  ],
+  faqs: [
+    {
+      question: 'Do I need a DJI Mic Mini discount code?',
+      answer:
+        'In this case, no manual code is needed. Our DJI Mic Mini discount is applied through our link, so just click through and check the final price before buying.',
+    },
+    {
+      question: 'How do I get the DJI Mic Mini offer?',
+      answer:
+        'Click through using our DJI link to the product page. The current offer should be applied through the link where available, so check the final price at checkout before paying.',
+    },
   ],
   importantNotes:
     'Offers can change, so always check the current price and availability before buying.',
@@ -370,13 +386,17 @@ export const ultrahuman: BrandPageData = {
   buttonLabel: 'Shop Ultrahuman',
   logoImage: '/logos/Ultrahuman.webp',
   badgeText: 'Ultrahuman',
-  seoTitle: 'Ultrahuman Smart Ring Discount Link | 2Passports1Dream',
+  seoTitle: 'Ultrahuman Smart Ring Discount Code 2026 | Our Latest Offer',
   seoDescription:
-    'Our Ultrahuman affiliate link for the smart ring that tracks sleep, movement and recovery. Check the current offer through our link.',
+    'Looking for an Ultrahuman discount code in 2026? Our Ultrahuman Smart Ring offer is applied through our link, so there is no manual code to enter at checkout. A smart ring for tracking sleep, movement and recovery.',
   heroTagline:
     'A smart ring for tracking sleep, movement and recovery.',
   intro:
     'Travel can affect sleep, routine and recovery in ways that are easy to overlook. The Ultrahuman Ring is a wearable for tracking health metrics like sleep quality, movement and recovery, which can be useful when your daily routine is regularly disrupted by travel.',
+  seoIntro: [
+    'Looking for an Ultrahuman discount code in 2026? Our Ultrahuman Smart Ring offer is applied through our link, so there is no manual code to enter at checkout. Just click through using our link and check the final price before buying.',
+    'Whether you are after an Ultrahuman promo code, voucher code or the latest Ultrahuman Ring deal, there is nothing to type in by hand. The current offer is applied through our link where available.',
+  ],
   whatItIs: [
     'Ultrahuman makes the Ultrahuman Ring, a smart ring designed to track health metrics including sleep, movement, heart rate variability and recovery without needing to wear a screen-based wearable.',
     'The ring connects to an app that provides insights based on the data it collects, aimed at helping users understand patterns in sleep and recovery over time.',
@@ -397,6 +417,18 @@ export const ultrahuman: BrandPageData = {
     'The offer should be applied through the link where available.',
     'Check the final price at checkout before paying.',
   ],
+  faqs: [
+    {
+      question: 'Do I need an Ultrahuman discount code?',
+      answer:
+        'In this case, no manual code is needed. Our Ultrahuman discount is applied through our link, so just click through and check the final price before buying.',
+    },
+    {
+      question: 'How do I get the Ultrahuman offer?',
+      answer:
+        'Click through using our Ultrahuman link, check the sizing information and the current offer should be applied through the link where available. Always check the final price at checkout before paying.',
+    },
+  ],
   importantNotes:
     'Offers can change, so always check the current price and availability before buying.',
 }
@@ -410,13 +442,17 @@ export const nordvpn: BrandPageData = {
   buttonLabel: 'Get NordVPN',
   logoImage: '/logos/NordVPN.webp',
   badgeText: 'NordVPN',
-  seoTitle: 'NordVPN Discount Link | 2Passports1Dream',
+  seoTitle: 'NordVPN Discount Code 2026 | Get Our Latest NordVPN Offer',
   seoDescription:
-    'Our NordVPN affiliate link. Get extra months free when you sign up through our link. Useful for privacy and security when using public WiFi while travelling.',
+    'Looking for a NordVPN discount code in 2026? Our NordVPN offer is applied through our link, so there is no manual code to enter at checkout. Get extra months free and more privacy on public WiFi while travelling.',
   heroTagline:
     'Extra months free when you sign up through our link. Useful for privacy on public WiFi while travelling.',
   intro:
     'We often use public WiFi in airports, hotels and cafes while travelling, so having extra privacy and security while online can be useful. NordVPN is a VPN service that can help with that.',
+  seoIntro: [
+    'Looking for a NordVPN discount code in 2026? Our NordVPN offer is applied through our link, so there is no manual code to enter at checkout. Just click through using our link and check the final price before signing up.',
+    'Whether you are after a NordVPN promo code, voucher code or the latest NordVPN deal, there is nothing to type in by hand here. The current offer, including extra months free where available, is applied when you sign up through our link.',
+  ],
   whatItIs: [
     'NordVPN is a virtual private network (VPN) service that encrypts your internet connection and routes it through servers in various locations. This can make your connection more private and secure, particularly on public WiFi networks.',
     'VPNs can also be useful for accessing your usual online accounts and services while abroad, though availability may depend on the destination and service.',
@@ -437,6 +473,23 @@ export const nordvpn: BrandPageData = {
     'The offer should be applied through our link where available.',
     'Check the final price before completing your subscription.',
   ],
+  faqs: [
+    {
+      question: 'Do I need a NordVPN discount code?',
+      answer:
+        'In this case, no manual code is needed. Our NordVPN discount is applied through our link, so just click through and check the final price before signing up.',
+    },
+    {
+      question: 'How do I get the NordVPN offer?',
+      answer:
+        'Click through using our NordVPN link and choose a plan. The current offer, including extra months free where available, should be applied through the link. Always check the final price and terms before subscribing.',
+    },
+    {
+      question: 'Is NordVPN useful for travel?',
+      answer:
+        'Yes. We often connect to public WiFi in hotels, airports and cafes while travelling, and a VPN can add a layer of privacy when checking emails, banking or signing into accounts on shared networks.',
+    },
+  ],
   importantNotes:
     'VPN availability and functionality may vary by destination. Always check the current price, terms and features before subscribing.',
 }
@@ -451,13 +504,17 @@ export const currensea: BrandPageData = {
   buttonLabel: 'Get Currensea',
   logoImage: '/logos/Currensea.webp',
   badgeText: 'Currensea',
-  seoTitle: 'Currensea Travel Card Offer | 2Passports1Dream',
+  seoTitle: 'Currensea Discount Code 2026 | £10 Free Travel Card Offer',
   seoDescription:
-    'Our Currensea referral link. UK travel debit card that connects to your existing bank account. Get £10 free when you sign up through our link. Terms apply.',
+    'Looking for a Currensea discount code or referral offer in 2026? Our Currensea offer is applied through our link, so there is no manual code to enter. Get £10 free on a UK travel debit card that connects to your existing bank account. Terms apply.',
   heroTagline:
     'UK travel debit card connected to your existing bank account. £10 free through our referral link.',
   intro:
     'Managing money abroad can feel more complicated than it needs to be. Currensea is a UK travel card that connects directly to your existing bank account, which can make foreign spending feel simpler without needing to move money onto a separate prepaid card.',
+  seoIntro: [
+    'Looking for a Currensea discount code or referral offer in 2026? Our Currensea offer is applied through our link, so there is no manual code to enter. Just click through using our link and check the current terms before signing up.',
+    'Whether you are after a Currensea promo code, voucher code or referral link, there is nothing to type in by hand. The £10 free referral credit is applied through our link where the offer is available. Terms apply.',
+  ],
   whatItIs: [
     'Currensea is a travel debit card for UK bank account holders. It works by connecting to your existing current account and applying a competitive exchange rate when you spend abroad, rather than the rate your bank normally charges.',
     'Unlike some travel money cards, you do not need to top it up separately. It draws directly from your bank account, which some people find easier to manage.',
@@ -477,6 +534,18 @@ export const currensea: BrandPageData = {
     'Sign up for an account and link it to your existing UK bank account.',
     'Your referral credit should be applied where the offer is available.',
     'Check the current terms and conditions before signing up.',
+  ],
+  faqs: [
+    {
+      question: 'Do I need a Currensea discount code?',
+      answer:
+        'In this case, no manual code is needed. Our Currensea offer is applied through our link, so just click through and check the current terms before signing up. Terms apply.',
+    },
+    {
+      question: 'How do I get the £10 free offer?',
+      answer:
+        'Click through using our Currensea link, sign up and link your existing UK bank account. The referral credit should be applied where the offer is available. Always check the current terms before signing up.',
+    },
   ],
   importantNotes:
     'Currensea is currently for UK bank account holders. Offers, fees and features can change. Always check the current terms, eligibility and exchange rates before applying.',
@@ -531,13 +600,17 @@ export const vessi: BrandPageData = {
   buttonLabel: 'Shop Vessi',
   logoImage: '/logos/vessi.webp',
   badgeText: 'Vessi',
-  seoTitle: 'Vessi Waterproof Shoes Discount Link | 2Passports1Dream',
+  seoTitle: 'Vessi Discount Code 2026 | 15% Off Your First Order',
   seoDescription:
-    'Our Vessi affiliate link for waterproof shoes. Useful for rainy cities, walking days and travel days where wet shoes would be a problem.',
+    'Looking for a Vessi discount code in 2026? Our 15% off first purchase offer is applied through our link, so there is no manual code to enter at checkout. Waterproof shoes for rainy cities and walking days.',
   heroTagline:
     'Waterproof shoes for rainy cities, walking days and travel days.',
   intro:
     'Wet shoes can ruin a travel day quickly, especially when you still have hours of walking ahead. Vessi makes waterproof shoes that are designed to look like ordinary trainers, which can be a useful option for destinations with unpredictable weather.',
+  seoIntro: [
+    'Looking for a Vessi discount code in 2026? Our Vessi offer is applied through our link, so there is no manual code to enter at checkout. Just click through using our link and check the final price before buying.',
+    'Whether you are after a Vessi promo code, voucher code or the latest Vessi deal, there is nothing to type in by hand. The 15% off first purchase offer is applied through our link where available.',
+  ],
   whatItIs: [
     'Vessi makes waterproof knit shoes and trainers designed to keep your feet dry in wet conditions. They use a proprietary waterproof knit material that allows the shoe to breathe while keeping water out.',
     'Their shoes are designed to look like regular trainers rather than outdoor or technical footwear, which makes them a popular option for city travel and everyday use in wet climates.',
@@ -557,6 +630,18 @@ export const vessi: BrandPageData = {
     'Browse the range and choose your style and size.',
     'The offer should be applied through the link where available for first purchases.',
     'Check the final price at checkout before paying.',
+  ],
+  faqs: [
+    {
+      question: 'Do I need a Vessi discount code?',
+      answer:
+        'In this case, no manual code is needed. Our Vessi discount is applied through our link, so just click through and check the final price before buying.',
+    },
+    {
+      question: 'How do I get the Vessi offer?',
+      answer:
+        'Click through using our Vessi link, choose your style and size, and the 15% off first purchase offer should be applied through the link where available. Always check the final price at checkout before paying.',
+    },
   ],
   importantNotes:
     'Offers can change, so always check the current price and availability before buying.',
@@ -643,17 +728,17 @@ export const protonvpn: BrandPageData = {
   buttonLabel: 'Visit Proton VPN',
   logoImage: '/logos/protonvpn.png',
   badgeText: 'Proton VPN',
-  seoTitle: 'Proton VPN Discount | 70% Off for Travel Privacy',
+  seoTitle: 'Proton VPN Discount Code 2026 | 70% Off Proton VPN',
   seoDescription:
-    'Get 70% off Proton VPN with our 2Passports1Dream link. A useful VPN for travel, public WiFi, hotel WiFi, airport WiFi, cruise WiFi and everyday online privacy.',
+    'Looking for a Proton VPN discount code in 2026? Our 70% off Proton VPN offer is applied through our link, so there is no manual code to enter at checkout. A useful travel VPN for public, hotel, airport and cruise WiFi, with a 30-day money-back guarantee.',
   heroHeading: 'Proton VPN Discount',
   heroTagline:
     'Proton VPN helps protect your privacy when travelling, especially on public WiFi in hotels, airports, cafes and cruise ships. Use our link to get 70% off, with a 30-day money-back guarantee.',
   intro:
     'When we travel, we are constantly connecting to public WiFi, from hotels and airports to cafes, trains and cruise ships. That is useful when you need to check emails, upload content, do online banking or just scroll, but public WiFi is not always the most secure place to be.',
   seoIntro: [
-    'If you are looking for a Proton VPN discount, you can use our 2Passports1Dream link to get 70% off. It is a useful travel VPN for staying a little more private when you are away from your usual home network.',
-    'A VPN for travel can be handy for public WiFi protection, whether that is a VPN for hotel WiFi, a VPN for airport WiFi or a VPN for cruise WiFi. Proton VPN is one option for online privacy while travelling, and our link includes a 30-day money-back guarantee.',
+    'Looking for a Proton VPN discount code in 2026? Our 70% off Proton VPN offer is applied through our link, so there is no manual code to enter at checkout. Just click through using our link and check the final price before signing up.',
+    'Whether you are after a Proton VPN promo code, voucher code or the latest deal, there is nothing to type in by hand. A VPN for travel can be handy for public WiFi protection, whether that is a VPN for hotel WiFi, a VPN for airport WiFi or a VPN for cruise WiFi, and our link includes a 30-day money-back guarantee.',
   ],
   whatItIs: [
     'Proton VPN creates a secure, encrypted connection between your device and the internet, helping protect what you are doing online from people on the same network. It can also help hide your IP address and reduce tracking, which makes it a useful tool to have on your phone, laptop or tablet while travelling.',
@@ -678,6 +763,11 @@ export const protonvpn: BrandPageData = {
     'Remember there is a 30-day money-back guarantee.',
   ],
   faqs: [
+    {
+      question: 'Do I need a Proton VPN discount code?',
+      answer:
+        'In this case, no manual code is needed. Our 70% off Proton VPN discount is applied through our link, so just click through and check the final price before signing up.',
+    },
     {
       question: 'What is Proton VPN?',
       answer:
