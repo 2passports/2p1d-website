@@ -130,7 +130,7 @@ export default function DiscountCodesPage() {
                   {items.map((item) => (
                     <div
                       key={item.name}
-                      className="bg-white rounded-2xl shadow-sm border border-stone-100 flex flex-col h-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+                      className="relative bg-white rounded-2xl shadow-sm border border-stone-100 flex flex-col h-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
                     >
                       {/* Logo + offer */}
                       <div className="p-5 pb-4 flex items-center justify-between gap-3">
@@ -165,10 +165,15 @@ export default function DiscountCodesPage() {
                           {item.shortDescription}
                         </p>
 
-                        {/* Code / no-code box - matched 3-line structure */}
+                        {/* Code / no-code box - matched 3-line structure.
+                            The copy button sits above the stretched card link
+                            (relative z-10) so clicking it copies the code
+                            instead of following the affiliate link. */}
                         <div className="mb-3">
                           {item.code ? (
-                            <CopyCodeButton code={item.code} />
+                            <div className="relative z-10">
+                              <CopyCodeButton code={item.code} />
+                            </div>
                           ) : (
                             <div className="rounded-xl bg-[#F8F6F2] border border-stone-100 p-3.5">
                               <p className="text-[10px] font-bold uppercase tracking-widest text-muted mb-1.5">
@@ -216,20 +221,24 @@ export default function DiscountCodesPage() {
 
                       </div>
 
-                      {/* CTA footer - mt-auto pins to card bottom */}
+                      {/* CTA footer - mt-auto pins to card bottom.
+                          The affiliate button is the card's primary link: its
+                          after:inset-0 pseudo-element stretches over the whole
+                          card, so clicking anywhere that is not the code box or
+                          "Read more" goes to the offer. */}
                       <div className="px-5 pb-5 pt-4 mt-auto border-t border-stone-100 space-y-2.5">
                         <a
                           href={item.affiliateUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block text-center bg-accent text-white font-semibold px-5 py-2.5 rounded-full text-sm hover:bg-accent-dark transition-colors"
+                          className="block text-center bg-accent text-white font-semibold px-5 py-2.5 rounded-full text-sm hover:bg-accent-dark transition-colors after:absolute after:inset-0 after:content-[''] after:rounded-2xl focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
                         >
                           {item.buttonLabel}
                         </a>
                         {item.slug && (
                           <Link
                             href={`/discount-codes/${item.slug}`}
-                            className="block text-center text-sm font-medium text-muted hover:text-accent transition-colors py-0.5"
+                            className="relative z-10 block text-center text-sm font-medium text-muted hover:text-accent transition-colors py-0.5"
                           >
                             Read more
                           </Link>
