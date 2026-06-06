@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { BrandPage } from '../_components/BrandPage'
+import { KlookWidget } from '../_components/KlookWidget'
 import { klook as data } from '../_data/brand-pages'
 
 export const metadata: Metadata = {
@@ -10,5 +11,10 @@ export const metadata: Metadata = {
 }
 
 export default function KlookPage() {
-  return <BrandPage data={data} />
+  return (
+    <BrandPage
+      data={data}
+      bottomSlot={<KlookWidget affiliateUrl={data.affiliateUrl} />}
+    />
+  )
 }

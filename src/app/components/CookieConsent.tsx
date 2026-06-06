@@ -69,6 +69,15 @@ export function openCookieSettings() {
   listeners.forEach((listener) => listener())
 }
 
+// Read whether marketing consent has been granted. Returns false on the server
+// and until the visitor accepts marketing cookies, so third-party marketing
+// widgets (such as the Klook affiliate widget) can gate on it. Stays in sync
+// with the banner via the same external store.
+export function useMarketingConsent(): boolean {
+  const raw = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
+  return parseConsent(raw)?.marketing === true
+}
+
 function parseConsent(raw: string | null): Consent | null {
   if (!raw) return null
   try {

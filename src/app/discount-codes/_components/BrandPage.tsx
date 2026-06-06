@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { BrandPageData } from '../_data/brand-pages'
@@ -17,7 +18,16 @@ const CheckIcon = ({ className }: { className?: string }) => (
   </svg>
 )
 
-export function BrandPage({ data }: { data: BrandPageData }) {
+export function BrandPage({
+  data,
+  bottomSlot,
+}: {
+  data: BrandPageData
+  // Optional extra content rendered low on the page, after the FAQ section and
+  // before the affiliate disclosure. Used by the Klook page to insert the
+  // Klook affiliate widget.
+  bottomSlot?: ReactNode
+}) {
   const {
     name, affiliateUrl, offer, code, buttonLabel,
     logoImage, heroTagline, intro,
@@ -427,6 +437,9 @@ export function BrandPage({ data }: { data: BrandPageData }) {
               </div>
             </section>
           )}
+
+          {/* Optional slot low on the page (e.g. Klook affiliate widget) */}
+          {bottomSlot}
 
           {/* Affiliate disclosure: full-width slim card */}
           <section className="border border-stone-200 rounded-2xl p-6">
