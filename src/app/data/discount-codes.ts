@@ -266,6 +266,27 @@ export const discountCodes: DiscountCode[] = [
     category: 'Skincare and Beauty',
   },
   {
+    name: 'Wild',
+    offer: '20% off',
+    code: 'PASSPORTS',
+    affiliateUrl: 'https://shopwildrefill.com/PASSPORTS',
+    description:
+      'Wild makes refillable personal care products, including natural deodorant, designed to reduce single-use plastic and make everyday swaps easier.',
+    shortDescription:
+      'Refillable personal care, including natural deodorant, built around reusable cases and plastic-free refills.',
+    whyUseIt:
+      'Wild is easy to travel with and simple to use. You keep the case, replace the refill and choose the scents that suit you, instead of buying a new plastic deodorant every time.',
+    bestFor: 'Refillable deodorant, everyday swaps, tidy toiletries and choosing different scents.',
+    personalNote:
+      'We like that it is easy to travel with and feels like a more sustainable alternative to a new plastic deodorant each time.',
+    bestForTags: ['Refillable deodorant', 'Everyday swaps', 'Travel toiletry'],
+    buttonLabel: 'Visit Wild',
+    slug: 'wild',
+    badgeText: 'Wild',
+    logoImage: '/logos/wild.png',
+    category: 'Skincare and Beauty',
+  },
+  {
     name: 'Ultrahuman Smart Ring',
     offer: '10% off',
     code: null,

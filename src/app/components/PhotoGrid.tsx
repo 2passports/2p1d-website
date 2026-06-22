@@ -9,10 +9,36 @@ export type CollageImage = {
 
 const INSTAGRAM_URL = 'https://www.instagram.com/2passports1dream'
 
-export default function PhotoGrid({ images }: { images: CollageImage[] }) {
+// The grid is laid out as 2 columns on mobile and 3 on desktop, so a multiple
+// of 6 always fills complete rows with no awkward empty gap. We therefore show
+// a fixed window of 6 photos even when the pool is larger.
+const DISPLAY_COUNT = 6
+
+// Pick a balanced window of `count` photos from a larger pool. The starting
+// point advances by one each day, wrapping around, so every photo gets shown
+// over time without any client-side randomness (which would risk a hydration
+// mismatch). On the homepage (regenerated daily via ISR) this rotates day to
+// day; on fully static pages it advances on each new build. Pools of `count`
+// or fewer are returned unchanged.
+function selectPhotos(images: CollageImage[], count: number): CollageImage[] {
+  if (images.length <= count) return images
+  const dayIndex = Math.floor(Date.now() / 86_400_000)
+  const start = dayIndex % images.length
+  return Array.from({ length: count }, (_, i) => images[(start + i) % images.length])
+}
+
+export default function PhotoGrid({
+  images,
+  count = DISPLAY_COUNT,
+}: {
+  images: CollageImage[]
+  count?: number
+}) {
+  const displayed = selectPhotos(images, count)
+
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-      {images.map((img) => (
+      {displayed.map((img) => (
         <a
           key={img.src}
           href={INSTAGRAM_URL}

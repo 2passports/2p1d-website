@@ -52,6 +52,7 @@ const homepageCollageImages = [
   { src: '/images/AdrianaDylanAmericaBuccees.jpg', alt: "Adriana and Dylan at Buc-ee's in America", objectPosition: 'center 25%' },
   { src: '/images/AdrianaDylanAirboat.jpg', alt: 'Adriana and Dylan on an airboat experience', objectPosition: 'center 35%' },
   { src: '/images/AdrianaUniversal.jpg', alt: 'Adriana at Universal', objectPosition: 'center 30%' },
+  { src: '/images/DylanAdrianaCruise.jpg', alt: 'Adriana and Dylan on a cruise with 2Passports1Dream', objectPosition: 'center 35%' },
 ]
 
 type DisplayVideo = {

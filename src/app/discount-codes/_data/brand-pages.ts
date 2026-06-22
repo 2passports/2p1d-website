@@ -886,3 +886,76 @@ export const simify: BrandPageData = {
   importantNotes:
     'Check your device compatibility before buying an eSIM, as you generally need an eSIM-compatible, unlocked phone. Coverage, speeds and plans vary, and not every plan is unlimited, so check destination coverage, plan details and the final price before purchasing. Offers and terms can change.',
 }
+
+export const wild: BrandPageData = {
+  name: 'Wild',
+  slug: 'wild',
+  affiliateUrl: 'https://shopwildrefill.com/PASSPORTS',
+  offer: '20% off Wild',
+  code: 'PASSPORTS',
+  buttonLabel: 'Visit Wild',
+  logoImage: '/logos/wild.png',
+  badgeText: 'Wild',
+  seoTitle: 'Wild Discount Code | 20% Off Refillable Deodorant',
+  seoDescription:
+    'Use our Wild discount code PASSPORTS for 20% off refillable deodorant and personal care products through 2Passports1Dream.',
+  heroHeading: 'Wild Discount Code',
+  heroTagline:
+    'Refillable personal care, including natural deodorant. Use our code PASSPORTS for 20% off Wild through our link.',
+  intro:
+    'Wild is a refillable personal care brand best known for its reusable deodorant cases and plastic-free refills. It is a useful option if you want to make a simple everyday swap without having to completely change your routine.',
+  seoIntro: [
+    'Looking for a Wild discount code or Wild promo code? Use our code PASSPORTS through our link for 20% off Wild, including refillable deodorant and other personal care products.',
+    'Whether you want a Wild deodorant discount code, a Wild refill discount or just to try refillable deodorant for the first time, our code PASSPORTS applies the offer at checkout. Always check the final price before ordering.',
+  ],
+  whatItIs: [
+    'Wild makes refillable personal care products, including natural deodorant. The idea is simple: you buy a reusable case once, then top it up with plastic-free refills rather than buying a brand new plastic deodorant each time.',
+    'Alongside natural deodorant, Wild offers a range of scents and other personal care items, so you can choose the options that suit you and swap refills as you go.',
+  ],
+  whyUseful: [
+    'We like that Wild is easy to travel with, simple to use and feels like a more sustainable alternative to buying a new plastic deodorant every time. You keep the case, replace the refill and choose the scents that suit you.',
+    'For travel, a tidy and refillable toiletry can be handy. It is a small everyday swap rather than a big change to your routine, which makes it easy to stick with.',
+  ],
+  bestFor: [
+    'People who want a refillable deodorant option',
+    'Travellers who want a tidy everyday toiletry',
+    'Anyone trying to reduce single-use plastic',
+    'People who like choosing different scents',
+    'Simple everyday swaps',
+  ],
+  howToUseSteps: [
+    'Click through to Wild using our link.',
+    'Choose your products or starter pack.',
+    'Use code PASSPORTS at checkout.',
+    'Check the final price and terms before ordering.',
+  ],
+  faqs: [
+    {
+      question: 'What is the Wild discount code?',
+      answer:
+        'Our Wild discount code is PASSPORTS. Use it at checkout through our link for 20% off Wild. Offers can change, so check the final price before ordering.',
+    },
+    {
+      question: 'How much can I save with the Wild code?',
+      answer:
+        'The code PASSPORTS gives you 20% off Wild through our link. The exact saving depends on what you buy, so always check the final price at checkout before ordering.',
+    },
+    {
+      question: 'What does Wild sell?',
+      answer:
+        'Wild makes refillable personal care products, including natural deodorant. You buy a reusable case and top it up with plastic-free refills, and there is a range of scents to choose from.',
+    },
+    {
+      question: 'Is Wild good for travel?',
+      answer:
+        'Wild is easy to travel with and simple to use, which can make it a tidy everyday toiletry to pack. As with any personal care product, it may not suit everyone, so it is worth seeing whether it works for you.',
+    },
+    {
+      question: 'How do I use the code PASSPORTS?',
+      answer:
+        'Click through to Wild using our link, choose your products or starter pack, then enter PASSPORTS at checkout. Check the final price and terms before ordering.',
+    },
+  ],
+  importantNotes:
+    'Offers can change, so always check the final price, terms and availability before ordering. Personal care products do not suit everyone, so it is worth checking whether Wild works for you.',
+}

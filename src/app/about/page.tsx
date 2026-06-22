@@ -30,6 +30,7 @@ const aboutCollageImages = [
   { src: '/images/AdrianaChina.jpg', alt: 'Adriana travelling in China', caption: 'Asia adventures', objectPosition: 'center 30%' },
   { src: '/images/AdrianaDylanAirboat.jpg', alt: 'Adriana and Dylan on an airboat experience', caption: 'Quirky experiences', objectPosition: 'center 35%' },
   { src: '/images/AdrianaDylanAmericaBuccees.jpg', alt: "Adriana and Dylan at a Buc-ee's stop in America", caption: 'Across America', objectPosition: 'center 25%' },
+  { src: '/images/DylanAdrianaCruise.jpg', alt: 'Adriana and Dylan on a cruise with 2Passports1Dream', caption: 'Cruise sunsets', objectPosition: 'center 35%' },
 ]
 
 const siteLinks = [
