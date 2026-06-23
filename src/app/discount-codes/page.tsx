@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { discountCodes, supportLinks } from '../data/discount-codes'
 import { CopyCodeButton } from '../components/CopyCodeButton'
@@ -48,20 +49,46 @@ const categoryIntros: Record<string, string> = {
 export default function DiscountCodesPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="hero-bg py-20 px-4 text-white text-center">
-        <div className="max-w-2xl mx-auto">
-          <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-4">
-            2Passports1Dream
-          </p>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-            Our Travel Deals &amp; Useful Links
-          </h1>
-          <p className="text-white/80 leading-relaxed max-w-xl mx-auto text-sm">
-            Here are the codes, links and travel tools we currently share with the 2Passports1Dream
-            community. Some links may be affiliate links, which means we may earn a small commission
-            if you buy through them, at no extra cost to you.
-          </p>
+      {/* Hero: two-column on desktop (text left, photo right), stacked on
+          mobile with the photo on top. Mirrors the Work With Us and brand
+          page hero style so the section feels warm rather than text-only. */}
+      <section className="hero-bg py-12 lg:py-16 px-4 text-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+            {/* Photo: top on mobile, right on desktop. Kept deliberately
+                compact so it supports the text rather than dominating the
+                hero. */}
+            <div className="lg:order-last flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-[16rem] sm:max-w-[17rem] lg:max-w-[18rem] aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/15">
+                <Image
+                  src="/images/DylanAdrianaCruise.jpg"
+                  alt="Adriana and Dylan watching the sunset on a cruise with 2Passports1Dream"
+                  fill
+                  sizes="(max-width: 640px) 256px, 288px"
+                  className="object-cover"
+                  style={{ objectPosition: 'center 35%' }}
+                  priority
+                />
+              </div>
+            </div>
+
+            {/* Text */}
+            <div className="text-center lg:text-left">
+              <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-4">
+                2Passports1Dream
+              </p>
+              <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+                Our Travel Deals &amp; Useful Links
+              </h1>
+              <p className="text-white/80 leading-relaxed max-w-md mx-auto lg:mx-0 text-sm">
+                Here are the codes, links and travel tools we currently share with the
+                2Passports1Dream community. Some links may be affiliate links, which means we may
+                earn a small commission if you buy through them, at no extra cost to you.
+              </p>
+            </div>
+
+          </div>
         </div>
       </section>
 

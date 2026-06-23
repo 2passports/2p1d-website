@@ -14,6 +14,14 @@ export type BrandPageData = {
   buttonLabel: string
   logoImage: string | null
   badgeText: string
+  // Optional secondary call to action, e.g. an Amazon link shown alongside the
+  // main affiliate button. Both fields must be set for it to render.
+  secondaryUrl?: string
+  secondaryLabel?: string
+  // When true, occurrences of `code` within the visible body copy are bolded so
+  // the discount code is easy to spot. Off by default so other pages are
+  // unchanged.
+  boldCodeInCopy?: boolean
   seoTitle: string
   seoDescription: string
   heroTagline: string
@@ -42,6 +50,46 @@ export type BrandPageData = {
   // two-column hero (text and code on the left, image on the right).
   heroHeading?: string
   heroImage?: { src: string; alt: string; badge?: string; objectPosition?: string }
+  // Optional YouTube video id shown on the right of the two-column hero. Takes
+  // precedence over heroImage. Use for a playable feature video in the hero.
+  heroVideoId?: string
+  // Optional feature videos interleaved between body sections. Each video names
+  // the section it should sit after via `placement`, so the page stays spread
+  // out rather than stacking every clip together. videosHeading and videosIntro
+  // appear once, above the first video group. Rendered only when present.
+  videosHeading?: string
+  videosIntro?: string
+  videos?: BrandVideo[]
+  // Optional "other products and ranges" section, shown as grouped cards.
+  // Rendered only when present.
+  productRangesHeading?: string
+  productRangesIntro?: string
+  productRanges?: ProductRangeGroup[]
+}
+
+export type ProductRangeItem = {
+  name: string
+  description: string
+  // When true, the product name links to the brand's main affiliate URL.
+  linked?: boolean
+}
+
+export type ProductRangeGroup = {
+  title: string
+  items: ProductRangeItem[]
+}
+
+export type BrandVideoPlacement =
+  | 'afterWhatItIs'
+  | 'afterWhyBestFor'
+  | 'afterHowToUse'
+  | 'afterFaqs'
+
+export type BrandVideo = {
+  // The YouTube video id, e.g. 'baxHhOHe2Xw'.
+  id: string
+  caption?: string
+  placement: BrandVideoPlacement
 }
 
 export const klook: BrandPageData = {
@@ -958,4 +1006,128 @@ export const wild: BrandPageData = {
   ],
   importantNotes:
     'Offers can change, so always check the final price, terms and availability before ordering. Personal care products do not suit everyone, so it is worth checking whether Wild works for you.',
+}
+
+export const jackery: BrandPageData = {
+  name: 'Jackery',
+  slug: 'jackery',
+  affiliateUrl: 'https://bit.ly/3LLODgf',
+  offer: '5% off all products with code 1Dream05',
+  code: '1Dream05',
+  buttonLabel: 'Visit Jackery',
+  secondaryUrl: 'https://amzn.to/4tRIkZL',
+  secondaryLabel: 'Buy on Amazon',
+  boldCodeInCopy: true,
+  logoImage: '/logos/jackery.png',
+  badgeText: 'Jackery',
+  seoTitle: 'Jackery Discount Code | 5% Off Portable Power Stations',
+  seoDescription:
+    'Use our Jackery discount code 1Dream05 for 5% off portable power stations, solar generators and Jackery products. Check the final price and terms before ordering.',
+  heroHeading: 'Jackery Discount Code',
+  heroVideoId: 'baxHhOHe2Xw',
+  heroTagline:
+    'Portable power stations and solar generators for travel, camping and filming days. Use our code 1Dream05 for 5% off Jackery products through our link.',
+  videosHeading: 'Watch our Jackery features',
+  videosIntro:
+    'Our ads featured Jackery, including the Jackery Explorer 1000 v2. Here are a few of those features.',
+  videos: [
+    { id: 'e2Qb6GzUju0', placement: 'afterWhatItIs', caption: 'A look at how we featured Jackery.' },
+    { id: '6CIy2QnzNBM', placement: 'afterHowToUse', caption: 'Jackery while filming and travelling.' },
+    { id: 'HhdsWx4anuw', placement: 'afterFaqs' },
+  ],
+  productRangesHeading: 'Other popular Jackery products to look at',
+  productRangesIntro:
+    'Jackery has a wider range than just the Explorer 1000 v2. If you are comparing portable power stations, it is worth looking at the smaller Explorer models for lighter trips, the mid-size Explorer range for camping, road trips and filming days, and the larger Jackery options for more serious backup power. Our code 1Dream05 can be used sitewide, so it is not limited to the Jackery Explorer 1000 v2.',
+  productRanges: [
+    {
+      title: 'Compact and lighter options',
+      items: [
+        { name: 'Explorer 100 Plus', description: 'A very compact option for topping up phones and small devices on the go.' },
+        { name: 'Explorer 300D', description: 'A small, portable choice for short trips and lighter charging needs.' },
+        { name: 'Explorer 300 v2', description: 'A compact power station for day trips and keeping essentials charged.' },
+        { name: 'Explorer 600 v2', description: 'A step up in size while staying easy to carry for travel.' },
+      ],
+    },
+    {
+      title: 'Road trip, camping and creator-friendly options',
+      items: [
+        { name: 'Explorer 1000 v2', description: 'Our featured model, a popular mid-size pick for camping, road trips and filming days.', linked: true },
+        { name: 'Explorer 1500 v2', description: 'A larger mid-size option for longer trips and more devices.' },
+        { name: 'Explorer 1500 Ultra', description: 'A higher-capacity choice for creators and longer time off-grid.' },
+      ],
+    },
+    {
+      title: 'Bigger backup power options',
+      items: [
+        { name: 'Explorer 2000 v2', description: 'A larger option for van life and more demanding power needs.', linked: true },
+        { name: 'Explorer 3000 v2 and HomePower 3000', description: 'Bigger options aimed at more serious backup power and home use.' },
+      ],
+    },
+    {
+      title: 'Solar and bundles',
+      items: [
+        { name: 'SolarSaga 200W', description: 'A foldable solar panel for recharging from the sun while away from sockets.' },
+        { name: 'SolarSaga 100 range', description: 'Smaller, lighter solar panels in the SolarSaga 100 line-up.' },
+        { name: 'Jackery solar generator bundles', description: 'Power station and solar panel bundles for off-grid charging.', linked: true },
+      ],
+    },
+  ],
+  intro:
+    'Jackery makes portable power stations, solar generators and power solutions for travel, camping, road trips, van life and everyday backup power. Our ad was for the [[Jackery Explorer 1000 v2]], but our code can be used sitewide across Jackery products.',
+  seoIntro: [
+    'Looking for a Jackery discount code or Jackery promo code? Use our code 1Dream05 through our link for 5% off Jackery products, including the Jackery Explorer 1000 v2 and the wider range of Jackery portable power stations and solar generators.',
+    'Whether you want a portable power station discount, a solar generator discount or a power station for travel, our code 1Dream05 applies sitewide where eligible. Offers can change, so check the final price and terms before ordering.',
+  ],
+  whatItIs: [
+    'Jackery makes portable power stations, solar generators and related power solutions. They are designed to give you power away from mains sockets, which can be useful for road trips, camping, van life and filming days.',
+    'Our ad featured the [[Jackery Explorer 1000 v2 portable power station]], but the code 1Dream05 is not limited to that model. It can be used sitewide across Jackery products, so you can choose whichever option suits you.',
+  ],
+  whyUseful: [
+    'We find Jackery useful because portable power can make a big difference when you are travelling, filming, camping or spending time away from easy plug sockets. It can help keep cameras, phones, laptops, drones and other essentials charged when you are on the move.',
+    'For creators travelling with camera gear, having backup power on hand can take some of the worry out of a long filming day. It is one of those tools that quietly makes travel days run a little more smoothly.',
+  ],
+  bestFor: [
+    'Road trips',
+    'Camping',
+    'Van life',
+    'Filming days',
+    'Creators travelling with camera gear',
+    'Keeping phones, laptops, drones and essentials charged',
+    'Backup power while travelling',
+  ],
+  howToUseSteps: [
+    'Click through to Jackery using our link.',
+    'Choose the Jackery product that suits you.',
+    'Use code 1Dream05 at checkout.',
+    'Check the final price and terms before ordering.',
+  ],
+  faqs: [
+    {
+      question: 'What is the Jackery discount code?',
+      answer:
+        'Our Jackery discount code is 1Dream05. Use it at checkout through our link for 5% off Jackery products. Offers can change, so check the final price and terms before ordering.',
+    },
+    {
+      question: 'How much can I save with the Jackery code?',
+      answer:
+        'The code 1Dream05 gives you 5% off Jackery products through our link. The exact saving depends on what you buy, so always check the final price at checkout before ordering.',
+    },
+    {
+      question: 'Does the code work only on the Jackery Explorer 1000 v2?',
+      answer:
+        'No. Our ad featured the Jackery Explorer 1000 v2, but the code 1Dream05 can be used sitewide across Jackery products where eligible, so you are not limited to that one model.',
+    },
+    {
+      question: 'Can I buy Jackery on Amazon?',
+      answer:
+        'Yes, Jackery products are also available on Amazon, and we include an Amazon link on this page as a secondary option. Discounts and pricing can differ between Jackery and Amazon, so check the final price before ordering.',
+    },
+    {
+      question: 'What is Jackery useful for when travelling?',
+      answer:
+        'Jackery portable power can be useful for road trips, camping, van life and filming days, helping keep cameras, phones, laptops, drones and other essentials charged when you are away from easy plug sockets.',
+    },
+  ],
+  importantNotes:
+    'Our ad featured the Jackery Explorer 1000 v2, but the code 1Dream05 can be used sitewide across Jackery products. Offers can change, so always check the final price, terms and availability before ordering.',
 }

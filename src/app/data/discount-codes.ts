@@ -245,6 +245,27 @@ export const discountCodes: DiscountCode[] = [
     category: 'Creator Gear',
   },
   {
+    name: 'Jackery',
+    offer: '5% off',
+    code: '1Dream05',
+    affiliateUrl: 'https://bit.ly/3LLODgf',
+    description:
+      'Jackery makes portable power stations and solar generators that can be useful for road trips, camping, van life, filming days and keeping devices charged while travelling.',
+    shortDescription:
+      'Portable power stations and solar generators for road trips, camping, van life and filming days.',
+    whyUseIt:
+      'Portable power can make a big difference when you are away from easy plug sockets, helping keep cameras, phones, laptops, drones and other essentials charged on the move.',
+    bestFor: 'Road trips, camping, van life, filming days and keeping camera gear charged.',
+    personalNote:
+      'Our ad featured the Jackery Explorer 1000 v2, but our code can be used sitewide across Jackery products.',
+    bestForTags: ['Road trips', 'Camping', 'Creator power'],
+    buttonLabel: 'Visit Jackery',
+    slug: 'jackery',
+    badgeText: 'Jackery',
+    logoImage: '/logos/jackery.png',
+    category: 'Creator Gear',
+  },
+  {
     name: 'FOREO',
     offer: '35% off',
     code: 'PASSPORT35',

@@ -1,8 +1,50 @@
-import type { ReactNode } from 'react'
+import { Fragment, type ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import type { BrandPageData } from '../_data/brand-pages'
+import type { BrandPageData, BrandVideo } from '../_data/brand-pages'
 import { CopyCodeButton } from '../../components/CopyCodeButton'
+
+// Bolds every occurrence of `code` within a plain text run, leaving the rest
+// of the text untouched. Returns the run unchanged when there is no code.
+function boldCode(text: string, code: string | undefined, keyBase: string): ReactNode {
+  if (!code || !text.includes(code)) return text
+  const segments = text.split(code)
+  const nodes: ReactNode[] = []
+  segments.forEach((segment, i) => {
+    if (i > 0) {
+      nodes.push(
+        <strong key={`${keyBase}-code-${i}`} className="font-bold">
+          {code}
+        </strong>,
+      )
+    }
+    if (segment) nodes.push(<Fragment key={`${keyBase}-text-${i}`}>{segment}</Fragment>)
+  })
+  return nodes
+}
+
+// Renders body copy, turning any [[phrase]] markers into an external affiliate
+// link to the brand's main URL and, when a code is given, bolding the code
+// wherever it appears. Text without markers or code renders unchanged, so
+// pages that use neither are unaffected.
+function renderCopy(text: string, url: string, code?: string): ReactNode {
+  const parts = text.split(/\[\[(.+?)\]\]/g)
+  return parts.map((part, i) =>
+    i % 2 === 1 ? (
+      <a
+        key={i}
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-accent font-medium underline underline-offset-2 hover:text-accent-dark transition-colors"
+      >
+        {part}
+      </a>
+    ) : (
+      <Fragment key={i}>{boldCode(part, code, `p-${i}`)}</Fragment>
+    ),
+  )
+}
 
 const CheckIcon = ({ className }: { className?: string }) => (
   <svg
@@ -18,6 +60,27 @@ const CheckIcon = ({ className }: { className?: string }) => (
   </svg>
 )
 
+// A single responsive YouTube embed in a rounded card. Loads lazily and does
+// not autoplay, and uses the privacy-friendly nocookie host.
+const VideoCard = ({ video, name }: { video: BrandVideo; name: string }) => (
+  <figure className="max-w-3xl mx-auto">
+    <div className="relative aspect-video rounded-2xl overflow-hidden shadow-md ring-1 ring-black/5 bg-stone-200">
+      <iframe
+        className="absolute inset-0 h-full w-full"
+        src={`https://www.youtube-nocookie.com/embed/${video.id}`}
+        title={`${name} feature video`}
+        loading="lazy"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+      />
+    </div>
+    {video.caption && (
+      <figcaption className="text-center text-xs text-muted mt-3">{video.caption}</figcaption>
+    )}
+  </figure>
+)
+
 export function BrandPage({
   data,
   bottomSlot,
@@ -30,19 +93,98 @@ export function BrandPage({
 }) {
   const {
     name, affiliateUrl, offer, code, buttonLabel,
+    secondaryUrl, secondaryLabel,
     logoImage, heroTagline, intro,
     whatItIs, whyUseful, bestFor, howToUseSteps, importantNotes,
     seoIntro, whatYouCanBook, destinationsIntro, destinations, faqs,
-    realExample, heroHeading, heroImage,
+    realExample, heroHeading, heroImage, heroVideoId,
+    videos, videosHeading, videosIntro, boldCodeInCopy,
+    productRanges, productRangesHeading, productRangesIntro,
   } = data
+
+  const hasSecondary = Boolean(secondaryUrl && secondaryLabel)
 
   const hasCode = code !== null
 
+  // When enabled for a brand, the code is bolded wherever it appears in copy.
+  const codeToBold = boldCodeInCopy && code ? code : undefined
+
+  // Feature videos are interleaved between body sections. The first group also
+  // shows the heading and intro. Renders nothing when no videos sit at a given
+  // placement, so pages without videos are unchanged.
+  const firstVideoPlacement = videos?.[0]?.placement
+  const renderVideos = (placement: BrandVideo['placement']) => {
+    const group = (videos ?? []).filter((v) => v.placement === placement)
+    if (group.length === 0) return null
+    const showHeading = placement === firstVideoPlacement
+    return (
+      <section>
+        {showHeading && videosHeading && (
+          <div className="text-center max-w-2xl mx-auto mb-7">
+            <h2 className="text-xl font-bold mb-2">{videosHeading}</h2>
+            {videosIntro && <p className="text-sm text-muted leading-relaxed">{videosIntro}</p>}
+          </div>
+        )}
+        <div className="space-y-8">
+          {group.map((video) => (
+            <VideoCard key={video.id} video={video} name={name} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  // Optional "other products and ranges" section, shown as grouped cards.
+  // A few product names link to the main affiliate URL; the rest stay plain so
+  // the section does not feel spammy. Renders nothing when no ranges are set.
+  const renderProductRanges = () => {
+    if (!productRanges || productRanges.length === 0) return null
+    return (
+      <section>
+        {productRangesHeading && (
+          <h2 className="text-xl font-bold mb-3">{productRangesHeading}</h2>
+        )}
+        {productRangesIntro && (
+          <p className="text-muted leading-relaxed mb-6 max-w-3xl">
+            {renderCopy(productRangesIntro, affiliateUrl, codeToBold)}
+          </p>
+        )}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
+          {productRanges.map((groupItem) => (
+            <div key={groupItem.title} className="bg-surface rounded-2xl p-6">
+              <h3 className="font-bold text-base mb-4">{groupItem.title}</h3>
+              <ul className="space-y-3.5">
+                {groupItem.items.map((item) => (
+                  <li key={item.name}>
+                    {item.linked ? (
+                      <a
+                        href={affiliateUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-accent underline underline-offset-2 hover:text-accent-dark transition-colors"
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <span className="font-semibold text-foreground">{item.name}</span>
+                    )}
+                    <p className="text-xs text-muted leading-relaxed mt-0.5">{item.description}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
   return (
     <>
-      {/* Hero: two-column landing style when a heroImage is provided,
-          otherwise the standard centred hero used by other brand pages. */}
-      {heroImage ? (
+      {/* Hero: two-column landing style when a heroImage or heroVideoId is
+          provided (image or video on the right), otherwise the standard centred
+          hero used by other brand pages. */}
+      {heroImage || heroVideoId ? (
         <section className="hero-bg py-16 lg:py-20 px-4 sm:px-6 lg:px-8 text-white relative overflow-hidden">
           {/* Layered glows for a more premium feel */}
           <div aria-hidden="true" className="absolute -top-16 right-0 w-96 h-96 rounded-full bg-[#FFD166]/15 blur-3xl pointer-events-none" />
@@ -67,7 +209,7 @@ export function BrandPage({
                   {heroHeading ?? name}
                 </h1>
                 <p className="text-white/80 leading-relaxed text-sm mb-6 max-w-md mx-auto lg:mx-0">
-                  {heroTagline}
+                  {renderCopy(heroTagline, affiliateUrl, codeToBold)}
                 </p>
 
                 {/* Offer + code display. For code-based offers the card holds
@@ -112,6 +254,16 @@ export function BrandPage({
                   >
                     {buttonLabel}
                   </a>
+                  {hasSecondary && (
+                    <a
+                      href={secondaryUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-white/15 text-white font-semibold px-7 py-3 rounded-full hover:bg-white/25 transition-colors text-sm"
+                    >
+                      {secondaryLabel}
+                    </a>
+                  )}
                   <Link
                     href="/discount-codes"
                     className="inline-block bg-white/15 text-white font-semibold px-7 py-3 rounded-full hover:bg-white/25 transition-colors text-sm"
@@ -121,27 +273,43 @@ export function BrandPage({
                 </div>
               </div>
 
-              {/* Right: travel image card with badge */}
-              <div className="flex justify-center lg:justify-end">
-                <div className="relative w-full max-w-sm">
-                  <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/15">
-                    <Image
-                      src={heroImage.src}
-                      alt={heroImage.alt}
-                      fill
-                      sizes="(max-width: 1024px) 384px, 420px"
-                      className="object-cover"
-                      style={{ objectPosition: heroImage.objectPosition ?? 'center center' }}
-                      priority
+              {/* Right: a video when heroVideoId is set, otherwise an image card */}
+              {heroVideoId ? (
+                <div className="w-full">
+                  <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/15 bg-black/30">
+                    <iframe
+                      className="absolute inset-0 h-full w-full"
+                      src={`https://www.youtube-nocookie.com/embed/${heroVideoId}`}
+                      title={`${name} feature video`}
+                      loading="lazy"
+                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
                     />
                   </div>
-                  {heroImage.badge && (
-                    <span className="absolute -bottom-3 left-4 bg-accent text-white text-xs font-bold px-3.5 py-1.5 rounded-full shadow-md">
-                      {heroImage.badge}
-                    </span>
-                  )}
                 </div>
-              </div>
+              ) : heroImage ? (
+                <div className="flex justify-center lg:justify-end">
+                  <div className="relative w-full max-w-sm">
+                    <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/15">
+                      <Image
+                        src={heroImage.src}
+                        alt={heroImage.alt}
+                        fill
+                        sizes="(max-width: 1024px) 384px, 420px"
+                        className="object-cover"
+                        style={{ objectPosition: heroImage.objectPosition ?? 'center center' }}
+                        priority
+                      />
+                    </div>
+                    {heroImage.badge && (
+                      <span className="absolute -bottom-3 left-4 bg-accent text-white text-xs font-bold px-3.5 py-1.5 rounded-full shadow-md">
+                        {heroImage.badge}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ) : null}
 
             </div>
           </div>
@@ -166,7 +334,7 @@ export function BrandPage({
               {name}
             </h1>
             <p className="text-white/80 leading-relaxed max-w-lg mx-auto mb-7 text-sm">
-              {heroTagline}
+              {renderCopy(heroTagline, affiliateUrl, codeToBold)}
             </p>
 
             {/* Offer + code display. For code-based offers the card holds the
@@ -211,6 +379,16 @@ export function BrandPage({
               >
                 {buttonLabel}
               </a>
+              {hasSecondary && (
+                <a
+                  href={secondaryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-white/15 text-white font-semibold px-7 py-3 rounded-full hover:bg-white/25 transition-colors text-sm"
+                >
+                  {secondaryLabel}
+                </a>
+              )}
               <Link
                 href="/discount-codes"
                 className="inline-block bg-white/15 text-white font-semibold px-7 py-3 rounded-full hover:bg-white/25 transition-colors text-sm"
@@ -232,12 +410,12 @@ export function BrandPage({
           {/* Intro: centred lead, then any SEO paragraphs in two columns */}
           <div>
             <p className="text-lg sm:text-xl text-foreground leading-relaxed max-w-3xl mx-auto text-center">
-              {intro}
+              {renderCopy(intro, affiliateUrl, codeToBold)}
             </p>
             {seoIntro && seoIntro.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4 mt-8">
                 {seoIntro.map((para, i) => (
-                  <p key={i} className="text-base text-muted leading-relaxed">{para}</p>
+                  <p key={i} className="text-base text-muted leading-relaxed">{renderCopy(para, affiliateUrl, codeToBold)}</p>
                 ))}
               </div>
             )}
@@ -248,10 +426,13 @@ export function BrandPage({
             <h2 className="text-xl font-bold mb-5">What is {name}?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
               {whatItIs.map((para, i) => (
-                <p key={i} className="text-muted leading-relaxed">{para}</p>
+                <p key={i} className="text-muted leading-relaxed">{renderCopy(para, affiliateUrl, codeToBold)}</p>
               ))}
             </div>
           </section>
+
+          {/* Feature videos (optional): after What is [Brand] */}
+          {renderVideos('afterWhatItIs')}
 
           {/* What can you book (optional): card grid */}
           {whatYouCanBook && whatYouCanBook.length > 0 && (
@@ -365,14 +546,26 @@ export function BrandPage({
                   Offers can change, so always check the final price, terms and availability
                   before buying or booking.
                 </p>
-                <a
-                  href={affiliateUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-accent text-white font-semibold px-8 py-3.5 rounded-full hover:bg-accent-dark transition-colors shadow-md text-sm"
-                >
-                  {buttonLabel}
-                </a>
+                <div className="flex flex-col sm:flex-row gap-3 sm:justify-center lg:justify-end">
+                  <a
+                    href={affiliateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-accent text-white font-semibold px-8 py-3.5 rounded-full hover:bg-accent-dark transition-colors shadow-md text-sm text-center"
+                  >
+                    {buttonLabel}
+                  </a>
+                  {hasSecondary && (
+                    <a
+                      href={secondaryUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block border border-stone-300 text-foreground font-semibold px-8 py-3.5 rounded-full hover:bg-surface transition-colors text-sm text-center"
+                    >
+                      {secondaryLabel}
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </section>
@@ -398,6 +591,12 @@ export function BrandPage({
             </section>
           </div>
 
+          {/* Feature videos (optional): after Why useful / Best for */}
+          {renderVideos('afterWhyBestFor')}
+
+          {/* Other products and ranges (optional) */}
+          {renderProductRanges()}
+
           {/* How to use: full-width card, steps in a grid */}
           <section className="bg-surface rounded-2xl p-6 sm:p-8">
             <h2 className="text-xl font-bold mb-5">
@@ -409,17 +608,20 @@ export function BrandPage({
                   <span className="w-6 h-6 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
                     {i + 1}
                   </span>
-                  <span>{step}</span>
+                  <span>{renderCopy(step, affiliateUrl, codeToBold)}</span>
                 </li>
               ))}
             </ol>
           </section>
 
+          {/* Feature videos (optional): after How to use */}
+          {renderVideos('afterHowToUse')}
+
           {/* Important notes: short, deliberately centred */}
           {importantNotes && (
             <section className="max-w-3xl mx-auto text-center">
               <h2 className="text-xl font-bold mb-3">Important notes</h2>
-              <p className="text-sm text-muted leading-relaxed">{importantNotes}</p>
+              <p className="text-sm text-muted leading-relaxed">{renderCopy(importantNotes, affiliateUrl, codeToBold)}</p>
             </section>
           )}
 
@@ -431,12 +633,15 @@ export function BrandPage({
                 {faqs.map((faq) => (
                   <div key={faq.question}>
                     <h3 className="font-semibold text-base mb-1.5 text-foreground">{faq.question}</h3>
-                    <p className="text-sm text-muted leading-relaxed">{faq.answer}</p>
+                    <p className="text-sm text-muted leading-relaxed">{renderCopy(faq.answer, affiliateUrl, codeToBold)}</p>
                   </div>
                 ))}
               </div>
             </section>
           )}
+
+          {/* Feature videos (optional): after the FAQ */}
+          {renderVideos('afterFaqs')}
 
           {/* Optional slot low on the page (e.g. Klook affiliate widget) */}
           {bottomSlot}
