@@ -128,7 +128,7 @@ export default async function WorkWithUsPage() {
               <p className="text-xs text-muted mt-1">YouTube subscribers</p>
             </div>
             <div className="bg-white rounded-2xl p-6 text-center border border-stone-100 shadow-sm">
-              <p className="text-2xl font-bold">600k+</p>
+              <p className="text-2xl font-bold">697k+</p>
               <p className="text-xs text-muted mt-1">Social media followers</p>
             </div>
             <div className="bg-surface rounded-2xl p-6 text-center col-span-2 sm:col-span-1">
