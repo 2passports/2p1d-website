@@ -16,6 +16,7 @@ const codeCategories = [
   'Connectivity and Online Safety',
   'Luggage and Packing',
   'Creator Gear',
+  'Creator and Business Tools',
   'Travel Health and Lifestyle',
   'Skincare and Beauty',
   'Money and Travel Cards',
@@ -36,6 +37,8 @@ const categoryIntros: Record<string, string> = {
     'Bags, cases and gear that make packing and travel days feel a bit less chaotic.',
   'Creator Gear':
     'Compact kit for filming and capturing travel as you go.',
+  'Creator and Business Tools':
+    'Software and services that help creators and small businesses stay organised and connected.',
   'Travel Health and Lifestyle':
     'Tools for tracking and looking after yourself during busy travel schedules.',
   'Skincare and Beauty':

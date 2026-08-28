@@ -422,6 +422,112 @@ export const discountCodes: DiscountCode[] = [
     logoImage: '/logos/Founderscard.avif',
     category: 'Memberships and Perks',
   },
+  {
+    name: 'BetterHelp',
+    offer: '10% off first month',
+    code: null,
+    affiliateUrl: 'https://betterhelp.com/2passports1dream',
+    description:
+      'BetterHelp is an online therapy platform that connects you with licensed therapists for remote sessions.',
+    shortDescription:
+      'An online therapy platform that connects you with licensed therapists for remote sessions.',
+    whyUseIt:
+      'Being able to access therapy remotely can be convenient if you travel often or simply prefer appointments from wherever you are.',
+    bestFor: 'Frequent travellers, remote appointments and anyone thinking about trying online therapy.',
+    personalNote:
+      'BetterHelp is a paid partner of ours. This offer gives 10% off your first month through our link.',
+    bestForTags: ['Online therapy', 'Remote sessions', 'Frequent travellers'],
+    buttonLabel: 'Visit BetterHelp',
+    slug: 'betterhelp',
+    badgeText: 'BetterHelp',
+    logoImage: '/logos/betterhelp.png',
+    category: 'Travel Health and Lifestyle',
+  },
+  {
+    name: 'Coveron',
+    offer: '20% off',
+    code: '2passports1dream',
+    affiliateUrl: 'https://coveron.com/2passports1dream',
+    description:
+      'Coveron is a digital protection service focused on helping you stay safer from online scams.',
+    shortDescription:
+      'A digital protection service focused on helping you stay safer from online scams.',
+    whyUseIt:
+      'While travelling we rely on lots of online accounts and services, so extra protection against scams can be reassuring.',
+    bestFor: 'Online safety, scam protection and staying safer across the accounts you use while travelling.',
+    personalNote:
+      'The first 100 users get 20% off with code 2passports1dream through our link.',
+    bestForTags: ['Online safety', 'Scam protection', 'Digital security'],
+    buttonLabel: 'Visit Coveron',
+    slug: 'coveron',
+    badgeText: 'Coveron',
+    logoImage: '/logos/coveron.png',
+    category: 'Connectivity and Online Safety',
+  },
+  {
+    name: 'Fitnexa SomniPods 3',
+    offer: '$10 off',
+    code: null,
+    affiliateUrl: 'https://go.fitnexa.com/BsH8X7',
+    description:
+      'The Fitnexa SomniPods 3 are a compact, sleep-focused audio product, with $10 off applied through our link.',
+    shortDescription:
+      'A compact, sleep-focused audio product, with $10 off applied through our link.',
+    whyUseIt:
+      'A small sleep and audio product can be handy for travel days, such as when you are trying to rest on a flight or in an unfamiliar room.',
+    bestFor: 'Travel days, flights, sleep routines and packing light.',
+    personalNote:
+      'No code needed. The $10 discount is applied through our link.',
+    bestForTags: ['Sleep audio', 'Travel', 'Compact'],
+    buttonLabel: 'Shop SomniPods 3',
+    slug: 'fitnexa-somnipods-3',
+    badgeText: 'Fitnexa',
+    logoImage: '/logos/fitnexa.jpeg',
+    category: 'Travel Health and Lifestyle',
+  },
+  {
+    name: 'Brevo',
+    offer: '50% off for 3 months',
+    code: 'ADRIANA50',
+    affiliateUrl:
+      'https://www.brevo.com/partners/adriana/?utm_medium=partnership&utm_source=adriana&utm_campaign=youtube',
+    description:
+      'Brevo is a platform for email marketing and customer communications, useful for creators, small businesses and online businesses.',
+    shortDescription:
+      'An email marketing and customer communications platform for creators and small businesses.',
+    whyUseIt:
+      'If you run a channel, shop or small business, keeping in touch with your audience by email can be genuinely useful.',
+    bestFor: 'Creators, small businesses and online businesses managing email and customer communications.',
+    personalNote:
+      'Use code ADRIANA50 for 50% off Starter and Standard Plans for the first 3 months. New paying customers only.',
+    bestForTags: ['Email marketing', 'Creators', 'Small business'],
+    buttonLabel: 'Visit Brevo',
+    slug: 'brevo',
+    badgeText: 'Brevo',
+    logoImage: '/logos/brevo.png',
+    category: 'Creator and Business Tools',
+  },
+  {
+    name: 'AG1',
+    offer: 'Extra 20% off',
+    code: null,
+    affiliateUrl: 'https://drinkag1.com/2passports1dream',
+    description:
+      'AG1 is a daily greens and nutritional supplement drink, with an extra 20% off your first subscription order through our link.',
+    shortDescription:
+      'A daily greens and nutritional supplement drink, with an extra 20% off your first subscription order.',
+    whyUseIt:
+      'Some travellers like the convenience of a simple daily routine they can keep up while away from home.',
+    bestFor: 'Daily routines, travel convenience and anyone who likes keeping things simple on the road.',
+    personalNote:
+      'No code needed. This limited-time offer gives an extra 20% off your first subscription order through our link.',
+    bestForTags: ['Daily routine', 'Greens drink', 'Travel convenience'],
+    buttonLabel: 'Visit AG1',
+    slug: 'ag1',
+    badgeText: 'AG1',
+    logoImage: '/logos/ag1.webp',
+    category: 'Travel Health and Lifestyle',
+  },
 ]
 
 export const supportLinks: SupportLink[] = [

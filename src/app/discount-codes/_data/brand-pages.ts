@@ -1131,3 +1131,309 @@ export const jackery: BrandPageData = {
   importantNotes:
     'Our ad featured the Jackery Explorer 1000 v2, but the code 1Dream05 can be used sitewide across Jackery products. Offers can change, so always check the final price, terms and availability before ordering.',
 }
+
+export const betterhelp: BrandPageData = {
+  name: 'BetterHelp',
+  slug: 'betterhelp',
+  affiliateUrl: 'https://betterhelp.com/2passports1dream',
+  offer: '10% off first month',
+  code: null,
+  buttonLabel: 'Visit BetterHelp',
+  logoImage: '/logos/betterhelp.png',
+  badgeText: 'BetterHelp',
+  seoTitle: 'BetterHelp Discount Code 2026: 10% Off | 2Passports1Dream',
+  seoDescription:
+    'Get 10% off your first month with our BetterHelp offer for 2026. BetterHelp is an online therapy platform, and the discount is applied through our 2Passports1Dream link. BetterHelp is a paid partner.',
+  heroTagline:
+    'BetterHelp is an online therapy platform. Through our link you can get 10% off your first month. BetterHelp is a paid partner of ours.',
+  intro:
+    'If you have been thinking about giving therapy a try, an online option can make it easier to fit around a busy or travelling lifestyle. BetterHelp is an online therapy platform, and through our link you can get 10% off your first month.',
+  seoIntro: [
+    'Looking for a BetterHelp discount for 2026? Our BetterHelp offer gives 10% off your first month and is applied through our 2Passports1Dream link, so there is no separate code to type in by hand.',
+    'BetterHelp is a paid partner of ours. We only share the offer because an online, remote approach to therapy can suit people who travel often or prefer appointments from home.',
+  ],
+  whatItIs: [
+    'BetterHelp is an online therapy platform that connects you with licensed therapists. Sessions happen remotely, so you can access support from wherever you are rather than travelling to an in-person appointment.',
+    'Because everything is arranged online, it can be a convenient option for people who move around a lot, work from different places or simply prefer remote appointments.',
+  ],
+  whyUseful: [
+    'For anyone who travels frequently, keeping up with regular appointments in one fixed location can be difficult. An online platform means you can arrange sessions around your schedule and location.',
+    'Some people also feel more comfortable talking from their own space. Being able to connect remotely removes some of the practical barriers that can get in the way of starting.',
+  ],
+  bestFor: [
+    'People who travel often and want appointments they can access remotely',
+    'Anyone who prefers remote sessions over in-person visits',
+    'People curious about trying therapy for the first time',
+    'Those who want to fit sessions around a changing schedule',
+  ],
+  howToUseSteps: [
+    'Click our BetterHelp link to visit their website.',
+    'Answer the questions to get started and choose a plan.',
+    'The 10% off your first month should be applied through our link.',
+    'Check the current price and terms before signing up.',
+  ],
+  faqs: [
+    {
+      question: 'Do I need a BetterHelp discount code?',
+      answer:
+        'No manual code is needed. The 10% off your first month is applied through our link, so just click through and check the current price before signing up.',
+    },
+    {
+      question: 'Is BetterHelp a paid partner?',
+      answer:
+        'Yes. BetterHelp is a paid partner of ours, which means we may be compensated when people sign up through our link. We only share offers we are comfortable putting our name to.',
+    },
+    {
+      question: 'Why might online therapy suit travellers?',
+      answer:
+        'Because sessions are remote, you can access them from different places rather than committing to one fixed location, which can be helpful if you travel often or prefer appointments from home.',
+    },
+  ],
+  importantNotes:
+    'BetterHelp is a paid partner of ours. BetterHelp is an online therapy platform, and this is not a substitute for emergency or crisis care. Offers and eligibility can change, so always check the current price and terms before signing up.',
+}
+
+export const coveron: BrandPageData = {
+  name: 'Coveron',
+  slug: 'coveron',
+  affiliateUrl: 'https://coveron.com/2passports1dream',
+  offer: '20% off',
+  code: '2passports1dream',
+  buttonLabel: 'Visit Coveron',
+  logoImage: '/logos/coveron.png',
+  badgeText: 'Coveron',
+  seoTitle: 'Coveron Discount Code 2026: 20% Off | 2Passports1Dream',
+  seoDescription:
+    'Use our Coveron discount code 2passports1dream for 20% off in 2026. Coveron is a digital protection service focused on online scam safety, and the first 100 users get 20% off with 2Passports1Dream.',
+  heroTagline:
+    'Coveron is a digital protection service focused on online safety. The first 100 users get 20% off with code 2passports1dream.',
+  intro:
+    'Staying safe online matters more than ever when you are travelling and relying on lots of accounts and services. Coveron is a digital protection service focused on helping you stay safer from online scams, and the first 100 users get 20% off with our code.',
+  seoIntro: [
+    'Looking for a Coveron discount code or promo code for 2026? Use our code 2passports1dream at checkout. The offer gives 20% off for the first 100 users.',
+    'Coveron is aimed at online safety and scam protection, which can be reassuring when so much of travel now runs through online accounts, bookings and payments.',
+  ],
+  whatItIs: [
+    'Coveron is a digital protection service focused on helping people stay safer from online scams. It is aimed at the kind of online safety concerns that come with using lots of accounts and services.',
+    'We are keeping this description general on purpose, so we do not overstate specific features. It is best to check Coveron directly for exactly what is included before signing up.',
+  ],
+  whyUseful: [
+    'When you travel you tend to use more online services than usual, from bookings and payments to logging into accounts on unfamiliar networks. That can make digital protection feel more relevant.',
+    'Having a service focused on scam protection can be reassuring, particularly if you are managing money, travel plans and personal accounts while away from home.',
+  ],
+  bestFor: [
+    'People who use lots of online accounts and services',
+    'Travellers who book and pay for things online while away',
+    'Anyone who wants extra reassurance around online scams',
+    'People who want to take online safety more seriously',
+  ],
+  howToUseSteps: [
+    'Click our Coveron link to visit their website.',
+    'Enter code 2passports1dream where prompted.',
+    'Remember the 20% off applies to the first 100 users.',
+    'Check the current price and terms before signing up.',
+  ],
+  faqs: [
+    {
+      question: 'What is the Coveron discount code?',
+      answer:
+        'The code is 2passports1dream. Enter it at checkout to get 20% off. The offer is limited to the first 100 users.',
+    },
+    {
+      question: 'Is the Coveron offer limited?',
+      answer:
+        'Yes. The 20% off is available to the first 100 users, so it may not last. Always check the current price and terms before signing up.',
+    },
+    {
+      question: 'How is Coveron relevant to travel?',
+      answer:
+        'While travelling you often rely on more online accounts, bookings and payments than usual, so a service focused on online safety and scam protection can be useful.',
+    },
+  ],
+  importantNotes:
+    'The 20% off offer is for the first 100 users only and may not last. Offers and terms can change, so always check the current details before signing up.',
+}
+
+export const fitnexaSomnipods3: BrandPageData = {
+  name: 'Fitnexa SomniPods 3',
+  slug: 'fitnexa-somnipods-3',
+  affiliateUrl: 'https://go.fitnexa.com/BsH8X7',
+  offer: '$10 off',
+  code: null,
+  buttonLabel: 'Shop SomniPods 3',
+  logoImage: '/logos/fitnexa.jpeg',
+  badgeText: 'Fitnexa',
+  seoTitle: 'Fitnexa SomniPods 3 Discount 2026: $10 Off | 2Passports1Dream',
+  seoDescription:
+    'Get $10 off the Fitnexa SomniPods 3 in 2026 through our 2Passports1Dream link. The SomniPods 3 are a compact, sleep-focused audio product. No code needed, the discount is applied through the link.',
+  heroTagline:
+    'The Fitnexa SomniPods 3 are a compact, sleep-focused audio product. Get $10 off through our link. No code needed.',
+  intro:
+    'A compact sleep and audio product can be a handy thing to pack when you travel. The Fitnexa SomniPods 3 are a sleep-focused audio product, and you can get $10 off through our link, with no code needed.',
+  seoIntro: [
+    'Looking for a Fitnexa SomniPods 3 discount for 2026? Our link applies $10 off, so there is no separate code to enter at checkout.',
+    'We are keeping the description factual on purpose. The SomniPods 3 are positioned as a sleep-focused audio product, and it is best to check Fitnexa directly for the full details before buying.',
+  ],
+  whatItIs: [
+    'The SomniPods 3 are a Fitnexa product positioned as a compact, sleep-focused audio product. We are describing them cautiously rather than listing specifications, so it is worth checking Fitnexa directly for the full details.',
+    'As a small, sleep-focused item, they fall into the same broad category as other travel sleep aids we share, where the appeal is being compact and easy to pack.',
+  ],
+  whyUseful: [
+    'Sleep on the road can be tricky, whether that is on a flight, in a bright hotel room or when your routine is out of step. A compact sleep and audio product can be a useful thing to have to hand.',
+    'Anything that packs small and helps you wind down can be handy on travel days, when space in your bag and good rest both matter.',
+  ],
+  bestFor: [
+    'Travel days and long flights',
+    'People who like a compact sleep or audio aid',
+    'Anyone trying to keep a wind-down routine while away',
+    'Packing light without leaving comfort behind',
+  ],
+  howToUseSteps: [
+    'Click our SomniPods 3 link to visit the product.',
+    'The $10 discount is applied through the link, so no code is needed.',
+    'Add the SomniPods 3 to your basket.',
+    'Check the final price before completing your order.',
+  ],
+  faqs: [
+    {
+      question: 'Do I need a code for the SomniPods 3 discount?',
+      answer:
+        'No code is needed. The $10 discount is applied through our link, so just click through and check the final price at checkout.',
+    },
+    {
+      question: 'What are the SomniPods 3?',
+      answer:
+        'They are a Fitnexa product positioned as a compact, sleep-focused audio product. We keep the description cautious, so it is best to check Fitnexa directly for the full details.',
+    },
+    {
+      question: 'Why might they suit travellers?',
+      answer:
+        'A compact sleep and audio product can be handy on travel days, such as when you are trying to rest on a flight or in an unfamiliar room.',
+    },
+  ],
+  importantNotes:
+    'No code is needed. The $10 discount is applied through our link. Offers can change, so always check the final price and product details before ordering.',
+}
+
+export const brevo: BrandPageData = {
+  name: 'Brevo',
+  slug: 'brevo',
+  affiliateUrl:
+    'https://www.brevo.com/partners/adriana/?utm_medium=partnership&utm_source=adriana&utm_campaign=youtube',
+  offer: '50% off for 3 months',
+  code: 'ADRIANA50',
+  buttonLabel: 'Visit Brevo',
+  logoImage: '/logos/brevo.png',
+  badgeText: 'Brevo',
+  seoTitle: 'Brevo Discount Code 2026: 50% Off | 2Passports1Dream',
+  seoDescription:
+    'Use our Brevo discount code ADRIANA50 for 50% off Starter and Standard Plans for the first 3 months in 2026. Brevo is an email marketing and customer communications platform. New paying customers only.',
+  heroTagline:
+    'Brevo is an email marketing and customer communications platform. Use code ADRIANA50 for 50% off Starter and Standard Plans for the first 3 months. New paying customers only.',
+  intro:
+    'If you run a channel, shop or small business, staying in touch with your audience by email can be genuinely useful. Brevo is a platform for email marketing and customer communications, and code ADRIANA50 gives 50% off Starter and Standard Plans for the first 3 months, for new paying customers only.',
+  seoIntro: [
+    'Looking for a Brevo discount code or promo code for 2026? Use code ADRIANA50 to save 50% on Brevo Starter and Standard Plans for the first 3 months. New paying customers only.',
+    'Brevo is aimed at email marketing and customer communications, which can be useful for creators, small businesses and online businesses that want to keep in touch with their audience.',
+  ],
+  whatItIs: [
+    'Brevo is a platform for email marketing and customer communications. It is used to send emails to your audience or customers and to manage the communications side of a small business or online business.',
+    'We are keeping the description to what is well established rather than listing every feature, so it is worth checking Brevo directly to see exactly what the Starter and Standard Plans include.',
+  ],
+  whyUseful: [
+    'For creators and small businesses, email is one of the more direct ways to reach the people who already follow you, without relying entirely on social platforms.',
+    'Having your email marketing and customer communications in one place can make a growing channel or shop easier to manage, especially when you are busy travelling or filming.',
+  ],
+  bestFor: [
+    'Creators building an email list',
+    'Small businesses managing customer communications',
+    'Online businesses sending regular emails',
+    'Anyone wanting email marketing in one place',
+  ],
+  howToUseSteps: [
+    'Click our Brevo link to visit their website.',
+    'Sign up as a new paying customer and choose a Starter or Standard Plan.',
+    'Enter code ADRIANA50 to get 50% off for the first 3 months.',
+    'Check the current price and terms before signing up.',
+  ],
+  faqs: [
+    {
+      question: 'What is the Brevo discount code?',
+      answer:
+        'The code is ADRIANA50. It gives 50% off Brevo Starter and Standard Plans for the first 3 months, for new paying customers only.',
+    },
+    {
+      question: 'Who is eligible for the Brevo offer?',
+      answer:
+        'The offer applies to new paying customers only, on the Starter and Standard Plans. Always check the current terms before signing up.',
+    },
+    {
+      question: 'Who might Brevo suit?',
+      answer:
+        'Brevo can be useful for creators, small businesses and online businesses that want to handle email marketing and customer communications in one place.',
+    },
+  ],
+  importantNotes:
+    'Code ADRIANA50 gives 50% off Starter and Standard Plans for the first 3 months, for new paying customers only. Offers and eligibility can change, so always check the current terms before signing up.',
+}
+
+export const ag1: BrandPageData = {
+  name: 'AG1',
+  slug: 'ag1',
+  affiliateUrl: 'https://drinkag1.com/2passports1dream',
+  offer: 'Extra 20% off',
+  code: null,
+  buttonLabel: 'Visit AG1',
+  logoImage: '/logos/ag1.webp',
+  badgeText: 'AG1',
+  seoTitle: 'AG1 Discount 2026: Extra 20% Off | 2Passports1Dream',
+  seoDescription:
+    'Get an extra 20% off your first AG1 subscription order in 2026 through our 2Passports1Dream link. AG1 is a daily greens and nutritional supplement. Limited-time offer, no code needed.',
+  heroTagline:
+    'AG1 is a daily greens and nutritional supplement drink. Through our link you can save an extra 20% on your first subscription order, for a limited time. No code needed.',
+  intro:
+    'A simple daily routine can be easier to keep up when you are travelling. AG1 is a daily greens and nutritional supplement, and through our link you can save an extra 20% on your first subscription order, for a limited time, with no code needed.',
+  seoIntro: [
+    'Looking for an AG1 discount for 2026? Our link applies an extra 20% off your first subscription order, so there is no separate code to type in at checkout. This is a limited-time offer.',
+    'AG1 is described neutrally here as a daily greens and nutritional supplement product. It is best to check AG1 directly for the full product details before subscribing.',
+  ],
+  whatItIs: [
+    'AG1 is a daily greens and nutritional supplement drink, taken as part of a daily routine. We are describing it neutrally rather than making any claims about what it does.',
+    'It is best to check AG1 directly for the full ingredient and product information so you can decide whether it suits you.',
+  ],
+  whyUseful: [
+    'Some travellers like the convenience of a simple daily routine they can keep up while away from home, and a single daily step can be easy to stick to on the move.',
+    'When routines are otherwise all over the place on a trip, some people find having one small consistent habit helpful. What matters most is whether it fits your own preferences.',
+  ],
+  bestFor: [
+    'People who like a simple daily routine while travelling',
+    'Anyone who values convenience on the move',
+    'Those who prefer keeping habits simple on the road',
+    'People curious to try AG1 on their first order',
+  ],
+  howToUseSteps: [
+    'Click our AG1 link to visit their website.',
+    'Choose a first subscription order.',
+    'The extra 20% off is applied through our link, so no code is needed.',
+    'Check the current price and terms before subscribing.',
+  ],
+  faqs: [
+    {
+      question: 'Do I need an AG1 discount code?',
+      answer:
+        'No code is needed. The extra 20% off your first subscription order is applied through our link, so just click through and check the price before subscribing.',
+    },
+    {
+      question: 'Is the AG1 offer limited?',
+      answer:
+        'Yes, this is a limited-time offer for an extra 20% off your first subscription order. Always check the current price and terms before subscribing.',
+    },
+    {
+      question: 'What is AG1?',
+      answer:
+        'AG1 is a daily greens and nutritional supplement drink. We describe it neutrally, so it is best to check AG1 directly for the full product details.',
+    },
+  ],
+  importantNotes:
+    'No code is needed. The extra 20% off applies to your first subscription order and is a limited-time offer. Offers and terms can change, so always check the current details before subscribing.',
+}

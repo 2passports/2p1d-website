@@ -245,10 +245,10 @@ export default async function Home() {
                   href="https://www.youtube.com/@2passports1dream"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="697k+ followers across all platforms. Visit the 2Passports1Dream YouTube channel"
+                  aria-label="737k+ followers across all platforms. Visit the 2Passports1Dream YouTube channel"
                   className="block rounded-xl bg-white/60 border border-white/70 shadow-sm px-2.5 py-3 sm:px-3 text-center lg:text-left hover:bg-white/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                 >
-                  <p className="text-lg sm:text-xl font-bold text-primary leading-none">697k+</p>
+                  <p className="text-lg sm:text-xl font-bold text-primary leading-none">737k+</p>
                   <p className="text-[11px] text-muted mt-1 leading-tight">across all platforms</p>
                 </a>
                 <a
@@ -527,7 +527,7 @@ export default async function Home() {
                 </div>
                 <div className="w-px h-10 bg-stone-200" />
                 <div>
-                  <p className="text-2xl font-bold text-foreground">697k+</p>
+                  <p className="text-2xl font-bold text-foreground">737k+</p>
                   <p className="text-xs text-muted mt-0.5">Social media followers</p>
                 </div>
               </div>

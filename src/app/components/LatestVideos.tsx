@@ -25,7 +25,11 @@ export default function LatestVideos({ videos }: { videos: LatestVideo[] }) {
             Latest Videos
           </p>
           <h2 id="latest-videos-heading" className="text-3xl font-bold text-primary mb-4">
-            Our 6 latest videos
+            {/* Count is derived from the videos actually rendered (page.tsx caps
+                the long-form list at 6). Deriving it here keeps the heading and
+                the number of cards in sync, since recent uploads can be mostly
+                Shorts, leaving fewer than 6 long-form videos to show. */}
+            Our {videos.length} latest video{videos.length === 1 ? '' : 's'}
           </h2>
           <p className="text-muted text-sm leading-relaxed max-w-xl mx-auto">
             The newest travel vlogs from the 2Passports1Dream channel. Each one links straight

@@ -163,7 +163,7 @@ export default async function AboutPage() {
                 </div>
                 <div className="w-px h-10 bg-white/20" />
                 <div>
-                  <p className="text-3xl font-bold">697k+</p>
+                  <p className="text-3xl font-bold">737k+</p>
                   <p className="text-xs text-white/60 mt-0.5">Social media followers</p>
                 </div>
               </div>

@@ -112,6 +112,7 @@ export type YoutubeVideosResult = {
 const UPLOADS_PLAYLIST_ID = 'UU' + CHANNEL_ID.slice(2)
 
 type PlaylistItemsResponse = {
+  nextPageToken?: string
   items?: Array<{
     snippet?: {
       resourceId?: { videoId?: string }
@@ -137,53 +138,79 @@ function isDurationShort(isoDuration: string): boolean {
   return h * 3600 + min * 60 + s <= 180
 }
 
+// The homepage "latest videos" section shows up to this many long-form videos.
+// The channel publishes far more Shorts than long-form videos, so a single page
+// of 50 uploads can contain fewer than this many long-form videos. We page
+// through the uploads (newest first) until we have at least this many long-form
+// videos or run out of pages, so the section can reliably fill all its cards.
+const LONGFORM_TARGET = 6
+// Safety cap on how many upload pages (50 each) we will page through.
+const MAX_UPLOAD_PAGES = 5
+
 async function fetchYoutubeVideosFromAPI(apiKey: string): Promise<YoutubeVideosResult> {
   try {
-    // Step 1: fetch the 50 most recent uploads from the channel's playlist.
-    const playlistRes = await fetch(
-      `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${UPLOADS_PLAYLIST_ID}&maxResults=50&key=${apiKey}`,
-      { next: { revalidate: 86400 } }
-    )
-    if (!playlistRes.ok) return { longForm: [], shorts: [] }
-
-    const playlistData: PlaylistItemsResponse = await playlistRes.json()
-    const videoIds = (playlistData.items ?? [])
-      .map(item => item.snippet?.resourceId?.videoId ?? '')
-      .filter(Boolean)
-
-    if (videoIds.length === 0) return { longForm: [], shorts: [] }
-
-    // Step 2: fetch video details (snippet + contentDetails) to get durations.
-    const videosRes = await fetch(
-      `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&id=${videoIds.join(',')}&key=${apiKey}`,
-      { next: { revalidate: 86400 } }
-    )
-    if (!videosRes.ok) return { longForm: [], shorts: [] }
-
-    const videosData: VideosListResponse = await videosRes.json()
-
     const longForm: YoutubeVideo[] = []
     const shorts: YoutubeVideo[] = []
+    const seen = new Set<string>()
 
-    for (const v of videosData.items ?? []) {
-      if (!v.id || !v.snippet?.title) continue
-      const isShort = isDurationShort(v.contentDetails?.duration ?? '')
-      const video: YoutubeVideo = {
-        id: v.id,
-        title: v.snippet.title,
-        slug: slugify(v.snippet.title),
-        publishedAt: v.snippet.publishedAt ?? '',
-        youtubeUrl: isShort
-          ? `https://www.youtube.com/shorts/${v.id}`
-          : `https://www.youtube.com/watch?v=${v.id}`,
-        description: v.snippet.description || undefined,
+    let pageToken: string | undefined
+    let pages = 0
+
+    // Page through the uploads playlist (newest first). For each page we look
+    // up durations to split Shorts from long-form, and stop early once we have
+    // gathered enough long-form videos.
+    do {
+      // Step 1: fetch a page of the most recent uploads from the playlist.
+      const playlistRes = await fetch(
+        `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${UPLOADS_PLAYLIST_ID}&maxResults=50&key=${apiKey}` +
+          (pageToken ? `&pageToken=${pageToken}` : ''),
+        { next: { revalidate: 86400 } }
+      )
+      if (!playlistRes.ok) break
+
+      const playlistData: PlaylistItemsResponse = await playlistRes.json()
+      const videoIds = (playlistData.items ?? [])
+        .map(item => item.snippet?.resourceId?.videoId ?? '')
+        .filter(Boolean)
+
+      if (videoIds.length > 0) {
+        // Step 2: fetch video details (snippet + contentDetails) to get
+        // durations. The videos.list id parameter accepts up to 50 ids, which
+        // matches the playlist page size above, so one call per page is enough.
+        const videosRes = await fetch(
+          `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&id=${videoIds.join(',')}&key=${apiKey}`,
+          { next: { revalidate: 86400 } }
+        )
+        if (!videosRes.ok) break
+
+        const videosData: VideosListResponse = await videosRes.json()
+
+        for (const v of videosData.items ?? []) {
+          if (!v.id || !v.snippet?.title) continue
+          if (seen.has(v.id)) continue
+          seen.add(v.id)
+          const isShort = isDurationShort(v.contentDetails?.duration ?? '')
+          const video: YoutubeVideo = {
+            id: v.id,
+            title: v.snippet.title,
+            slug: slugify(v.snippet.title),
+            publishedAt: v.snippet.publishedAt ?? '',
+            youtubeUrl: isShort
+              ? `https://www.youtube.com/shorts/${v.id}`
+              : `https://www.youtube.com/watch?v=${v.id}`,
+            description: v.snippet.description || undefined,
+          }
+          if (isShort) {
+            shorts.push(video)
+          } else {
+            longForm.push(video)
+          }
+        }
       }
-      if (isShort) {
-        shorts.push(video)
-      } else {
-        longForm.push(video)
-      }
-    }
+
+      pageToken = playlistData.nextPageToken
+      pages++
+    } while (pageToken && longForm.length < LONGFORM_TARGET && pages < MAX_UPLOAD_PAGES)
 
     // videos.list returns items in arbitrary order, not playlist order.
     // Sort both arrays newest-first so callers can safely use slice(0, n).
@@ -192,34 +219,12 @@ async function fetchYoutubeVideosFromAPI(apiKey: string): Promise<YoutubeVideosR
     longForm.sort(byDateDesc)
     shorts.sort(byDateDesc)
 
-    if (process.env.NODE_ENV === 'development') {
-      // Temporary targeted debug check - remove once diagnosis is complete.
-      const DEBUG_VIDEO_ID = 'KUS5slaGofU'
-      const foundInUploadsPlaylist = (playlistData.items ?? []).some(
-        item => item.snippet?.resourceId?.videoId === DEBUG_VIDEO_ID
-      )
-      const foundInVideoIds = videoIds.includes(DEBUG_VIDEO_ID)
-      const debugEntry = (videosData.items ?? []).find(v => v.id === DEBUG_VIDEO_ID)
-      const foundInVideosList = debugEntry !== undefined
-      console.log(`[2p1d] DEBUG check for ${DEBUG_VIDEO_ID}:`)
-      console.log(`  foundInUploadsPlaylist: ${foundInUploadsPlaylist}`)
-      console.log(`  foundInVideoIds: ${foundInVideoIds}`)
-      console.log(`  foundInVideosList: ${foundInVideosList}`)
-      if (debugEntry) {
-        const dur = debugEntry.contentDetails?.duration ?? 'PT0S'
-        const isShortFlag = isDurationShort(dur)
-        console.log(`  title: "${debugEntry.snippet?.title ?? '(none)'}"`)
-        console.log(`  publishedAt: ${debugEntry.snippet?.publishedAt ?? '(none)'}`)
-        console.log(`  duration: ${dur}`)
-        console.log(`  isShort: ${isShortFlag}`)
-        console.log(`  bucket: ${isShortFlag ? 'shorts' : 'longForm'}`)
-      }
-    }
+    if (longForm.length === 0 && shorts.length === 0) return { longForm: [], shorts: [] }
 
     if (process.env.NODE_ENV === 'development') {
       console.log(
         '[2p1d] YouTube API fetch complete:',
-        `total=${videoIds.length}`,
+        `pages=${pages}`,
         `longForm=${longForm.length}`,
         `shorts=${shorts.length}`,
         `newestLongForm="${longForm[0]?.title ?? 'none'}"`,
