@@ -1,15 +1,24 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { discountCodes, supportLinks } from '../data/discount-codes'
+import { discountCodes, supportLinks, type DiscountCode } from '../data/discount-codes'
 import { CopyCodeButton } from '../components/CopyCodeButton'
+import { SPONSORED_LINK_REL } from '../lib/links'
+import { discountSectionMetadata } from './_lib/metadata'
+import {
+  formatOfferDate,
+  isOfferAvailable,
+  latestVerifiedDate,
+  offerStatusLabels,
+  offerStatusOf,
+} from './_lib/offer'
 
-export const metadata: Metadata = {
-  title: 'Travel Deals and Useful Links',
+export const metadata: Metadata = discountSectionMetadata({
+  title: '2Passports1Dream Discount Codes 2026 | Travel, Tech & Creator Deals',
   description:
-    'Codes, links and travel tools from Adriana and Dylan at 2Passports1Dream. Covers travel experiences, eSIMs, luggage, creator gear, skincare and travel money.',
-  alternates: { canonical: '/discount-codes' },
-}
+    'Browse current 2Passports1Dream discount codes and partner offers for travel, tech, lifestyle and creator tools. The codes and deals we share with our audience.',
+  path: '/discount-codes',
+})
 
 const codeCategories = [
   'Travel Experiences and Tours',
@@ -18,6 +27,7 @@ const codeCategories = [
   'Creator Gear',
   'Creator and Business Tools',
   'Travel Health and Lifestyle',
+  'Languages and Learning',
   'Skincare and Beauty',
   'Money and Travel Cards',
   'Memberships and Perks',
@@ -41,6 +51,8 @@ const categoryIntros: Record<string, string> = {
     'Software and services that help creators and small businesses stay organised and connected.',
   'Travel Health and Lifestyle':
     'Tools for tracking and looking after yourself during busy travel schedules.',
+  'Languages and Learning':
+    'Apps for picking up a new language, whether for a trip or for family.',
   'Skincare and Beauty':
     'Simple skincare tools for keeping your routine manageable while on the road.',
   'Money and Travel Cards':
@@ -49,7 +61,23 @@ const categoryIntros: Record<string, string> = {
     'Memberships that can unlock VIP perks and preferred pricing across travel, lifestyle and business brands.',
 }
 
+// Descriptive internal link text, e.g. "View Babbel discount code" or, for
+// link-only offers, "View AG1 discount details".
+function brandLinkText(item: DiscountCode): string {
+  return item.code && isOfferAvailable(offerStatusOf(item))
+    ? `View ${item.badgeText} discount code`
+    : `View ${item.badgeText} discount details`
+}
+
 export default function DiscountCodesPage() {
+  // Dates come from verifiedDate in the central data, never the build date.
+  // The single "checked on" sentence is only shown when every offer shares the
+  // same date, otherwise visitors are pointed to each offer's own date.
+  const latestChecked = latestVerifiedDate(discountCodes)
+  const allCheckedTogether =
+    latestChecked !== null && discountCodes.every((item) => item.verifiedDate === latestChecked)
+  const summaryRows = [...discountCodes].sort((a, b) => a.name.localeCompare(b.name, 'en-GB'))
+
   return (
     <>
       {/* Hero: two-column on desktop (text left, photo right), stacked on
@@ -79,15 +107,14 @@ export default function DiscountCodesPage() {
             {/* Text */}
             <div className="text-center lg:text-left">
               <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-4">
-                2Passports1Dream
+                Travel Deals &amp; Useful Links
               </p>
               <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-                Our Travel Deals &amp; Useful Links
+                2Passports1Dream Discount Codes
               </h1>
               <p className="text-white/80 leading-relaxed max-w-md mx-auto lg:mx-0 text-sm">
-                Here are the codes, links and travel tools we currently share with the
-                2Passports1Dream community. Some links may be affiliate links, which means we may
-                earn a small commission if you buy through them, at no extra cost to you.
+                Browse the latest 2Passports1Dream discount codes, offers and travel deals we
+                currently share with our community.
               </p>
             </div>
 
@@ -98,6 +125,42 @@ export default function DiscountCodesPage() {
       {/* Content */}
       <div className="pt-8 pb-14 px-4 bg-[#FFF9EF]">
         <div className="max-w-6xl mx-auto">
+
+          {/* Trust: how the offers are sourced and checked */}
+          <section
+            aria-labelledby="trust-heading"
+            className="mb-6 rounded-2xl border border-[#F0DDB0] bg-white shadow-sm px-6 py-7 sm:px-8"
+          >
+            <h2 id="trust-heading" className="text-xl font-bold text-primary mb-3">
+              Real discount codes, checked by us
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-3 text-sm text-muted leading-relaxed">
+              <p>
+                We work directly with many of the brands listed here and regularly check the offers
+                we share.{' '}
+                {allCheckedTogether ? (
+                  <>
+                    All current offers on this page were checked on{' '}
+                    <strong className="font-semibold text-foreground">
+                      {formatOfferDate(latestChecked)}
+                    </strong>
+                    .
+                  </>
+                ) : (
+                  <>Each offer shows the date we last checked it.</>
+                )}
+              </p>
+              <p>
+                Where restrictions apply, we show them on the individual offer page. Offers can
+                change, so always check the final price and terms before you pay. We do not
+                knowingly list expired offers as active.{' '}
+                <a href="#all-offers" className="text-accent font-medium underline underline-offset-2 hover:text-accent-dark transition-colors">
+                  See every offer in one table
+                </a>
+                .
+              </p>
+            </div>
+          </section>
 
           {/* Find what you need */}
           <div className="mb-12 rounded-2xl border border-[#F0DDB0] bg-white shadow-sm px-6 py-7 sm:px-8">
@@ -200,20 +263,23 @@ export default function DiscountCodesPage() {
                             (relative z-10) so clicking it copies the code
                             instead of following the affiliate link. */}
                         <div className="mb-3">
-                          {item.code ? (
+                          {!isOfferAvailable(offerStatusOf(item)) ? (
+                            <div className="rounded-xl bg-[#F8F6F2] border border-stone-100 p-3.5">
+                              <p className="text-[10px] font-bold uppercase tracking-widest text-muted mb-1.5">
+                                Offer status
+                              </p>
+                              <p className="text-base font-medium text-muted leading-snug">
+                                {offerStatusLabels[offerStatusOf(item)]}
+                              </p>
+                            </div>
+                          ) : item.code ? (
                             <div className="relative z-10">
                               <CopyCodeButton code={item.code} />
                             </div>
                           ) : (
-                            <div className="rounded-xl bg-[#F8F6F2] border border-stone-100 p-3.5">
-                              <p className="text-[10px] font-bold uppercase tracking-widest text-muted mb-1.5">
-                                Link offer
-                              </p>
+                            <div className="rounded-xl bg-[#F8F6F2] border border-stone-100 p-3.5 min-h-[5.875rem] flex items-center">
                               <p className="text-base font-medium text-muted leading-snug">
-                                Click here
-                              </p>
-                              <p className="text-[10px] text-muted mt-1">
-                                Offer applies through our link
+                                No code needed
                               </p>
                             </div>
                           )}
@@ -255,22 +321,24 @@ export default function DiscountCodesPage() {
                           The affiliate button is the card's primary link: its
                           after:inset-0 pseudo-element stretches over the whole
                           card, so clicking anywhere that is not the code box or
-                          "Read more" goes to the offer. */}
+                          the brand page link goes to the offer. */}
                       <div className="px-5 pb-5 pt-4 mt-auto border-t border-stone-100 space-y-2.5">
+                        {isOfferAvailable(offerStatusOf(item)) && (
                         <a
                           href={item.affiliateUrl}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel={SPONSORED_LINK_REL}
                           className="block text-center bg-accent text-white font-semibold px-5 py-2.5 rounded-full text-sm hover:bg-accent-dark transition-colors after:absolute after:inset-0 after:content-[''] after:rounded-2xl focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
                         >
                           {item.buttonLabel}
                         </a>
+                        )}
                         {item.slug && (
                           <Link
                             href={`/discount-codes/${item.slug}`}
                             className="relative z-10 block text-center text-sm font-medium text-muted hover:text-accent transition-colors py-0.5"
                           >
-                            Read more
+                            {brandLinkText(item)}
                           </Link>
                         )}
                       </div>
@@ -280,6 +348,76 @@ export default function DiscountCodesPage() {
               </section>
             )
           })}
+
+          {/* Summary table: every offer in one place. Scrolls sideways on small
+              screens rather than squeezing the columns. */}
+          <section id="all-offers" aria-labelledby="all-offers-heading" className="scroll-mt-24">
+            <div className="mb-6">
+              <h2 id="all-offers-heading" className="text-xl font-bold text-primary mb-1">
+                All discount codes and offers
+              </h2>
+              <div className="w-10 h-0.5 bg-accent rounded mb-2.5" />
+              <p className="text-sm text-muted">
+                {allCheckedTogether
+                  ? `All offers below were checked on ${formatOfferDate(latestChecked)}.`
+                  : 'Each offer page shows the date we last checked it.'}
+              </p>
+            </div>
+            <div className="overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm">
+              <table className="w-full min-w-[34rem] text-sm text-left">
+                <thead className="bg-[#FFF9EF] text-[11px] uppercase tracking-widest text-muted">
+                  <tr>
+                    <th scope="col" className="px-4 py-3 font-bold">Brand</th>
+                    <th scope="col" className="px-4 py-3 font-bold">Offer</th>
+                    <th scope="col" className="px-4 py-3 font-bold">Code</th>
+                    <th scope="col" className="px-4 py-3 font-bold">View offer</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-stone-100">
+                  {summaryRows.map((item) => {
+                    const status = offerStatusOf(item)
+                    const available = isOfferAvailable(status)
+                    return (
+                      <tr key={item.name} className="align-top">
+                        <th scope="row" className="px-4 py-3 font-semibold text-foreground">
+                          {item.name}
+                        </th>
+                        <td className="px-4 py-3 text-muted">
+                          {item.offer}
+                          {status !== 'active' && (
+                            <span className="block text-xs text-accent font-medium mt-0.5">
+                              {offerStatusLabels[status]}
+                            </span>
+                          )}
+                        </td>
+                        <td className="px-4 py-3">
+                          {!available ? (
+                            <span className="text-muted">Not available</span>
+                          ) : item.code ? (
+                            <span className="font-mono font-bold text-primary tracking-wider break-all">
+                              {item.code}
+                            </span>
+                          ) : (
+                            <span className="text-muted">No code needed</span>
+                          )}
+                        </td>
+                        <td className="px-4 py-3">
+                          {item.slug && (
+                            <Link
+                              href={`/discount-codes/${item.slug}`}
+                              className="font-medium text-accent underline underline-offset-2 hover:text-accent-dark transition-colors"
+                            >
+                              {brandLinkText(item)}
+                            </Link>
+                          )}
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </section>
 
         </div>
       </div>

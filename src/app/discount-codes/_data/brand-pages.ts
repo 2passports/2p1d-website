@@ -220,6 +220,7 @@ export const djiMicMini: BrandPageData = {
   seoTitle: 'DJI Mic Mini Discount Code 2026 | 25% Off Through Our Link',
   seoDescription:
     'Looking for a DJI Mic Mini discount code in 2026? Our 25% off offer is applied through our link, so there is no manual code to enter at checkout. Compact wireless audio for travel creators and vloggers.',
+  heroHeading: 'DJI Mic Mini Discount',
   heroTagline: 'Compact wireless audio for creators, vloggers and travel filmmakers.',
   intro:
     'Good audio makes travel videos much easier to watch, especially when filming outdoors, in busy places or on the move. The DJI Mic Mini is a compact wireless microphone setup that can be a useful tool for creators who want to travel light.',
@@ -276,6 +277,7 @@ export const gomatic: BrandPageData = {
   seoTitle: 'Gomatic Discount Code | 2Passports1Dream',
   seoDescription:
     'Use our Gomatic discount code PASSPORTSDREAM for 10% off Gomatic travel bags and backpacks. Practical packing gear for short trips, tech gear and everyday travel.',
+  heroHeading: 'Gomatic Discount Code',
   heroTagline:
     'Practical travel bags and backpacks for organised packing and shorter trips.',
   intro:
@@ -316,6 +318,7 @@ export const holafly: BrandPageData = {
   seoTitle: 'Holafly eSIM Discount Code | 2Passports1Dream',
   seoDescription:
     'Use our Holafly discount code 2passports1dream for 5% off a Holafly eSIM. Stay connected while travelling without buying a physical SIM card.',
+  heroHeading: 'Holafly Discount Code',
   heroTagline:
     'eSIMs for staying connected while travelling without buying a physical SIM card.',
   intro:
@@ -357,6 +360,7 @@ export const foreo: BrandPageData = {
   seoTitle: 'FOREO Discount Code | 2Passports1Dream',
   seoDescription:
     'Use our FOREO discount code PASSPORT35 for 35% off FOREO skincare and beauty devices. Travel-friendly skincare tools for keeping your routine manageable on the road.',
+  heroHeading: 'FOREO Discount Code',
   heroTagline:
     'Skincare and beauty devices that can fit into a simple travel routine.',
   intro:
@@ -398,6 +402,7 @@ export const level8: BrandPageData = {
   seoTitle: 'Level8 Luggage Discount Code | 2Passports1Dream',
   seoDescription:
     'Use our Level8 discount code 2P1D10 for 10% off Level8 suitcases and luggage. Practical, sturdy luggage for frequent travellers.',
+  heroHeading: 'Level8 Discount Code',
   heroTagline: 'Suitcases and luggage designed for frequent travellers.',
   intro:
     'When you are moving between airports, hotels, road trips and filming locations, sturdy, practical luggage matters more than it might seem at first. Level8 makes travel cases designed for people who are on the move regularly.',
@@ -437,6 +442,7 @@ export const ultrahuman: BrandPageData = {
   seoTitle: 'Ultrahuman Smart Ring Discount Code 2026 | Our Latest Offer',
   seoDescription:
     'Looking for an Ultrahuman discount code in 2026? Our Ultrahuman Smart Ring offer is applied through our link, so there is no manual code to enter at checkout. A smart ring for tracking sleep, movement and recovery.',
+  heroHeading: 'Ultrahuman Discount',
   heroTagline:
     'A smart ring for tracking sleep, movement and recovery.',
   intro:
@@ -493,6 +499,7 @@ export const nordvpn: BrandPageData = {
   seoTitle: 'NordVPN Discount Code 2026 | Get Our Latest NordVPN Offer',
   seoDescription:
     'Looking for a NordVPN discount code in 2026? Our NordVPN offer is applied through our link, so there is no manual code to enter at checkout. Get extra months free and more privacy on public WiFi while travelling.',
+  heroHeading: 'NordVPN Discount',
   heroTagline:
     'Extra months free when you sign up through our link. Useful for privacy on public WiFi while travelling.',
   intro:
@@ -555,6 +562,7 @@ export const currensea: BrandPageData = {
   seoTitle: 'Currensea Discount Code 2026 | £10 Free Travel Card Offer',
   seoDescription:
     'Looking for a Currensea discount code or referral offer in 2026? Our Currensea offer is applied through our link, so there is no manual code to enter. Get £10 free on a UK travel debit card that connects to your existing bank account. Terms apply.',
+  heroHeading: 'Currensea Referral Offer',
   heroTagline:
     'UK travel debit card connected to your existing bank account. £10 free through our referral link.',
   intro:
@@ -611,6 +619,7 @@ export const mantaSleep: BrandPageData = {
   seoTitle: 'Manta Sleep Discount Code | 2Passports1Dream',
   seoDescription:
     'Use our 2Passports1Dream Manta Sleep discount code 2passports10 to save on sleep masks and sleep accessories that can be useful for travel, flights, hotels and light-sensitive sleepers.',
+  heroHeading: 'Manta Sleep Discount Code',
   heroTagline:
     'Sleep masks and accessories that can help you rest better on flights, in hotels and on long travel days.',
   intro:
@@ -651,6 +660,7 @@ export const vessi: BrandPageData = {
   seoTitle: 'Vessi Discount Code 2026 | 15% Off Your First Order',
   seoDescription:
     'Looking for a Vessi discount code in 2026? Our 15% off first purchase offer is applied through our link, so there is no manual code to enter at checkout. Waterproof shoes for rainy cities and walking days.',
+  heroHeading: 'Vessi Discount',
   heroTagline:
     'Waterproof shoes for rainy cities, walking days and travel days.',
   intro:
@@ -1144,6 +1154,7 @@ export const betterhelp: BrandPageData = {
   seoTitle: 'BetterHelp Discount Code 2026: 10% Off | 2Passports1Dream',
   seoDescription:
     'Get 10% off your first month with our BetterHelp offer for 2026. BetterHelp is an online therapy platform, and the discount is applied through our 2Passports1Dream link. BetterHelp is a paid partner.',
+  heroHeading: 'BetterHelp Discount',
   heroTagline:
     'BetterHelp is an online therapy platform. Through our link you can get 10% off your first month. BetterHelp is a paid partner of ours.',
   intro:
@@ -1205,6 +1216,7 @@ export const coveron: BrandPageData = {
   seoTitle: 'Coveron Discount Code 2026: 20% Off | 2Passports1Dream',
   seoDescription:
     'Use our Coveron discount code 2passports1dream for 20% off in 2026. Coveron is a digital protection service focused on online scam safety, and the first 100 users get 20% off with 2Passports1Dream.',
+  heroHeading: 'Coveron Discount Code',
   heroTagline:
     'Coveron is a digital protection service focused on online safety. The first 100 users get 20% off with code 2passports1dream.',
   intro:
@@ -1266,6 +1278,7 @@ export const fitnexaSomnipods3: BrandPageData = {
   seoTitle: 'Fitnexa SomniPods 3 Discount 2026: $10 Off | 2Passports1Dream',
   seoDescription:
     'Get $10 off the Fitnexa SomniPods 3 in 2026 through our 2Passports1Dream link. The SomniPods 3 are a compact, sleep-focused audio product. No code needed, the discount is applied through the link.',
+  heroHeading: 'Fitnexa SomniPods 3 Discount',
   heroTagline:
     'The Fitnexa SomniPods 3 are a compact, sleep-focused audio product. Get $10 off through our link. No code needed.',
   intro:
@@ -1328,6 +1341,7 @@ export const brevo: BrandPageData = {
   seoTitle: 'Brevo Discount Code 2026: 50% Off | 2Passports1Dream',
   seoDescription:
     'Use our Brevo discount code ADRIANA50 for 50% off Starter and Standard Plans for the first 3 months in 2026. Brevo is an email marketing and customer communications platform. New paying customers only.',
+  heroHeading: 'Brevo Discount Code',
   heroTagline:
     'Brevo is an email marketing and customer communications platform. Use code ADRIANA50 for 50% off Starter and Standard Plans for the first 3 months. New paying customers only.',
   intro:
@@ -1389,6 +1403,7 @@ export const ag1: BrandPageData = {
   seoTitle: 'AG1 Discount 2026: Extra 20% Off | 2Passports1Dream',
   seoDescription:
     'Get an extra 20% off your first AG1 subscription order in 2026 through our 2Passports1Dream link. AG1 is a daily greens and nutritional supplement. Limited-time offer, no code needed.',
+  heroHeading: 'AG1 Discount',
   heroTagline:
     'AG1 is a daily greens and nutritional supplement drink. Through our link you can save an extra 20% on your first subscription order, for a limited time. No code needed.',
   intro:

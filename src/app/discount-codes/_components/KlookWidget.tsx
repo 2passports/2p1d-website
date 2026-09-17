@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Script from 'next/script'
 import { useMarketingConsent, openCookieSettings } from '../../components/CookieConsent'
+import { SPONSORED_LINK_REL } from '../../lib/links'
 
 // Exact widget markup as provided by Klook. Their loader script finds the
 // <ins class="klk-aff-widget"> element and replaces it with an iframe, so we
@@ -21,7 +22,7 @@ function BrowseKlookButton({ href }: { href: string }) {
     <a
       href={href}
       target="_blank"
-      rel="noopener noreferrer sponsored"
+      rel={SPONSORED_LINK_REL}
       className="inline-block bg-accent text-white font-semibold px-6 py-2.5 rounded-full text-sm hover:bg-accent-dark transition-colors shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
       Browse Klook experiences

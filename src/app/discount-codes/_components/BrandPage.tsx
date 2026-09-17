@@ -3,6 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { BrandPageData, BrandVideo } from '../_data/brand-pages'
 import { CopyCodeButton } from '../../components/CopyCodeButton'
+import { SPONSORED_LINK_REL } from '../../lib/links'
+import { getDiscountBySlug, isOfferAvailable, offerStatusOf } from '../_lib/offer'
+import { OfferAtAGlance } from './OfferAtAGlance'
+import { OfferTroubleshooting } from './OfferTroubleshooting'
+import { OfferUnavailableNotice } from './OfferUnavailableNotice'
 
 // Bolds every occurrence of `code` within a plain text run, leaving the rest
 // of the text untouched. Returns the run unchanged when there is no code.
@@ -35,7 +40,7 @@ function renderCopy(text: string, url: string, code?: string): ReactNode {
         key={i}
         href={url}
         target="_blank"
-        rel="noopener noreferrer"
+        rel={SPONSORED_LINK_REL}
         className="text-accent font-medium underline underline-offset-2 hover:text-accent-dark transition-colors"
       >
         {part}
@@ -106,6 +111,14 @@ export function BrandPage({
 
   const hasCode = code !== null
 
+  // Trust and status details live in the central discount data. Paused and
+  // ended offers keep their page but never present the code or offer buttons
+  // as usable. Active and limited offers render exactly as before.
+  const centralOffer = getDiscountBySlug(data.slug)
+  const status = offerStatusOf(centralOffer)
+  const available = isOfferAvailable(status)
+  const unavailableStatus = status === 'paused' || status === 'ended' ? status : null
+
   // When enabled for a brand, the code is bolded wherever it appears in copy.
   const codeToBold = boldCodeInCopy && code ? code : undefined
 
@@ -160,7 +173,7 @@ export function BrandPage({
                       <a
                         href={affiliateUrl}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel={SPONSORED_LINK_REL}
                         className="font-semibold text-accent underline underline-offset-2 hover:text-accent-dark transition-colors"
                       >
                         {item.name}
@@ -215,7 +228,9 @@ export function BrandPage({
                 {/* Offer + code display. For code-based offers the card holds
                     the copy-code button. For link-based offers (no manual code)
                     the whole card links to the affiliate offer. */}
-                {hasCode ? (
+                {unavailableStatus ? (
+                  <OfferUnavailableNotice status={unavailableStatus} name={name} dark className="mb-6 max-w-sm mx-auto lg:mx-0 text-left" />
+                ) : hasCode ? (
                   <div className="bg-white/10 border border-white/20 rounded-2xl px-6 py-5 mb-6 max-w-sm mx-auto lg:mx-0">
                     <span className="inline-block bg-accent text-white text-sm font-bold px-3.5 py-1.5 rounded-full shadow-sm mb-3">
                       {offer}
@@ -229,7 +244,7 @@ export function BrandPage({
                   <a
                     href={affiliateUrl}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel={SPONSORED_LINK_REL}
                     aria-label={`Get the ${name} offer`}
                     className="block bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 rounded-2xl px-6 py-5 mb-6 max-w-sm mx-auto lg:mx-0 transition-colors"
                   >
@@ -246,19 +261,21 @@ export function BrandPage({
                 )}
 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-                  <a
-                    href={affiliateUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-accent text-white font-semibold px-7 py-3 rounded-full hover:bg-accent-dark transition-colors shadow-md text-sm"
-                  >
-                    {buttonLabel}
-                  </a>
-                  {hasSecondary && (
+                  {available && (
+                    <a
+                      href={affiliateUrl}
+                      target="_blank"
+                      rel={SPONSORED_LINK_REL}
+                      className="inline-block bg-accent text-white font-semibold px-7 py-3 rounded-full hover:bg-accent-dark transition-colors shadow-md text-sm"
+                    >
+                      {buttonLabel}
+                    </a>
+                  )}
+                  {available && hasSecondary && (
                     <a
                       href={secondaryUrl}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel={SPONSORED_LINK_REL}
                       className="inline-block bg-white/15 text-white font-semibold px-7 py-3 rounded-full hover:bg-white/25 transition-colors text-sm"
                     >
                       {secondaryLabel}
@@ -331,7 +348,7 @@ export function BrandPage({
             )}
 
             <h1 className="text-3xl md:text-4xl font-bold mb-3 leading-tight">
-              {name}
+              {heroHeading ?? name}
             </h1>
             <p className="text-white/80 leading-relaxed max-w-lg mx-auto mb-7 text-sm">
               {renderCopy(heroTagline, affiliateUrl, codeToBold)}
@@ -340,7 +357,9 @@ export function BrandPage({
             {/* Offer + code display. For code-based offers the card holds the
                 copy-code button. For link-based offers (no manual code) the
                 whole card links to the affiliate offer. */}
-            {hasCode ? (
+            {unavailableStatus ? (
+              <OfferUnavailableNotice status={unavailableStatus} name={name} dark className="mb-6 max-w-xs mx-auto text-left" />
+            ) : hasCode ? (
               <div className="bg-white/10 border border-white/20 rounded-2xl px-6 py-5 mb-6 max-w-xs mx-auto">
                 <span className="inline-block bg-accent text-white text-sm font-bold px-3.5 py-1.5 rounded-full shadow-sm mb-3">
                   {offer}
@@ -354,7 +373,7 @@ export function BrandPage({
               <a
                 href={affiliateUrl}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel={SPONSORED_LINK_REL}
                 aria-label={`Get the ${name} offer`}
                 className="block bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 rounded-2xl px-6 py-5 mb-6 max-w-xs mx-auto transition-colors"
               >
@@ -371,19 +390,21 @@ export function BrandPage({
             )}
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href={affiliateUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-accent text-white font-semibold px-7 py-3 rounded-full hover:bg-accent-dark transition-colors shadow-md text-sm"
-              >
-                {buttonLabel}
-              </a>
-              {hasSecondary && (
+              {available && (
+                <a
+                  href={affiliateUrl}
+                  target="_blank"
+                  rel={SPONSORED_LINK_REL}
+                  className="inline-block bg-accent text-white font-semibold px-7 py-3 rounded-full hover:bg-accent-dark transition-colors shadow-md text-sm"
+                >
+                  {buttonLabel}
+                </a>
+              )}
+              {available && hasSecondary && (
                 <a
                   href={secondaryUrl}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel={SPONSORED_LINK_REL}
                   className="inline-block bg-white/15 text-white font-semibold px-7 py-3 rounded-full hover:bg-white/25 transition-colors text-sm"
                 >
                   {secondaryLabel}
@@ -521,7 +542,9 @@ export function BrandPage({
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
               <div>
                 <h2 className="text-xl font-bold mb-4">Our {name} offer</h2>
-                {hasCode ? (
+                {unavailableStatus ? (
+                  <OfferUnavailableNotice status={unavailableStatus} name={name} />
+                ) : hasCode ? (
                   <div>
                     <CopyCodeButton code={code as string} />
                     <div className="mt-3">
@@ -547,19 +570,21 @@ export function BrandPage({
                   before buying or booking.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:justify-center lg:justify-end">
-                  <a
-                    href={affiliateUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-accent text-white font-semibold px-8 py-3.5 rounded-full hover:bg-accent-dark transition-colors shadow-md text-sm text-center"
-                  >
-                    {buttonLabel}
-                  </a>
-                  {hasSecondary && (
+                  {available && (
+                    <a
+                      href={affiliateUrl}
+                      target="_blank"
+                      rel={SPONSORED_LINK_REL}
+                      className="inline-block bg-accent text-white font-semibold px-8 py-3.5 rounded-full hover:bg-accent-dark transition-colors shadow-md text-sm text-center"
+                    >
+                      {buttonLabel}
+                    </a>
+                  )}
+                  {available && hasSecondary && (
                     <a
                       href={secondaryUrl}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel={SPONSORED_LINK_REL}
                       className="inline-block border border-stone-300 text-foreground font-semibold px-8 py-3.5 rounded-full hover:bg-surface transition-colors text-sm text-center"
                     >
                       {secondaryLabel}
@@ -569,6 +594,9 @@ export function BrandPage({
               </div>
             </div>
           </section>
+
+          {/* Offer at a glance: trust and status details from the central data */}
+          {centralOffer && <OfferAtAGlance item={centralOffer} offer={offer} code={code} />}
 
           {/* Why we find it useful + Best for: two cards side by side */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch">
@@ -597,25 +625,31 @@ export function BrandPage({
           {/* Other products and ranges (optional) */}
           {renderProductRanges()}
 
-          {/* How to use: full-width card, steps in a grid */}
-          <section className="bg-surface rounded-2xl p-6 sm:p-8">
-            <h2 className="text-xl font-bold mb-5">
-              How to use {hasCode ? 'the code' : 'our link'}
-            </h2>
-            <ol className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
-              {howToUseSteps.map((step, i) => (
-                <li key={i} className="flex gap-3 text-sm text-muted">
-                  <span className="w-6 h-6 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
-                    {i + 1}
-                  </span>
-                  <span>{renderCopy(step, affiliateUrl, codeToBold)}</span>
-                </li>
-              ))}
-            </ol>
-          </section>
+          {/* How to use: full-width card, steps in a grid. Hidden for paused or
+              ended offers so the old code is not presented as usable. */}
+          {available && (
+            <section className="bg-surface rounded-2xl p-6 sm:p-8">
+              <h2 className="text-xl font-bold mb-5">
+                How to use {hasCode ? 'the code' : 'our link'}
+              </h2>
+              <ol className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
+                {howToUseSteps.map((step, i) => (
+                  <li key={i} className="flex gap-3 text-sm text-muted">
+                    <span className="w-6 h-6 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
+                      {i + 1}
+                    </span>
+                    <span>{renderCopy(step, affiliateUrl, codeToBold)}</span>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          )}
 
           {/* Feature videos (optional): after How to use */}
           {renderVideos('afterHowToUse')}
+
+          {/* If the code or link offer does not work */}
+          {available && <OfferTroubleshooting hasCode={hasCode} />}
 
           {/* Important notes: short, deliberately centred */}
           {importantNotes && (
@@ -659,14 +693,16 @@ export function BrandPage({
 
           {/* Final CTA */}
           <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-            <a
-              href={affiliateUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-accent text-white font-semibold px-7 py-3 rounded-full hover:bg-accent-dark transition-colors text-sm text-center"
-            >
-              {buttonLabel}
-            </a>
+            {available && (
+              <a
+                href={affiliateUrl}
+                target="_blank"
+                rel={SPONSORED_LINK_REL}
+                className="inline-block bg-accent text-white font-semibold px-7 py-3 rounded-full hover:bg-accent-dark transition-colors text-sm text-center"
+              >
+                {buttonLabel}
+              </a>
+            )}
             <Link
               href="/discount-codes"
               className="inline-block border border-stone-300 text-foreground font-semibold px-7 py-3 rounded-full hover:bg-surface transition-colors text-sm text-center"

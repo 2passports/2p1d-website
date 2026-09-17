@@ -92,10 +92,17 @@ export default function Footer() {
 
         </div>
 
-        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-xs text-white/40">
-          <p>&copy; {new Date().getFullYear()} 2Passports1Dream. All rights reserved.</p>
-          <span className="hidden sm:inline" aria-hidden="true">&middot;</span>
-          <CookieSettingsLink />
+        <div className="border-t border-white/10 pt-6">
+          {/* Site-wide affiliate disclaimer */}
+          <p className="text-xs text-white/60 leading-relaxed text-center max-w-2xl mx-auto mb-4">
+            Some links on this website may be affiliate links, which means we may receive a
+            commission if you make a purchase through them, at no extra cost to you.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-xs text-white/40">
+            <p>&copy; {new Date().getFullYear()} 2Passports1Dream. All rights reserved.</p>
+            <span className="hidden sm:inline" aria-hidden="true">&middot;</span>
+            <CookieSettingsLink />
+          </div>
         </div>
       </div>
     </footer>

@@ -3,6 +3,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { discountCodes, type DiscountCode } from '../data/discount-codes'
+import { SPONSORED_LINK_REL } from '../lib/links'
+import { isOfferAvailable, offerStatusOf } from '../discount-codes/_lib/offer'
+
+// Paused and ended offers keep their pages but are not promoted on the homepage.
+const liveOffers = discountCodes.filter((item) => isOfferAvailable(offerStatusOf(item)))
 
 function DealCard({
   item,
@@ -28,7 +33,7 @@ function DealCard({
       <a
         href={item.affiliateUrl}
         target="_blank"
-        rel="noopener noreferrer"
+        rel={SPONSORED_LINK_REL}
         aria-hidden={isDuplicate ? true : undefined}
         tabIndex={isDuplicate ? -1 : undefined}
         aria-label={
@@ -85,7 +90,7 @@ function DealCard({
       {/* View deal: floats above the stretched link, goes to the details page */}
       <a
         href={detailsHref}
-        {...(detailsIsExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        {...(detailsIsExternal ? { target: '_blank', rel: SPONSORED_LINK_REL } : {})}
         aria-hidden={isDuplicate ? true : undefined}
         tabIndex={isDuplicate ? -1 : undefined}
         aria-label={isDuplicate ? undefined : `View deal: ${item.name} details`}
@@ -153,10 +158,10 @@ export default function DiscountCarousel() {
 
         <div className="deals-track-wrapper overflow-hidden" aria-label="Discount code deals">
           <div className="deals-track flex gap-5 w-max py-3 px-6" role="list">
-            {discountCodes.map((item) => (
+            {liveOffers.map((item) => (
               <DealCard key={item.name} item={item} />
             ))}
-            {discountCodes.map((item) => (
+            {liveOffers.map((item) => (
               <DealCard key={`${item.name}-dup`} item={item} isDuplicate />
             ))}
           </div>
@@ -169,7 +174,7 @@ export default function DiscountCarousel() {
         role="list"
         aria-label="Discount code deals"
       >
-        {discountCodes.map((item) => (
+        {liveOffers.map((item) => (
           <DealCard key={item.name} item={item} mobile />
         ))}
       </div>

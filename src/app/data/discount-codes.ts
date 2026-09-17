@@ -21,6 +21,36 @@
 //   and updating the logoImage field below.
 //   Recommended format: SVG or PNG/WebP with a transparent background.
 //   If logoImage is null, the card falls back to the badgeText field.
+//
+// TRUST AND OFFER STATUS FIELDS:
+//   These optional fields power the "Offer at a glance" block, the "Last checked"
+//   dates, the summary table on the Discount Codes page and the sitemap dates.
+//   Only fill them in with information that is confirmed. Leave a field out
+//   rather than guessing.
+//
+//   verifiedDate: the date you last checked the offer, as YYYY-MM-DD.
+//     Update it by hand each time you recheck an offer. It never changes on its own.
+//   offerStatus: 'active', 'limited', 'paused' or 'ended'.
+//     'paused' and 'ended' keep the page live but hide the code and offer buttons.
+//     Never delete an ended offer's page. Mark it 'ended' instead.
+//   offerExpiry: a confirmed end date as YYYY-MM-DD, if the brand has given one.
+//   verificationMethod: how the offer was checked, only if known.
+//   partnershipType: 'affiliate', 'paid-partner', 'referral' or 'sponsored-video'.
+//     Internal only. It is not shown anywhere on the site. The site-wide
+//     affiliate disclaimer lives in the footer.
+//   personallyUsed and personalUseNote: only set these when we genuinely use it.
+//   eligibility: confirmed restrictions, one short line each.
+//   regions: confirmed regions the offer is limited to, e.g. ['UK'].
+//   termsNote: an extra short terms line, if needed.
+//   dateAdded and contentUpdated: YYYY-MM-DD. contentUpdated is used for the
+//     sitemap when the page copy changes, otherwise verifiedDate is used.
+//   relatedSlugs: reserved for related offers, not shown yet.
+
+export type OfferStatus = 'active' | 'limited' | 'paused' | 'ended'
+
+export type VerificationMethod = 'tested-at-checkout' | 'confirmed-by-partner' | 'link-checked'
+
+export type PartnershipType = 'paid-partner' | 'affiliate' | 'referral' | 'sponsored-video'
 
 export type DiscountCode = {
   name: string
@@ -54,6 +84,20 @@ export type DiscountCode = {
   whoItIsFor?: string[]
   whyWeLikeIt?: string
   importantNotes?: string
+  // Trust and offer status fields. See the guide at the top of this file.
+  verifiedDate?: string
+  offerStatus?: OfferStatus
+  offerExpiry?: string | null
+  verificationMethod?: VerificationMethod
+  partnershipType?: PartnershipType
+  personallyUsed?: boolean
+  personalUseNote?: string
+  eligibility?: string[]
+  regions?: string[]
+  termsNote?: string
+  dateAdded?: string
+  contentUpdated?: string
+  relatedSlugs?: string[]
 }
 
 export type SupportLink = {
@@ -97,6 +141,11 @@ export const discountCodes: DiscountCode[] = [
       'We like using Klook as a starting point when planning what to actually do in a destination. It gives us a quick way to compare activities, see what is available and sometimes book things before we arrive.',
     importantNotes:
       'Discount availability and the final amount may vary. Always check the price at checkout before booking.',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'affiliate',
+    personallyUsed: true,
+    personalUseNote: 'We used Klook to book Universal and other activities on our Orlando trip.',
   },
   {
     name: 'Holafly eSIM',
@@ -118,6 +167,10 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'Holafly',
     logoImage: '/logos/holafly.webp',
     category: 'Connectivity and Online Safety',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'affiliate',
+    eligibility: ['Requires a phone that supports eSIM'],
   },
   {
     name: 'Simify',
@@ -139,6 +192,10 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'Simify',
     logoImage: '/logos/simify.png',
     category: 'Connectivity and Online Safety',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'affiliate',
+    eligibility: ['Requires an eSIM-compatible, unlocked phone'],
   },
   {
     name: 'NordVPN',
@@ -160,6 +217,9 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'NordVPN',
     logoImage: '/logos/NordVPN.webp',
     category: 'Connectivity and Online Safety',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'affiliate',
   },
   {
     name: 'Proton VPN',
@@ -181,6 +241,9 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'Proton VPN',
     logoImage: '/logos/protonvpn.png',
     category: 'Connectivity and Online Safety',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'affiliate',
   },
   {
     name: 'Incogni',
@@ -203,6 +266,9 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'Incogni',
     logoImage: '/logos/incogni.png',
     category: 'Connectivity and Online Safety',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'affiliate',
   },
   {
     name: 'Gomatic',
@@ -224,6 +290,9 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'Gomatic',
     logoImage: '/logos/gomatic.webp',
     category: 'Luggage and Packing',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'affiliate',
   },
   {
     name: 'Level8 Luggage',
@@ -245,6 +314,9 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'Level8',
     logoImage: '/logos/Level8.webp',
     category: 'Luggage and Packing',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'affiliate',
   },
   {
     name: 'DJI Mic Mini',
@@ -266,6 +338,9 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'DJI',
     logoImage: '/logos/djimicmini.webp',
     category: 'Creator Gear',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'affiliate',
   },
   {
     name: 'Jackery',
@@ -287,6 +362,10 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'Jackery',
     logoImage: '/logos/jackery.png',
     category: 'Creator Gear',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'sponsored-video',
+    eligibility: ['Can be used sitewide across Jackery products, where eligible'],
   },
   {
     name: 'FOREO',
@@ -308,6 +387,9 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'FOREO',
     logoImage: '/logos/Foreo.webp',
     category: 'Skincare and Beauty',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'affiliate',
   },
   {
     name: 'Wild',
@@ -329,6 +411,9 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'Wild',
     logoImage: '/logos/wild.png',
     category: 'Skincare and Beauty',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'affiliate',
   },
   {
     name: 'Ultrahuman Smart Ring',
@@ -350,6 +435,9 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'Ultrahuman',
     logoImage: '/logos/Ultrahuman.webp',
     category: 'Travel Health and Lifestyle',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'affiliate',
   },
   {
     name: 'Vessi Waterproof Shoes',
@@ -371,6 +459,10 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'Vessi',
     logoImage: '/logos/vessi.webp',
     category: 'Travel Health and Lifestyle',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'affiliate',
+    eligibility: ['First purchase only'],
   },
   {
     name: 'Manta Sleep',
@@ -401,6 +493,8 @@ export const discountCodes: DiscountCode[] = [
       'For travel, anything that genuinely helps with sleep is useful. A proper sleep mask can make a real difference on overnight flights, in unfamiliar hotel rooms and on long travel days.',
     importantNotes:
       'Always check the final price at checkout before paying.',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
   },
   {
     name: 'Currensea',
@@ -423,6 +517,11 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'Currensea',
     logoImage: '/logos/Currensea.webp',
     category: 'Money and Travel Cards',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'referral',
+    eligibility: ['UK bank account holders only'],
+    regions: ['UK'],
   },
   {
     name: 'FoundersCard',
@@ -444,6 +543,10 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'FoundersCard',
     logoImage: '/logos/Founderscard.avif',
     category: 'Memberships and Perks',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'affiliate',
+    eligibility: ['The Elite upgrade at 70% off is optional and only available during your first week'],
   },
   {
     name: 'BetterHelp',
@@ -465,6 +568,10 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'BetterHelp',
     logoImage: '/logos/betterhelp.png',
     category: 'Travel Health and Lifestyle',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'paid-partner',
+    eligibility: ['Applies to your first month'],
   },
   {
     name: 'Coveron',
@@ -486,6 +593,10 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'Coveron',
     logoImage: '/logos/coveron.png',
     category: 'Connectivity and Online Safety',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'limited',
+    partnershipType: 'affiliate',
+    eligibility: ['First 100 users only'],
   },
   {
     name: 'Fitnexa SomniPods 3',
@@ -507,6 +618,9 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'Fitnexa',
     logoImage: '/logos/fitnexa.jpeg',
     category: 'Travel Health and Lifestyle',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'affiliate',
   },
   {
     name: 'Brevo',
@@ -529,6 +643,10 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'Brevo',
     logoImage: '/logos/brevo.png',
     category: 'Creator and Business Tools',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'affiliate',
+    eligibility: ['New paying customers only', 'Starter and Standard Plans only', '50% off applies for the first 3 months'],
   },
   {
     name: 'AG1',
@@ -550,6 +668,10 @@ export const discountCodes: DiscountCode[] = [
     badgeText: 'AG1',
     logoImage: '/logos/ag1.webp',
     category: 'Travel Health and Lifestyle',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'limited',
+    partnershipType: 'affiliate',
+    eligibility: ['First subscription order only', 'Limited-time offer'],
   },
   {
     name: 'Babbel',
@@ -570,7 +692,13 @@ export const discountCodes: DiscountCode[] = [
     slug: 'babbel',
     badgeText: 'Babbel',
     logoImage: '/logos/babbel.webp',
-    category: 'Travel Health and Lifestyle',
+    category: 'Languages and Learning',
+    verifiedDate: '2026-09-17',
+    offerStatus: 'active',
+    partnershipType: 'affiliate',
+    personallyUsed: true,
+    personalUseNote: 'Dylan uses Babbel to learn Swedish.',
+    eligibility: ['Lifetime subscription only'],
   },
 ]
 
