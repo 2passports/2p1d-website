@@ -183,10 +183,33 @@ export const discountCodes: DiscountCode[] = [
     category: 'Connectivity and Online Safety',
   },
   {
+    name: 'Incogni',
+    offer: '60% off',
+    code: '2PASSPORTS',
+    affiliateUrl: 'https://incogni.com/2passports',
+    description:
+      'Incogni is a personal data removal service that sends removal requests to data brokers and people-search sites on your behalf, helping automate the work of making personal details harder to find online.',
+    shortDescription:
+      'A personal data removal service that sends removal requests to data brokers and people-search sites on your behalf.',
+    whyUseIt:
+      'Working online leaves personal details scattered across data brokers and people-search sites, and Incogni aims to automate the removal requests rather than leaving you to chase each site yourself.',
+    bestFor:
+      'Reducing how easily personal details can be found online, cutting down unwanted contact and managing a public-facing online presence.',
+    personalNote:
+      'As travel creators we have a much bigger online footprint than most people, so this kind of tool is relevant to us.',
+    bestForTags: ['Online privacy', 'Data removal', 'Public-facing work'],
+    buttonLabel: 'Get 60% off Incogni',
+    slug: 'incogni',
+    badgeText: 'Incogni',
+    logoImage: '/logos/incogni.png',
+    category: 'Connectivity and Online Safety',
+  },
+  {
     name: 'Gomatic',
     offer: '10% off',
     code: 'PASSPORTSDREAM',
-    affiliateUrl: 'https://gomatic.co.uk/products/the-gomatic-travel-pack?ref=2Passports1Dream',
+    affiliateUrl:
+      'https://nomatic.co.uk/collections/best-sellers/products/nomatic-travel-pack?ref=2Passports1Dream',
     description:
       'Gomatic makes practical travel bags and backpacks designed for organised packing, short trips and everyday travel.',
     shortDescription:
@@ -526,6 +549,27 @@ export const discountCodes: DiscountCode[] = [
     slug: 'ag1',
     badgeText: 'AG1',
     logoImage: '/logos/ag1.webp',
+    category: 'Travel Health and Lifestyle',
+  },
+  {
+    name: 'Babbel',
+    offer: '20% off Lifetime',
+    code: 'TWOPASSPORTS',
+    affiliateUrl: 'https://babbel.yt.link/rl5PSpJ',
+    description:
+      'Babbel is a subscription language-learning platform and app built around short lessons and practical, real-world conversation, with 20% off a Lifetime subscription using our code.',
+    shortDescription:
+      'A language-learning app built around short lessons and practical, real-world conversation.',
+    whyUseIt:
+      'Even a handful of phrases makes travelling more enjoyable, and short lessons are easier to keep up with on the road than long study sessions.',
+    bestFor: 'Learning travel phrases, learning a partner or family language, and beginners who want structured, bite-sized lessons.',
+    personalNote:
+      'Adriana is Swedish, so Dylan uses Babbel to work on his Swedish.',
+    bestForTags: ['Travel phrases', 'Short lessons', 'Beginners'],
+    buttonLabel: 'Get 20% off Babbel',
+    slug: 'babbel',
+    badgeText: 'Babbel',
+    logoImage: '/logos/babbel.webp',
     category: 'Travel Health and Lifestyle',
   },
 ]

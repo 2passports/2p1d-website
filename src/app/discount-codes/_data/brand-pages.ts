@@ -267,7 +267,7 @@ export const gomatic: BrandPageData = {
   name: 'Gomatic',
   slug: 'gomatic',
   affiliateUrl:
-    'https://gomatic.co.uk/products/the-gomatic-travel-pack?ref=2Passports1Dream',
+    'https://nomatic.co.uk/collections/best-sellers/products/nomatic-travel-pack?ref=2Passports1Dream',
   offer: '10% off',
   code: 'PASSPORTSDREAM',
   buttonLabel: 'Shop Gomatic',
@@ -1436,4 +1436,263 @@ export const ag1: BrandPageData = {
   ],
   importantNotes:
     'No code is needed. The extra 20% off applies to your first subscription order and is a limited-time offer. Offers and terms can change, so always check the current details before subscribing.',
+}
+
+export const incogni: BrandPageData = {
+  name: 'Incogni',
+  slug: 'incogni',
+  affiliateUrl: 'https://incogni.com/2passports',
+  offer: '60% off',
+  code: '2PASSPORTS',
+  buttonLabel: 'Get 60% off Incogni',
+  logoImage: '/logos/incogni.png',
+  badgeText: 'Incogni',
+  boldCodeInCopy: true,
+  seoTitle: 'Incogni Discount Code 2026: 60% Off | 2Passports1Dream',
+  seoDescription:
+    'Get 60% off Incogni in 2026 with code 2PASSPORTS. Learn how Incogni helps remove personal information from data brokers and reduce unwanted exposure online.',
+  heroHeading: 'Incogni Discount Code',
+  heroTagline:
+    'Incogni is a personal data removal service built to remove your personal information from data brokers and people-search websites. Use coupon code 2PASSPORTS at checkout to get an exclusive 60% discount on Incogni.',
+  intro:
+    'Most of us have personal details sitting on websites we have never visited. Data brokers and people-search sites collect information such as names, addresses, phone numbers and email addresses, then package it up for anyone willing to pay or search. Incogni is designed to handle the removal requests for you rather than leaving you to contact each company yourself.',
+  seoIntro: [
+    'Looking for an Incogni discount code in 2026? Use our Incogni coupon code 2PASSPORTS at checkout for 60% off. The same code works whether you are searching for an Incogni promo code 2026, an Incogni voucher or simply the current Incogni 60% off deal.',
+    'Incogni is a personal data removal service that sends removal requests to data brokers and people-search sites on your behalf. It aims to make your personal details harder to find online, which can help reduce the exposure that feeds spam calls, spam emails and scam targeting.',
+  ],
+  whatItIs: [
+    'Incogni is a personal data removal service designed to help people remove their personal information from data brokers and people-search websites. Once you have created a profile and authorised it to act on your behalf, it contacts covered companies and asks them to delete the data they hold about you.',
+    'It is built around automation. Rather than working through removal forms site by site, Incogni sends the requests, resends them where needed and reports progress back to you through a dashboard, so you can see what has been requested and what has been actioned.',
+  ],
+  whyUseful: [
+    'As travel creators, we have a much bigger online footprint than most people, so services that help reduce how widely personal details are available online are particularly relevant to us. The more your name appears alongside a location, an email address or a phone number, the easier it is for anyone to piece things together.',
+    'Removing data from brokers by hand is slow and repetitive work, and the same details often reappear later. Incogni helps automate data removal requests and can repeat them where needed, which is the part most people would never keep on top of manually. It cannot remove everything from the internet, but it aims to make personal details harder to find in the places that trade in them.',
+  ],
+  bestFor: [
+    'Frequent travellers who are often sharing locations and contact details',
+    'Creators and other public-facing people',
+    'Online business owners',
+    'Anyone receiving a lot of spam calls and spam emails',
+    'People who would rather their personal information was not so easy to look up',
+  ],
+  productRangesHeading: 'What Incogni includes',
+  productRangesIntro:
+    'Incogni publishes the following as part of its service. Features vary by plan, so check what is included on the plan you choose before signing up.',
+  productRanges: [
+    {
+      title: 'Removals',
+      items: [
+        {
+          name: 'Automated removals from 420+ data brokers',
+          description:
+            'Incogni states that it covers more than 420 data brokers and people-search sites with automated removal requests.',
+        },
+        {
+          name: 'Custom Removals on eligible plans',
+          description:
+            'An additional 3,000+ sites are covered by the Custom Removals feature, which is available on eligible plans rather than every plan.',
+        },
+        {
+          name: 'Recurring removals',
+          description:
+            'Removal requests can be resent where data reappears, which matters because listings are often rebuilt over time.',
+        },
+      ],
+    },
+    {
+      title: 'Tracking and account details',
+      items: [
+        {
+          name: 'Progress dashboard',
+          description:
+            'A dashboard and progress reports show which requests have been sent and where they have reached.',
+        },
+        {
+          name: 'Multiple personal details',
+          description:
+            'Support for adding several email addresses, physical addresses and phone numbers, depending on your plan.',
+        },
+        {
+          name: '30-day money-back guarantee',
+          description:
+            'Incogni advertises a 30-day money-back guarantee. Check the current terms at checkout, as these can change.',
+        },
+      ],
+    },
+  ],
+  howToUseSteps: [
+    'Click through to [[Incogni]] using our link.',
+    'Create your Incogni profile with the details you want removed.',
+    'Authorise Incogni to send removal requests on your behalf.',
+    'Enter code 2PASSPORTS at checkout to get 60% off.',
+    'Incogni sends removal requests to covered data brokers and people-search sites, repeats them where needed and tracks progress in your dashboard.',
+  ],
+  faqs: [
+    {
+      question: 'What is the Incogni discount code for 2026?',
+      answer:
+        'Use coupon code 2PASSPORTS at checkout to get an exclusive 60% discount on Incogni. Offer terms and availability may change, so check the final price at checkout.',
+    },
+    {
+      question: 'What is Incogni?',
+      answer:
+        'Incogni is a personal data removal service designed to help people remove their personal information from data brokers and people-search websites. It sends removal requests on your behalf and tracks the progress of those requests.',
+    },
+    {
+      question: 'How does Incogni work?',
+      answer:
+        'You create a profile, authorise Incogni to act on your behalf, and it then sends removal requests to covered data brokers and people-search sites. It can resend requests where needed and reports progress through a dashboard.',
+    },
+    {
+      question: 'Does Incogni remove all of my information from the internet?',
+      answer:
+        'No. Incogni works with the data brokers and people-search sites it covers, so it aims to make personal details harder to find rather than removing you from the internet entirely. Some information, such as content you or others have published, sits outside that process.',
+    },
+    {
+      question: 'Can Incogni stop spam calls and scams?',
+      answer:
+        'It cannot promise that. Reducing how widely your contact details are listed may help reduce unwanted contact over time, but no service can guarantee an end to spam calls, spam emails or scam attempts.',
+    },
+    {
+      question: 'How long does data removal take?',
+      answer:
+        'Timings depend on each broker and how they handle requests, so removals happen gradually rather than all at once. The dashboard is there so you can follow what has been requested and what has been completed.',
+    },
+    {
+      question: 'Does Incogni have a money-back guarantee?',
+      answer:
+        'Incogni advertises a 30-day money-back guarantee. Always check the current terms when you sign up, as offers and terms can change.',
+    },
+  ],
+  importantNotes:
+    'Use code 2PASSPORTS at checkout. Offer terms and availability may change, so check the final price at checkout. Incogni helps automate data removal requests with the brokers and people-search sites it covers, which can help reduce exposure, but it does not guarantee complete removal from the internet, an end to spam or protection from scams or identity theft. Features differ between plans, so check what your chosen plan includes before signing up.',
+}
+
+export const babbel: BrandPageData = {
+  name: 'Babbel',
+  slug: 'babbel',
+  affiliateUrl: 'https://babbel.yt.link/rl5PSpJ',
+  offer: '20% off Lifetime',
+  code: 'TWOPASSPORTS',
+  buttonLabel: 'Get 20% off Babbel',
+  logoImage: '/logos/babbel.webp',
+  badgeText: 'Babbel',
+  boldCodeInCopy: true,
+  seoTitle: 'Babbel Discount Code 2026: 20% Off Lifetime | 2Passports1Dream',
+  seoDescription:
+    'Get 20% off a Babbel Lifetime subscription in 2026 with code TWOPASSPORTS. See how we use Babbel to help Dylan learn Swedish.',
+  heroHeading: 'Babbel Discount Code',
+  heroTagline:
+    'Babbel is a language-learning app built around short lessons and practical, real-world conversation. Get 20% off a Babbel Lifetime subscription with code TWOPASSPORTS.',
+  intro:
+    'Language learning is one of those things that sits on the to-do list for years until something makes it personal. For us, that something is family. Babbel is the app we use for that, and this page explains what it is, how it works and how to use our Babbel discount code.',
+  seoIntro: [
+    'Looking for a Babbel discount code in 2026? Use our Babbel coupon code TWOPASSPORTS at checkout for 20% off a Lifetime subscription. The same TWOPASSPORTS Babbel code applies whether you are searching for a Babbel promo code 2026, a Babbel voucher or the current Babbel 20% off deal.',
+    'Babbel promotes its courses as a way to start speaking a new language in as little as three weeks, although progress will naturally vary from person to person depending on how often you practise and which language you are learning.',
+  ],
+  whatItIs: [
+    'Babbel is a subscription-based language-learning platform and mobile app designed around practical, real-world conversations. Rather than teaching vocabulary in isolation, its lessons are built around situations you are likely to actually find yourself in, from ordering food and asking directions to everyday conversation, work and travel.',
+    'Babbel offers courses in multiple languages, and lessons are generally short, so they are designed to fit into an everyday routine rather than requiring a long study session. Grammar is introduced in context as part of those conversations, which tends to feel less daunting than working through rules on their own.',
+  ],
+  whyUseful: [
+    'This is one we genuinely use. Adriana is Swedish, so Dylan is learning Swedish, and Babbel is part of how he works on it. That makes it a Babbel Swedish course rather than a random language pick, and it is the reason this offer sits on the site at all. We are not going to pretend he is fluent, because learning a language properly takes time, but having short lessons he can do regularly has made it far easier to keep going than the occasional burst of enthusiasm.',
+    'Learning a language is also useful for travelling more generally. You do not need to be anywhere near fluent for it to matter. Even basic phrases, a greeting, a thank you, asking for the bill or apologising for your pronunciation, tend to make everyday interactions warmer and the whole trip more enjoyable. People are usually generous when you make the effort, however rough it sounds.',
+  ],
+  bestFor: [
+    'Travellers who want useful everyday phrases before a trip',
+    'People learning a partner or family language',
+    'Anyone preparing to live or spend longer periods abroad',
+    'Beginners who want structured lessons rather than piecing it together alone',
+    'People who prefer short lessons to very long study sessions',
+  ],
+  productRangesHeading: 'How Babbel works',
+  productRangesIntro:
+    'A quick look at how the lessons are put together. Features and languages can differ between plans, so check what your chosen subscription includes before buying.',
+  productRanges: [
+    {
+      title: 'Lessons and conversation',
+      items: [
+        {
+          name: 'Short lessons',
+          description:
+            'Lessons are generally short and designed to fit into everyday routines rather than requiring long study sessions.',
+        },
+        {
+          name: 'Practical conversation scenarios',
+          description:
+            'Courses focus on practical language for real situations such as travel, work and everyday conversation.',
+        },
+        {
+          name: 'Grammar in context',
+          description:
+            'Grammar is introduced as part of those conversations rather than taught as standalone rules to memorise.',
+        },
+      ],
+    },
+    {
+      title: 'Practice and review',
+      items: [
+        {
+          name: 'Pronunciation and speaking exercises',
+          description:
+            'Speaking and pronunciation exercises are available so you are saying the words rather than only reading them.',
+        },
+        {
+          name: 'Review features',
+          description:
+            'Review exercises help you revisit vocabulary and concepts you have already covered, which is where most of the retention happens.',
+        },
+        {
+          name: 'Multiple languages',
+          description:
+            'Babbel offers courses in a range of languages. Check which languages your plan covers before subscribing.',
+        },
+      ],
+    },
+  ],
+  howToUseSteps: [
+    'Visit [[Babbel]] through our link.',
+    'Choose the eligible Lifetime subscription.',
+    'Enter TWOPASSPORTS at checkout.',
+    'Check that the 20% discount has been applied before paying.',
+  ],
+  faqs: [
+    {
+      question: 'What is the Babbel discount code for 2026?',
+      answer:
+        'Use code TWOPASSPORTS at checkout to get 20% off a Babbel Lifetime subscription. Offer eligibility and terms may change, so check the final price and subscription details before purchasing.',
+    },
+    {
+      question: 'What does the Babbel Lifetime discount apply to?',
+      answer:
+        'This particular offer applies to an eligible Lifetime subscription rather than the monthly or annual plans. Check the plan details and what it includes on the Babbel site before paying, as plan contents and eligibility can change.',
+    },
+    {
+      question: 'What is Babbel?',
+      answer:
+        'Babbel is a subscription-based language-learning platform and app designed around practical, real-world conversations. Lessons are generally short, grammar is taught in context, and there are pronunciation and review exercises alongside the main courses.',
+    },
+    {
+      question: 'Can you really start speaking a new language in three weeks?',
+      answer:
+        'That is Babbel’s marketing positioning rather than a guaranteed outcome. Babbel promotes its courses as a way to start speaking a new language in as little as three weeks, but progress varies from person to person depending on the language, your starting point and how regularly you practise.',
+    },
+    {
+      question: 'Do you actually use Babbel?',
+      answer:
+        'Yes. Adriana is Swedish and Dylan is learning Swedish, so Babbel is part of how he practises. It is a tool we use rather than a code we found.',
+    },
+    {
+      question: 'Is Babbel useful for travel?',
+      answer:
+        'It can be. The courses focus on practical language for situations such as travel and everyday conversation, and even a small number of phrases can make everyday interactions abroad easier and more enjoyable.',
+    },
+    {
+      question: 'Which languages does Babbel offer?',
+      answer:
+        'Babbel offers courses in a range of languages, including Swedish. Language availability can differ by plan, so check which languages your chosen subscription covers before buying.',
+    },
+  ],
+  importantNotes:
+    'Use code TWOPASSPORTS at checkout. Offer eligibility and terms may change, so check the final price and subscription details before purchasing. Babbel is a learning tool rather than a shortcut, so how quickly you progress will depend on the language and how often you practise. Features and languages can differ between plans, so check what is included on the plan you choose.',
 }
