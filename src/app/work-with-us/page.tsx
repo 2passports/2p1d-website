@@ -1,13 +1,60 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { fetchSubscriberCount } from '../lib/youtube'
 import { discountCodes } from '../data/discount-codes'
+import { SOCIAL_FOLLOWERS } from '../data/stats'
+import { brandLinkText } from '../discount-codes/_lib/offer'
+
+const siteUrl = 'https://2passports1dream.com'
+
+// The title names the creator relationship outright rather than the generic
+// "Work With Us", which reads like a supplier page to people and to automated
+// systems alike.
+const PAGE_TITLE = 'Work With 2Passports1Dream Creators | Brand Partnerships'
+const PAGE_DESCRIPTION =
+  'Partner with travel creators Adriana and Dylan from 2Passports1Dream for YouTube sponsorships, tourism campaigns and social media collaborations.'
+
+// The same generated share images used elsewhere on the site. Next replaces
+// these nested objects rather than merging them, so setting openGraph here
+// would otherwise drop both the share image and the creator wording.
+const shareImage = {
+  width: 1200,
+  height: 630,
+  type: 'image/png',
+  alt: '2Passports1Dream travel videos, guides and discount codes',
+}
 
 export const metadata: Metadata = {
-  title: 'Work With Us',
-  description:
-    'Partner with 2Passports1Dream. Adriana and Dylan are travel content creators with over 280,000 YouTube subscribers. Contact us for relevant travel, lifestyle and tech brand partnerships.',
+  // Absolute so the root "%s | 2Passports1Dream" template does not repeat the
+  // channel name that the title already carries.
+  title: { absolute: PAGE_TITLE },
+  description: PAGE_DESCRIPTION,
   alternates: { canonical: '/work-with-us' },
+  openGraph: {
+    type: 'website',
+    siteName: '2Passports1Dream',
+    locale: 'en_GB',
+    url: '/work-with-us',
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    images: [{ url: '/opengraph-image', ...shareImage }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    images: [{ url: '/twitter-image', ...shareImage }],
+  },
+}
+
+// Our own channels. Shared by the audience links below and by the sameAs list
+// in the structured data, so the two can never drift apart.
+const SOCIAL_LINKS = {
+  youtube: 'https://www.youtube.com/@2passports1dream',
+  instagram: 'https://www.instagram.com/2passports1dream',
+  tiktok: 'https://www.tiktok.com/@2passports1dream',
+  facebook: 'https://www.facebook.com/2passports1dream',
 }
 
 // One shared page container used by every section so the content has the
@@ -45,6 +92,59 @@ const whatWeCreate = [
 
 const EMAIL = 'business@2passports1dream.com'
 
+// Who the partnership inbox is for, and who it is not. The welcoming list comes
+// first and is the one styled as primary, because genuine brand enquiries are
+// still the point of this page.
+const contactYes = [
+  'A brand interested in sponsoring our content',
+  'A tourism board or destination',
+  'A hotel, cruise line, airline or travel company',
+  'A PR or influencer agency representing a relevant brand',
+  'A company looking for a creator partnership with 2Passports1Dream',
+]
+
+const contactNo = [
+  'Creators looking for paid work from us',
+  'Agencies selling marketing services to us',
+  'SEO or lead-generation services',
+  'Social media management pitches',
+  'Web development services',
+  'Mass outreach offering to “grow our brand”',
+]
+
+// Structured data describing who we actually are, for search engines and the
+// automated systems that classify sites. Everything here is stated on the page
+// itself. The entity is deliberately typed as a creator brand with its own
+// channels and a partnership contact point, and never as a LocalBusiness,
+// ProfessionalService or anything else implying we sell services.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: {
+    '@type': 'Organization',
+    name: '2Passports1Dream',
+    url: siteUrl,
+    description:
+      'Travel content creators. Adriana and Dylan publish travel videos and social content to their own 2Passports1Dream audience, and work with brands on sponsored content and creator partnerships.',
+    founder: [
+      { '@type': 'Person', name: 'Adriana' },
+      { '@type': 'Person', name: 'Dylan' },
+    ],
+    sameAs: Object.values(SOCIAL_LINKS),
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'Brand partnerships',
+      email: EMAIL,
+      url: `${siteUrl}/work-with-us`,
+    },
+  },
+}
+
+// Shared by the linked and unlinked brand cards so both look identical. The
+// linked variant adds only a subtle lift and shadow on hover.
+const BRAND_CARD =
+  'bg-white rounded-2xl border border-stone-100 shadow-sm p-5 flex flex-col items-center justify-center text-center min-h-[150px]'
+
 // Short, skimmable labels for the brand cards, mapped from the longer
 // category names used in the discount code data.
 const brandCategoryLabels: Record<string, string> = {
@@ -61,6 +161,15 @@ export default async function WorkWithUsPage() {
   const subscriberCount = await fetchSubscriberCount()
   return (
     <>
+      {/* Structured data: identifies 2Passports1Dream as a creator brand run by
+          Adriana and Dylan, publishing to its own channels. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+
       {/* Hero: two columns on desktop (text + email left, photo right),
           stacked on mobile. Sits inside the shared CONTAINER. */}
       <section className="hero-bg py-16 lg:py-20 text-white">
@@ -84,19 +193,36 @@ export default async function WorkWithUsPage() {
             {/* Text and email CTA */}
             <div className="text-center lg:text-left">
               <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-4">
-                Brand Partnerships
+                Creator Partnerships
               </p>
-              <h1 className="text-3xl md:text-4xl font-bold mb-4">Work With Us</h1>
-              <p className="text-white/80 leading-relaxed max-w-md mx-auto lg:mx-0 mb-8">
-                We partner with travel brands, tourism boards, cruise lines, hotels and lifestyle
-                brands that feel like a genuine fit for our audience of curious, engaged travellers.
+              <h1 className="text-3xl md:text-4xl font-bold mb-4">
+                Partner With 2Passports1Dream
+              </h1>
+              <p className="text-white/80 leading-relaxed max-w-md mx-auto lg:mx-0 mb-6">
+                We are Adriana and Dylan, the travel creators behind 2Passports1Dream. We create
+                travel content for our own audience across YouTube, Instagram, TikTok and Facebook,
+                and work directly with brands on sponsored content and creator partnerships.
               </p>
+
+              {/* Role clarification, kept high on the page so both people and
+                  automated systems see it before anything else. */}
+              <div className="bg-white/10 border border-white/20 rounded-2xl px-5 py-4 mb-6 max-w-md mx-auto lg:mx-0 text-left">
+                <p className="text-sm text-white font-medium leading-relaxed">
+                  Are you a brand, tourism board or agency looking to partner with creators?
+                  You&rsquo;re in the right place.
+                </p>
+                <p className="text-xs text-white/60 leading-relaxed mt-2">
+                  Please note: we are content creators, not a brand looking to hire creators,
+                  purchase marketing services or outsource content production.
+                </p>
+              </div>
+
               <div className="flex flex-col items-center lg:items-start gap-3">
                 <a
                   href={`mailto:${EMAIL}`}
                   className="inline-block bg-accent text-white font-semibold px-8 py-3.5 rounded-full hover:bg-accent-dark hover:-translate-y-0.5 transition-all duration-200 shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                 >
-                  Email Us
+                  Brand Partnership Enquiries
                 </a>
                 <a
                   href={`mailto:${EMAIL}`}
@@ -104,6 +230,10 @@ export default async function WorkWithUsPage() {
                 >
                   {EMAIL}
                 </a>
+                <p className="text-xs text-white/60 leading-relaxed max-w-sm">
+                  For sponsorships, creator campaigns, tourism collaborations and media
+                  partnerships.
+                </p>
               </div>
             </div>
 
@@ -115,12 +245,18 @@ export default async function WorkWithUsPage() {
       <section className="py-16">
         <div className={CONTAINER}>
           <h2 className="text-2xl font-bold mb-5 text-primary">Who we are</h2>
+          <p className="text-muted leading-relaxed max-w-3xl mb-4">
+            We are Adriana and Dylan, full-time travel content creators and the couple behind
+            2Passports1Dream. Adriana is from Sweden and Dylan is from North Wales. We create
+            honest, easy-to-watch travel content covering road trips, cruises, city breaks, food,
+            hotels, first impressions and real travel experiences. Our style is laid-back, curious
+            and straightforward. People watch us because our videos feel real, not like adverts.
+          </p>
           <p className="text-muted leading-relaxed max-w-3xl mb-10">
-            We are Adriana and Dylan, the couple behind 2Passports1Dream. Adriana is from Sweden
-            and Dylan is from North Wales. We create honest, easy-to-watch travel content covering
-            road trips, cruises, city breaks, food, hotels, first impressions and real travel
-            experiences. Our style is laid-back, curious and straightforward. People watch us
-            because our videos feel real, not like adverts.
+            Everything we make is published on our own 2Passports1Dream channels, and the audience
+            below is our own. Brands partner with us to reach that audience through sponsored
+            content and creator campaigns. We are not a marketing agency, a production company or a
+            content service provider.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             <div className="bg-white rounded-2xl p-6 text-center border border-stone-100 shadow-sm">
@@ -128,7 +264,7 @@ export default async function WorkWithUsPage() {
               <p className="text-xs text-muted mt-1">YouTube subscribers</p>
             </div>
             <div className="bg-white rounded-2xl p-6 text-center border border-stone-100 shadow-sm">
-              <p className="text-2xl font-bold">737k+</p>
+              <p className="text-2xl font-bold">{SOCIAL_FOLLOWERS}</p>
               <p className="text-xs text-muted mt-1">Social media followers</p>
             </div>
             <div className="bg-surface rounded-2xl p-6 text-center col-span-2 sm:col-span-1">
@@ -148,7 +284,7 @@ export default async function WorkWithUsPage() {
             curious, engaged travellers who watch us to plan trips, discover destinations and get
             honest recommendations before they go. Our community spans{' '}
             <a
-              href="https://www.youtube.com/@2passports1dream"
+              href={SOCIAL_LINKS.youtube}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="2Passports1Dream on YouTube"
@@ -158,7 +294,7 @@ export default async function WorkWithUsPage() {
             </a>
             ,{' '}
             <a
-              href="https://www.instagram.com/2passports1dream"
+              href={SOCIAL_LINKS.instagram}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="2Passports1Dream on Instagram"
@@ -168,7 +304,7 @@ export default async function WorkWithUsPage() {
             </a>
             ,{' '}
             <a
-              href="https://www.tiktok.com/@2passports1dream"
+              href={SOCIAL_LINKS.tiktok}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="2Passports1Dream on TikTok"
@@ -178,7 +314,7 @@ export default async function WorkWithUsPage() {
             </a>
             {' '}and{' '}
             <a
-              href="https://www.facebook.com/2passports1dream"
+              href={SOCIAL_LINKS.facebook}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="2Passports1Dream on Facebook"
@@ -194,7 +330,12 @@ export default async function WorkWithUsPage() {
       {/* What we create */}
       <section className="py-16">
         <div className={CONTAINER}>
-          <h2 className="text-2xl font-bold mb-8 text-primary">What we create</h2>
+          <h2 className="text-2xl font-bold mb-4 text-primary">Creator content we produce</h2>
+          <p className="text-muted leading-relaxed max-w-3xl mb-8">
+            This content is published on our own 2Passports1Dream channels as part of creator
+            campaigns. We do not produce unbranded or white-label content for other companies to
+            publish as their own.
+          </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {whatWeCreate.map((item) => (
               <div
@@ -213,39 +354,64 @@ export default async function WorkWithUsPage() {
       <section className="py-16 border-t border-stone-100">
         <div className={CONTAINER}>
           <div className="mb-8">
-            <h2 className="text-2xl font-bold mb-3 text-primary">Brands we&rsquo;ve worked with</h2>
+            <h2 className="text-2xl font-bold mb-3 text-primary">
+              Brands that have partnered with us as creators
+            </h2>
             <p className="text-muted text-sm leading-relaxed max-w-2xl">
-              A few of the travel, lifestyle and creator-friendly brands we&rsquo;ve featured across
-              our content.
+              A selection of companies that have sponsored or collaborated with 2Passports1Dream
+              across our creator content.
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {discountCodes.map((brand) => (
-              <div
-                key={brand.name}
-                className="bg-white rounded-2xl border border-stone-100 shadow-sm p-5 flex flex-col items-center justify-center text-center min-h-[150px]"
-              >
-                {brand.logoImage && (
-                  <div className="relative w-full h-12 mb-3">
-                    <Image
-                      src={brand.logoImage}
-                      alt={`${brand.name} logo`}
-                      fill
-                      sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 200px"
-                      className="object-contain"
-                    />
-                  </div>
-                )}
-                <p className="text-sm font-semibold text-primary leading-snug">
-                  {brand.name}
-                </p>
-                {brandCategoryLabels[brand.category] && (
-                  <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-muted">
-                    {brandCategoryLabels[brand.category]}
+            {discountCodes.map((brand) => {
+              // The card contents are identical either way. Brands with a
+              // dedicated page become an internal link to it; any brand without
+              // a slug stays a plain card rather than inventing a route.
+              const content = (
+                <>
+                  {brand.logoImage && (
+                    <div className="relative w-full h-12 mb-3">
+                      <Image
+                        src={brand.logoImage}
+                        alt={`${brand.name} logo`}
+                        fill
+                        sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 200px"
+                        className="object-contain"
+                      />
+                    </div>
+                  )}
+                  <p className="text-sm font-semibold text-primary leading-snug">
+                    {brand.name}
                   </p>
-                )}
-              </div>
-            ))}
+                  {brandCategoryLabels[brand.category] && (
+                    <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-muted">
+                      {brandCategoryLabels[brand.category]}
+                    </p>
+                  )}
+                </>
+              )
+
+              if (!brand.slug) {
+                return (
+                  <div key={brand.name} className={BRAND_CARD}>
+                    {content}
+                  </div>
+                )
+              }
+
+              // A normal crawlable internal link. No sponsored or nofollow rel
+              // here, unlike the outbound affiliate links elsewhere on the site.
+              return (
+                <Link
+                  key={brand.name}
+                  href={`/discount-codes/${brand.slug}`}
+                  aria-label={brandLinkText(brand)}
+                  className={`${BRAND_CARD} hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2`}
+                >
+                  {content}
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -253,7 +419,11 @@ export default async function WorkWithUsPage() {
       {/* Partnership categories */}
       <section className="py-16 bg-surface">
         <div className={CONTAINER}>
-          <h2 className="text-2xl font-bold mb-6 text-primary">Partnership categories we consider</h2>
+          <h2 className="text-2xl font-bold mb-4 text-primary">Brand partnerships we consider</h2>
+          <p className="text-muted leading-relaxed max-w-3xl mb-6">
+            We consider sponsorship and creator campaign opportunities from brands in areas that are
+            relevant to our travel audience.
+          </p>
           <div className="flex flex-wrap gap-2.5">
             {brandCategories.map((cat) => (
               <span
@@ -283,12 +453,62 @@ export default async function WorkWithUsPage() {
         </div>
       </section>
 
-      {/* Get in touch */}
+      {/* Who should contact us: the welcoming list is styled as the primary
+          card, with the quieter one beside it, so the page still reads as an
+          invitation rather than a warning. */}
+      <section className="py-16 border-t border-stone-100">
+        <div className={CONTAINER}>
+          <h2 className="text-2xl font-bold mb-8 text-primary">Who should contact us?</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch">
+
+            <div className="bg-white rounded-2xl p-6 sm:p-7 border border-stone-100 shadow-sm">
+              <p className="font-semibold text-base mb-4">
+                We&rsquo;d love to hear from you if you are:
+              </p>
+              <ul className="space-y-3">
+                {contactYes.map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-muted leading-relaxed">
+                    <span
+                      aria-hidden="true"
+                      className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-2"
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-surface rounded-2xl p-6 sm:p-7 border border-stone-100">
+              <p className="font-semibold text-base mb-4">This inbox is not for:</p>
+              <ul className="space-y-3">
+                {contactNo.map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-muted leading-relaxed">
+                    <span
+                      aria-hidden="true"
+                      className="w-1.5 h-1.5 rounded-full bg-stone-300 flex-shrink-0 mt-2"
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+          </div>
+          <p className="text-muted leading-relaxed max-w-3xl mt-6">
+            We are creators seeking brand partnerships, not a company recruiting creators or
+            marketing suppliers. Thank you for understanding.
+          </p>
+        </div>
+      </section>
+
+      {/* Brand partnership enquiries */}
       <section className="py-16 bg-surface">
         <div className={CONTAINER}>
-          <h2 className="text-2xl font-bold mb-4 text-primary">Get in touch</h2>
+          <h2 className="text-2xl font-bold mb-4 text-primary">Brand partnership enquiries</h2>
           <p className="text-muted leading-relaxed max-w-3xl mb-3">
-            For partnership and collaboration enquiries, please email:
+            If you represent a brand, tourism board or agency and would like to discuss a
+            sponsorship or creator partnership with 2Passports1Dream, we&rsquo;d love to hear from
+            you.
           </p>
           <a
             href={`mailto:${EMAIL}`}
@@ -301,7 +521,7 @@ export default async function WorkWithUsPage() {
               href={`mailto:${EMAIL}`}
               className="inline-block bg-accent text-white font-semibold px-8 py-3.5 rounded-full hover:bg-accent-dark hover:-translate-y-0.5 transition-all duration-200 shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
-              Send an Enquiry
+              Send a Partnership Enquiry
             </a>
           </div>
         </div>

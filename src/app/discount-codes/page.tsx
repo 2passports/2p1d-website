@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { discountCodes, supportLinks, type DiscountCode } from '../data/discount-codes'
+import { discountCodes, supportLinks } from '../data/discount-codes'
 import { CopyCodeButton } from '../components/CopyCodeButton'
 import { SPONSORED_LINK_REL } from '../lib/links'
 import { discountSectionMetadata } from './_lib/metadata'
 import {
+  brandLinkText,
   formatOfferDate,
   isOfferAvailable,
   latestVerifiedDate,
@@ -59,14 +60,6 @@ const categoryIntros: Record<string, string> = {
     'Cards and tools that make spending and managing money abroad feel simpler.',
   'Memberships and Perks':
     'Memberships that can unlock VIP perks and preferred pricing across travel, lifestyle and business brands.',
-}
-
-// Descriptive internal link text, e.g. "View Babbel discount code" or, for
-// link-only offers, "View AG1 discount details".
-function brandLinkText(item: DiscountCode): string {
-  return item.code && isOfferAvailable(offerStatusOf(item))
-    ? `View ${item.badgeText} discount code`
-    : `View ${item.badgeText} discount details`
 }
 
 export default function DiscountCodesPage() {

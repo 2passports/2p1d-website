@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { fetchSubscriberCount } from '../lib/youtube'
+import { SOCIAL_FOLLOWERS } from '../data/stats'
 import PhotoGrid from '../components/PhotoGrid'
 
 export const metadata: Metadata = {
@@ -163,7 +164,7 @@ export default async function AboutPage() {
                 </div>
                 <div className="w-px h-10 bg-white/20" />
                 <div>
-                  <p className="text-3xl font-bold">737k+</p>
+                  <p className="text-3xl font-bold">{SOCIAL_FOLLOWERS}</p>
                   <p className="text-xs text-white/60 mt-0.5">Social media followers</p>
                 </div>
               </div>

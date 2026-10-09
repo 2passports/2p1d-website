@@ -44,6 +44,15 @@ export const offerStatusLabels: Record<OfferStatus, string> = {
   ended: 'Ended',
 }
 
+// Descriptive internal link text, e.g. "View Babbel discount code" or, for
+// link-only offers, "View AG1 discount details". Shared so the Discount Codes
+// page and the sponsor logos on Work With Us label the same link identically.
+export function brandLinkText(item: DiscountCode): string {
+  return item.code && isOfferAvailable(offerStatusOf(item))
+    ? `View ${item.badgeText} discount code`
+    : `View ${item.badgeText} discount details`
+}
+
 // The most recent verifiedDate across the given offers, or null if none are set.
 // YYYY-MM-DD strings sort correctly as plain text.
 export function latestVerifiedDate(items: DiscountCode[]): string | null {
