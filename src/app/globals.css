@@ -249,3 +249,66 @@ body {
     display: none;
   }
 }
+
+/* ================================================================
+   SPONSORSHIP ESTIMATOR
+   .estimator-range : the views slider on /for-creators. The track is
+   filled in coral up to the thumb using the --fill custom property,
+   which SponsorshipEstimator.tsx sets inline. The thumb is large for
+   easy touch use and shows a visible ring on keyboard focus.
+   ================================================================ */
+
+.estimator-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 2.75rem;
+  background: transparent;
+  cursor: pointer;
+}
+.estimator-range::-webkit-slider-runnable-track {
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #E76F51 var(--fill), #F0DDB0 var(--fill));
+}
+.estimator-range::-moz-range-track {
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: #F0DDB0;
+}
+.estimator-range::-moz-range-progress {
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: #E76F51;
+}
+.estimator-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-top: -0.625rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 3px solid #E76F51;
+  box-shadow: 0 2px 8px rgba(23, 78, 93, 0.25);
+  transition: transform 0.15s ease;
+}
+.estimator-range::-moz-range-thumb {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 3px solid #E76F51;
+  box-shadow: 0 2px 8px rgba(23, 78, 93, 0.25);
+}
+.estimator-range:active::-webkit-slider-thumb {
+  transform: scale(1.1);
+}
+.estimator-range:focus {
+  outline: none;
+}
+.estimator-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px rgba(23, 78, 93, 0.35);
+}
+.estimator-range:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 4px rgba(23, 78, 93, 0.35);
+}

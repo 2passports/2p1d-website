@@ -498,6 +498,16 @@ export default async function WorkWithUsPage() {
             We are creators seeking brand partnerships, not a company recruiting creators or
             marketing suppliers. Thank you for understanding.
           </p>
+          <p className="text-muted leading-relaxed max-w-3xl mt-3">
+            Are you a creator looking for brand deals yourself? Take a look at how we find{' '}
+            <Link
+              href="/for-creators"
+              className="text-accent font-medium underline underline-offset-2 hover:text-accent-dark transition-colors"
+            >
+              YouTube sponsorships for creators
+            </Link>
+            .
+          </p>
         </div>
       </section>
 

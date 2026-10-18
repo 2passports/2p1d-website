@@ -27,6 +27,7 @@ export default function Footer() {
               <li><Link href="/discount-codes" className="hover:text-accent transition-colors">Discount Codes</Link></li>
               <li><Link href="/discount-codes/klook" className="hover:text-accent transition-colors">Klook Discount Code</Link></li>
               <li><Link href="/work-with-us" className="hover:text-accent transition-colors">Work With Us</Link></li>
+              <li><Link href="/for-creators" className="hover:text-accent transition-colors">For Creators</Link></li>
             </ul>
           </div>
 

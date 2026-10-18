@@ -9,6 +9,7 @@ const navLinks = [
   { href: '/about', label: 'About' },
   { href: '/discount-codes', label: 'Discount Codes' },
   { href: '/work-with-us', label: 'Work With Us' },
+  { href: '/for-creators', label: 'For Creators' },
 ]
 
 export default function Nav() {
@@ -25,7 +26,7 @@ export default function Nav() {
           2Passports<span className="text-accent">1Dream</span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-5 lg:gap-6 text-sm font-medium whitespace-nowrap">
           {navLinks.map(({ href, label }) => (
             <Link
               key={href}
