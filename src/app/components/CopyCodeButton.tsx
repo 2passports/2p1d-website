@@ -6,9 +6,13 @@ type Props = {
   code: string
   // dark: true when rendered on a dark hero background (white text, no fill)
   dark?: boolean
+  // centered: centre the label, code and hint instead of left aligning them
+  centered?: boolean
 }
 
-export function CopyCodeButton({ code, dark = false }: Props) {
+export function CopyCodeButton({ code, dark = false, centered = false }: Props) {
+  const align = centered ? 'text-center' : 'text-left'
+
   const [copied, setCopied] = useState(false)
 
   async function handleCopy() {
@@ -36,7 +40,7 @@ export function CopyCodeButton({ code, dark = false }: Props) {
         type="button"
         onClick={handleCopy}
         aria-label={`Copy discount code ${code}`}
-        className="group block w-full text-left cursor-pointer rounded-lg py-1 hover:bg-white/10 transition-all duration-150"
+        className={`group block w-full ${align} cursor-pointer rounded-lg py-1 hover:bg-white/10 transition-all duration-150`}
       >
         <p className="text-[11px] font-bold uppercase tracking-widest text-white/60 mb-1.5">
           Use code
@@ -59,7 +63,7 @@ export function CopyCodeButton({ code, dark = false }: Props) {
       type="button"
       onClick={handleCopy}
       aria-label={`Copy discount code ${code}`}
-      className="group block w-full text-left rounded-xl bg-[#FFF9EF] border border-[#F0DDB0] hover:border-accent/60 hover:bg-white cursor-pointer transition-all duration-150 p-3.5"
+      className={`group block w-full ${align} rounded-xl bg-[#FFF9EF] border border-[#F0DDB0] hover:border-accent/60 hover:bg-white cursor-pointer transition-all duration-150 p-3.5`}
     >
       <p className="text-[10px] font-bold uppercase tracking-widest text-muted mb-1.5">
         Use code

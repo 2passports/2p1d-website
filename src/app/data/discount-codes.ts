@@ -575,9 +575,9 @@ export const discountCodes: DiscountCode[] = [
   },
   {
     name: 'Coveron',
-    offer: '20% off',
-    code: '2passports1dream',
-    affiliateUrl: 'https://coveron.com/2passports1dream',
+    offer: '71% off',
+    code: 'DREAM',
+    affiliateUrl: 'https://coveron.com/dream',
     description:
       'Coveron is a digital protection service focused on helping you stay safer from online scams.',
     shortDescription:
@@ -586,17 +586,18 @@ export const discountCodes: DiscountCode[] = [
       'While travelling we rely on lots of online accounts and services, so extra protection against scams can be reassuring.',
     bestFor: 'Online safety, scam protection and staying safer across the accounts you use while travelling.',
     personalNote:
-      'The first 100 users get 20% off with code 2passports1dream through our link.',
+      'Get 71% off Coveron this Black Friday with code DREAM through our link.',
     bestForTags: ['Online safety', 'Scam protection', 'Digital security'],
-    buttonLabel: 'Visit Coveron',
+    buttonLabel: 'Get 71% Off Coveron',
     slug: 'coveron',
     badgeText: 'Coveron',
     logoImage: '/logos/coveron.png',
     category: 'Connectivity and Online Safety',
-    verifiedDate: '2026-09-17',
+    verifiedDate: '2026-10-30',
+    contentUpdated: '2026-10-30',
     offerStatus: 'limited',
     partnershipType: 'affiliate',
-    eligibility: ['First 100 users only'],
+    termsNote: 'Black Friday promotion. It can change or end at any time.',
   },
   {
     name: 'Fitnexa SomniPods 3',

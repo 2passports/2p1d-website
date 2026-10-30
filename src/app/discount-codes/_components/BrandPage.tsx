@@ -103,7 +103,8 @@ export function BrandPage({
     whatItIs, whyUseful, bestFor, howToUseSteps, importantNotes,
     seoIntro, whatYouCanBook, destinationsIntro, destinations, faqs,
     realExample, heroHeading, heroImage, heroVideoId,
-    videos, videosHeading, videosIntro, boldCodeInCopy,
+    videos, videosHeading, videosIntro, boldCodeInCopy, centerCodeCard,
+    heroVideoTitle, heroEyebrowFirst,
     productRanges, productRangesHeading, productRangesIntro,
   } = data
 
@@ -208,6 +209,11 @@ export function BrandPage({
 
               {/* Left: logo, heading, intro, code card, CTAs */}
               <div className="text-center lg:text-left">
+                {heroEyebrowFirst && (
+                  <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-4">
+                    Discount Code
+                  </p>
+                )}
                 {logoImage && (
                   <div className="flex justify-center lg:justify-start mb-5">
                     <div className="w-14 h-14 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center p-2.5">
@@ -215,9 +221,11 @@ export function BrandPage({
                     </div>
                   </div>
                 )}
-                <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-3">
-                  Discount Code
-                </p>
+                {!heroEyebrowFirst && (
+                  <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-3">
+                    Discount Code
+                  </p>
+                )}
                 <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
                   {heroHeading ?? name}
                 </h1>
@@ -231,11 +239,11 @@ export function BrandPage({
                 {unavailableStatus ? (
                   <OfferUnavailableNotice status={unavailableStatus} name={name} dark className="mb-6 max-w-sm mx-auto lg:mx-0 text-left" />
                 ) : hasCode ? (
-                  <div className="bg-white/10 border border-white/20 rounded-2xl px-6 py-5 mb-6 max-w-sm mx-auto lg:mx-0">
+                  <div className={`bg-white/10 border border-white/20 rounded-2xl px-6 py-5 mb-6 max-w-sm mx-auto lg:mx-0${centerCodeCard ? ' text-center' : ''}`}>
                     <span className="inline-block bg-accent text-white text-sm font-bold px-3.5 py-1.5 rounded-full shadow-sm mb-3">
                       {offer}
                     </span>
-                    <CopyCodeButton code={code as string} dark />
+                    <CopyCodeButton code={code as string} dark centered={centerCodeCard} />
                     <p className="text-white/40 text-xs mt-2">
                       Offers can change. Check at checkout.
                     </p>
@@ -297,7 +305,7 @@ export function BrandPage({
                     <iframe
                       className="absolute inset-0 h-full w-full"
                       src={`https://www.youtube-nocookie.com/embed/${heroVideoId}`}
-                      title={`${name} feature video`}
+                      title={heroVideoTitle ?? `${name} feature video`}
                       loading="lazy"
                       allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       referrerPolicy="strict-origin-when-cross-origin"
@@ -360,11 +368,11 @@ export function BrandPage({
             {unavailableStatus ? (
               <OfferUnavailableNotice status={unavailableStatus} name={name} dark className="mb-6 max-w-xs mx-auto text-left" />
             ) : hasCode ? (
-              <div className="bg-white/10 border border-white/20 rounded-2xl px-6 py-5 mb-6 max-w-xs mx-auto">
+              <div className={`bg-white/10 border border-white/20 rounded-2xl px-6 py-5 mb-6 max-w-xs mx-auto${centerCodeCard ? ' text-center' : ''}`}>
                 <span className="inline-block bg-accent text-white text-sm font-bold px-3.5 py-1.5 rounded-full shadow-sm mb-3">
                   {offer}
                 </span>
-                <CopyCodeButton code={code as string} dark />
+                <CopyCodeButton code={code as string} dark centered={centerCodeCard} />
                 <p className="text-white/40 text-xs mt-2">
                   Offers can change. Check at checkout.
                 </p>

@@ -22,6 +22,9 @@ export type BrandPageData = {
   // the discount code is easy to spot. Off by default so other pages are
   // unchanged.
   boldCodeInCopy?: boolean
+  // When true, everything inside the hero discount code card is centred.
+  // Off by default so other pages are unchanged.
+  centerCodeCard?: boolean
   seoTitle: string
   seoDescription: string
   heroTagline: string
@@ -53,6 +56,11 @@ export type BrandPageData = {
   // Optional YouTube video id shown on the right of the two-column hero. Takes
   // precedence over heroImage. Use for a playable feature video in the hero.
   heroVideoId?: string
+  // Accessible title for the hero video. Defaults to "{name} feature video".
+  heroVideoTitle?: string
+  // When true, the two-column hero shows the "Discount Code" eyebrow above the
+  // logo rather than below it. Off by default so other pages are unchanged.
+  heroEyebrowFirst?: boolean
   // Optional feature videos interleaved between body sections. Each video names
   // the section it should sit after via `placement`, so the page stays spread
   // out rather than stacking every clip together. videosHeading and videosIntro
@@ -1207,22 +1215,26 @@ export const betterhelp: BrandPageData = {
 export const coveron: BrandPageData = {
   name: 'Coveron',
   slug: 'coveron',
-  affiliateUrl: 'https://coveron.com/2passports1dream',
-  offer: '20% off',
-  code: '2passports1dream',
-  buttonLabel: 'Visit Coveron',
+  affiliateUrl: 'https://coveron.com/dream',
+  offer: '71% off',
+  code: 'DREAM',
+  buttonLabel: 'Get 71% Off Coveron',
   logoImage: '/logos/coveron.png',
   badgeText: 'Coveron',
-  seoTitle: 'Coveron Discount Code 2026: 20% Off | 2Passports1Dream',
+  seoTitle: 'Coveron Black Friday Discount Code 2026 | 71% Off',
   seoDescription:
-    'Use our Coveron discount code 2passports1dream for 20% off in 2026. Coveron is a digital protection service focused on online scam safety, and the first 100 users get 20% off with 2Passports1Dream.',
-  heroHeading: 'Coveron Discount Code',
+    'Get 71% off Coveron this Black Friday with code DREAM. Use our Coveron discount link and code to save on scam protection.',
+  heroHeading: 'Coveron Black Friday Discount Code',
+  heroVideoId: 'rzbouDEZyC4',
+  heroVideoTitle: 'Watch our Coveron video',
+  heroEyebrowFirst: true,
+  centerCodeCard: true,
   heroTagline:
-    'Coveron is a digital protection service focused on online safety. The first 100 users get 20% off with code 2passports1dream.',
+    'Get 71% off Coveron this Black Friday with code DREAM. One scam can cost you everything. Protect yourself now with Coveron and save 71% this Black Friday.',
   intro:
-    'Staying safe online matters more than ever when you are travelling and relying on lots of accounts and services. Coveron is a digital protection service focused on helping you stay safer from online scams, and the first 100 users get 20% off with our code.',
+    'Staying safe online matters more than ever when you are travelling and relying on lots of accounts and services. Coveron is a digital protection service focused on helping you stay safer from online scams, and this Black Friday you can get 71% off with our code DREAM.',
   seoIntro: [
-    'Looking for a Coveron discount code or promo code for 2026? Use our code 2passports1dream at checkout. The offer gives 20% off for the first 100 users.',
+    'Looking for a Coveron Black Friday discount code or promo code for 2026? Use our code DREAM through our Coveron link to get 71% off.',
     'Coveron is aimed at online safety and scam protection, which can be reassuring when so much of travel now runs through online accounts, bookings and payments.',
   ],
   whatItIs: [
@@ -1241,20 +1253,20 @@ export const coveron: BrandPageData = {
   ],
   howToUseSteps: [
     'Click our Coveron link to visit their website.',
-    'Enter code 2passports1dream where prompted.',
-    'Remember the 20% off applies to the first 100 users.',
+    'Enter code DREAM where prompted.',
+    'Check that the 71% Black Friday discount has been applied.',
     'Check the current price and terms before signing up.',
   ],
   faqs: [
     {
       question: 'What is the Coveron discount code?',
       answer:
-        'The code is 2passports1dream. Enter it at checkout to get 20% off. The offer is limited to the first 100 users.',
+        'The code is DREAM. Use it through our Coveron link to get 71% off this Black Friday.',
     },
     {
       question: 'Is the Coveron offer limited?',
       answer:
-        'Yes. The 20% off is available to the first 100 users, so it may not last. Always check the current price and terms before signing up.',
+        'Yes. The 71% off is a Black Friday promotion and may be time-limited. Black Friday offers can change or end at any time, so check the latest terms on Coveron before purchasing.',
     },
     {
       question: 'How is Coveron relevant to travel?',
@@ -1263,7 +1275,7 @@ export const coveron: BrandPageData = {
     },
   ],
   importantNotes:
-    'The 20% off offer is for the first 100 users only and may not last. Offers and terms can change, so always check the current details before signing up.',
+    'The 71% off is a Black Friday promotion and may be time-limited. Black Friday offers can change or end at any time, so check the latest terms on Coveron before purchasing.',
 }
 
 export const fitnexaSomnipods3: BrandPageData = {
