@@ -675,6 +675,31 @@ export const discountCodes: DiscountCode[] = [
     eligibility: ['First subscription order only', 'Limited-time offer'],
   },
   {
+    name: 'Grüns',
+    offer: '55% off',
+    code: null,
+    affiliateUrl: 'https://www.gruns.co/pages/vip?snowball=PASSPORTSD66621',
+    description:
+      'Grüns makes individually packed superfood gummies, with 55% off through our referral link.',
+    shortDescription:
+      'Individually packed daily superfood gummies, with 55% off through our referral link.',
+    whyUseIt:
+      'Individually packed daily servings are easy to take with you when travelling.',
+    bestFor: 'Gummy format, individually packed servings and keeping a simple routine while travelling.',
+    personalNote:
+      'No code needed. Our referral link currently gives 55% off, shown on the Grüns landing page.',
+    bestForTags: ['Superfood gummies', 'Daily packs', 'Travel friendly'],
+    buttonLabel: 'Get 55% Off Grüns',
+    slug: 'gruns',
+    badgeText: 'Grüns',
+    logoImage: '/logos/gruns.png',
+    category: 'Travel Health and Lifestyle',
+    verifiedDate: '2026-10-30',
+    dateAdded: '2026-10-30',
+    offerStatus: 'active',
+    partnershipType: 'referral',
+  },
+  {
     name: 'Babbel',
     offer: '20% off Lifetime',
     code: 'TWOPASSPORTS',

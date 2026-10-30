@@ -28,9 +28,19 @@ export type BrandPageData = {
   seoTitle: string
   seoDescription: string
   heroTagline: string
+  // Optional hero eyebrow text. Defaults to "Discount Code".
+  heroEyebrow?: string
+  // Optional line on the link-only hero offer card (when code is null).
+  // Defaults to "Click here".
+  heroOfferCardLabel?: string
   intro: string
   whatItIs: string[]
+  // Optional extra sections shown after What is [Brand], each with a heading,
+  // paragraphs and an optional small note such as a disclaimer.
+  infoSections?: BrandInfoSection[]
   whyUseful: string[]
+  // Optional heading for the whyUseful card. Defaults to "Why we find it useful".
+  whyUsefulHeading?: string
   bestFor: string[]
   howToUseSteps: string[]
   importantNotes: string
@@ -73,6 +83,12 @@ export type BrandPageData = {
   productRangesHeading?: string
   productRangesIntro?: string
   productRanges?: ProductRangeGroup[]
+}
+
+export type BrandInfoSection = {
+  heading: string
+  paragraphs: string[]
+  note?: string
 }
 
 export type ProductRangeItem = {
@@ -1722,4 +1738,116 @@ export const babbel: BrandPageData = {
   ],
   importantNotes:
     'Use code TWOPASSPORTS at checkout. Offer eligibility and terms may change, so check the final price and subscription details before purchasing. Babbel is a learning tool rather than a shortcut, so how quickly you progress will depend on the language and how often you practise. Features and languages can differ between plans, so check what is included on the plan you choose.',
+}
+
+export const gruns: BrandPageData = {
+  name: 'Grüns',
+  slug: 'gruns',
+  affiliateUrl: 'https://www.gruns.co/pages/vip?snowball=PASSPORTSD66621',
+  offer: '55% off',
+  code: null,
+  buttonLabel: 'Get 55% Off Grüns',
+  logoImage: '/logos/gruns.png',
+  badgeText: 'Grüns',
+  seoTitle: 'Grüns Discount Code 2026 | Get 55% Off',
+  seoDescription:
+    'Get 55% off Grüns through our referral link. See the latest Grüns discount, how the offer works and what is included in Grüns superfood gummies.',
+  heroEyebrow: 'Discount',
+  heroHeading: 'Grüns Discount: Get 55% Off',
+  heroOfferCardLabel: 'Discount applied through our Grüns link',
+  heroTagline:
+    'Save 55% on Grüns through our referral link. Grüns makes daily superfood gummies containing vitamins, minerals, prebiotic fibre and a blend of fruit, vegetables and other ingredients in individually packed daily servings.',
+  intro:
+    'Grüns makes superfood gummies that come in individually packed daily servings, which makes them easy to keep in a bag or suitcase. Through our referral link you can currently get 55% off, with no separate code needed.',
+  seoIntro: [
+    'Looking for a Grüns discount code or promo code? Our current Grüns offer is accessed through our referral link rather than a code. Follow the link to see the 55% off and the purchasing options available.',
+    'Grüns runs different promotions depending on how you buy, so the final discount and price are always shown on the Grüns website. Check the offer there before purchasing.',
+  ],
+  whatItIs: [
+    'Grüns makes individually packed superfood gummies designed as a convenient way to add a broad range of nutrients to your daily routine.',
+    'According to Grüns, the adult formula contains 60 ingredients, including 21 vitamins and minerals and 6g of prebiotic fibre.',
+  ],
+  infoSections: [
+    {
+      heading: 'What is the Grüns discount?',
+      paragraphs: [
+        'Our Grüns referral link currently gives access to a 55% discount. Follow the link above to see the current offer and purchasing options.',
+        'No discount code is needed. The offer is shown on the Grüns landing page when you arrive through our link, and the final discount can change.',
+      ],
+    },
+    {
+      heading: 'What is inside Grüns?',
+      paragraphs: [
+        'Grüns says its formula includes vitamins and minerals, whole fruits and vegetables, prebiotics, adaptogens, herbs, antioxidants and mushrooms. Grüns says its formula is designed to support areas including digestion, energy and general wellness.',
+        'Grüns also says its products are third-party tested, including testing for pesticides, heavy metals, contaminants and microbial contaminants. Check the Grüns website for the full ingredient list and nutrition information.',
+      ],
+      note:
+        'Grüns is a dietary supplement. These statements have not been evaluated by the US Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.',
+    },
+    {
+      heading: 'Grüns Low Sugar vs Sugar-Free',
+      paragraphs: [
+        'Grüns offers both a Low Sugar and a Sugar-Free version of its gummies, so you can choose the one that suits your own preferences.',
+        'The Grüns website lists the ingredients and nutrition information for each version, so it is worth comparing them there before you buy.',
+      ],
+    },
+    {
+      heading: 'Subscription or one-time purchase',
+      paragraphs: [
+        'Grüns offers both subscription and one-time purchase options, and the pricing differs between them. The current prices for each are shown on the Grüns website.',
+        'Grüns advertises a 30-day money-back guarantee, with return shipping excluded. Check the latest terms on the Grüns website before purchasing.',
+      ],
+    },
+  ],
+  whyUsefulHeading: 'Why people may like Grüns',
+  whyUseful: [
+    'Each daily serving comes individually packed, so there is no measuring and it is easy to take a few packs with you when travelling.',
+    'Some people simply prefer a gummy format to powders or capsules. With a broad nutrient blend, Low Sugar and Sugar-Free versions, and subscription or one-time purchase options, there are a few ways to try it.',
+  ],
+  bestFor: [
+    'People who prefer gummies to powders or capsules',
+    'Travellers who want individually packed daily servings',
+    'Anyone choosing between Low Sugar and Sugar-Free options',
+    'People who want to choose a subscription or a one-time purchase',
+  ],
+  howToUseSteps: [
+    'Click our Grüns link to visit their website.',
+    'Check the 55% off offer shown on the Grüns landing page.',
+    'Choose your version and a subscription or one-time purchase.',
+    'Check the latest price and terms before purchasing.',
+  ],
+  faqs: [
+    {
+      question: 'What is the Grüns discount?',
+      answer:
+        'Our Grüns referral link currently gives access to 55% off. The final offer is shown on the Grüns landing page and can change.',
+    },
+    {
+      question: 'Do I need a Grüns discount code?',
+      answer:
+        'No. Our current offer is accessed through our referral link, so no separate code is required unless the Grüns checkout says otherwise.',
+    },
+    {
+      question: 'What are Grüns gummies?',
+      answer:
+        'Grüns gummies are individually packed superfood gummies. According to Grüns, the adult formula contains 60 ingredients, including 21 vitamins and minerals and 6g of prebiotic fibre.',
+    },
+    {
+      question: 'Does Grüns offer a subscription?',
+      answer:
+        'Yes. Grüns offers subscription and one-time purchase options, and the pricing differs between them. Check the Grüns website for current prices.',
+    },
+    {
+      question: 'Does Grüns have a sugar-free option?',
+      answer:
+        'Yes. Grüns offers a Sugar-Free version as well as a Low Sugar version.',
+    },
+    {
+      question: 'Is Grüns suitable for travel?',
+      answer:
+        'The daily servings come in individual packs, which makes them easy to carry. If you are flying or crossing borders, check any rules on bringing supplements into your destination.',
+    },
+  ],
+  importantNotes:
+    'Offer and subscription pricing can change. Check the Grüns website for the latest price before purchasing. Grüns is a dietary supplement and is not intended to diagnose, treat, cure or prevent any disease.',
 }

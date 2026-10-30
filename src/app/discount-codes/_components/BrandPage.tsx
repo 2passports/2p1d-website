@@ -104,7 +104,8 @@ export function BrandPage({
     seoIntro, whatYouCanBook, destinationsIntro, destinations, faqs,
     realExample, heroHeading, heroImage, heroVideoId,
     videos, videosHeading, videosIntro, boldCodeInCopy, centerCodeCard,
-    heroVideoTitle, heroEyebrowFirst,
+    heroVideoTitle, heroEyebrowFirst, heroEyebrow, heroOfferCardLabel,
+    infoSections, whyUsefulHeading,
     productRanges, productRangesHeading, productRangesIntro,
   } = data
 
@@ -211,7 +212,7 @@ export function BrandPage({
               <div className="text-center lg:text-left">
                 {heroEyebrowFirst && (
                   <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-4">
-                    Discount Code
+                    {heroEyebrow ?? 'Discount Code'}
                   </p>
                 )}
                 {logoImage && (
@@ -223,7 +224,7 @@ export function BrandPage({
                 )}
                 {!heroEyebrowFirst && (
                   <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-3">
-                    Discount Code
+                    {heroEyebrow ?? 'Discount Code'}
                   </p>
                 )}
                 <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
@@ -260,7 +261,7 @@ export function BrandPage({
                       {offer}
                     </span>
                     <p className="text-sm text-white/80 font-medium mt-1">
-                      Click here
+                      {heroOfferCardLabel ?? 'Click here'}
                     </p>
                     <p className="text-white/40 text-xs mt-2">
                       Offers can change. Check at checkout.
@@ -343,7 +344,7 @@ export function BrandPage({
         <section className="hero-bg py-16 px-4 text-white">
           <div className="max-w-2xl mx-auto text-center">
             <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-4">
-              Discount Code
+              {heroEyebrow ?? 'Discount Code'}
             </p>
 
             {/* Logo */}
@@ -389,7 +390,7 @@ export function BrandPage({
                   {offer}
                 </span>
                 <p className="text-sm text-white/80 font-medium mt-1">
-                  Click here
+                  {heroOfferCardLabel ?? 'Click here'}
                 </p>
                 <p className="text-white/40 text-xs mt-2">
                   Offers can change. Check at checkout.
@@ -459,6 +460,22 @@ export function BrandPage({
               ))}
             </div>
           </section>
+
+          {/* Extra information sections (optional): heading, two-column
+              paragraphs and an optional small note, styled like What is [Brand] */}
+          {infoSections?.map((infoSection) => (
+            <section key={infoSection.heading}>
+              <h2 className="text-xl font-bold mb-5">{infoSection.heading}</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
+                {infoSection.paragraphs.map((para, i) => (
+                  <p key={i} className="text-muted leading-relaxed">{renderCopy(para, affiliateUrl, codeToBold)}</p>
+                ))}
+              </div>
+              {infoSection.note && (
+                <p className="text-xs text-muted leading-relaxed mt-4 max-w-4xl">{infoSection.note}</p>
+              )}
+            </section>
+          ))}
 
           {/* Feature videos (optional): after What is [Brand] */}
           {renderVideos('afterWhatItIs')}
@@ -609,7 +626,7 @@ export function BrandPage({
           {/* Why we find it useful + Best for: two cards side by side */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch">
             <section className="bg-surface rounded-2xl p-6">
-              <h2 className="text-xl font-bold mb-4">Why we find it useful</h2>
+              <h2 className="text-xl font-bold mb-4">{whyUsefulHeading ?? 'Why we find it useful'}</h2>
               {whyUseful.map((para, i) => (
                 <p key={i} className="text-muted leading-relaxed mb-4 last:mb-0">{para}</p>
               ))}
