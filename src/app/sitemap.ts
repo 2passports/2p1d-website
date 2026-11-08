@@ -30,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     { url: `${siteUrl}/work-with-us`, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${siteUrl}/for-creators`, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${siteUrl}/tiktok-awards-2026`, lastModified: '2026-11-07', changeFrequency: 'weekly', priority: 0.7 },
   ]
 
   const brandPages: MetadataRoute.Sitemap = discountPages.map((code) => {
