@@ -46,3 +46,7 @@ next-env.d.ts
 *.dng
 *.HEIC
 *.heic
+
+# original full-size photos (the site uses the copies in public/images/gallery)
+public/images/DylanAdriana*.jpg
+public/images/DylanAdriana*.JPG
