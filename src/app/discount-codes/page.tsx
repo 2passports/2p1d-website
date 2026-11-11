@@ -155,6 +155,37 @@ export default function DiscountCodesPage() {
             </div>
           </section>
 
+          {/* From our travels: a compact image and text split that makes the
+              page feel personal without pushing the offers far down. */}
+          <section
+            aria-labelledby="travels-heading"
+            className="mb-6 rounded-2xl border border-[#F0DDB0] bg-white shadow-sm overflow-hidden grid grid-cols-1 sm:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]"
+          >
+            <div className="relative aspect-[16/9] sm:aspect-auto sm:min-h-[220px] bg-stone-100">
+              <Image
+                src="/images/gallery/DylanAdriana7153.jpg"
+                alt="Adriana and Dylan enjoying a drink while travelling"
+                fill
+                sizes="(max-width: 640px) 100vw, 460px"
+                className="object-cover"
+                style={{ objectPosition: 'center 40%' }}
+              />
+            </div>
+            <div className="px-6 py-7 sm:px-8 flex flex-col justify-center">
+              <p className="text-[11px] font-bold uppercase tracking-widest text-accent mb-2">
+                From our travels
+              </p>
+              <h2 id="travels-heading" className="text-xl font-bold text-primary mb-3">
+                Deals from the brands we travel and create with
+              </h2>
+              <p className="text-sm text-muted leading-relaxed max-w-xl">
+                Every code here comes from a brand, service or product we use ourselves or have
+                worked with while travelling and making our videos. Each offer page explains what it
+                is and who it suits, so you can decide whether it fits your own trips.
+              </p>
+            </div>
+          </section>
+
           {/* Find what you need */}
           <div className="mb-12 rounded-2xl border border-[#F0DDB0] bg-white shadow-sm px-6 py-7 sm:px-8">
             <p className="text-[11px] font-bold uppercase tracking-widest text-accent mb-2">

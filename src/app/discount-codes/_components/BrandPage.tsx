@@ -105,7 +105,7 @@ export function BrandPage({
     realExample, heroHeading, heroImage, heroVideoId,
     videos, videosHeading, videosIntro, boldCodeInCopy, centerCodeCard,
     heroVideoTitle, heroEyebrowFirst, heroEyebrow, heroOfferCardLabel,
-    infoSections, whyUsefulHeading,
+    infoSections, whyUsefulHeading, lifestyleImage,
     productRanges, productRangesHeading, productRangesIntro,
   } = data
 
@@ -451,15 +451,46 @@ export function BrandPage({
             )}
           </div>
 
-          {/* What is [Brand]: two-column paragraphs fill the width */}
-          <section>
-            <h2 className="text-xl font-bold mb-5">What is {name}?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
-              {whatItIs.map((para, i) => (
-                <p key={i} className="text-muted leading-relaxed">{renderCopy(para, affiliateUrl, codeToBold)}</p>
-              ))}
-            </div>
-          </section>
+          {/* What is [Brand]: two-column paragraphs fill the width. With an
+              optional lifestyleImage, the copy sits on the left and a photo of
+              us on the right (stacked below lg). This is below the hero, so
+              the offer and CTA stay where they are. */}
+          {lifestyleImage ? (
+            <section className="grid grid-cols-1 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-8 lg:gap-12 items-center">
+              <div>
+                <h2 className="text-xl font-bold mb-5">What is {name}?</h2>
+                <div className="space-y-4">
+                  {whatItIs.map((para, i) => (
+                    <p key={i} className="text-muted leading-relaxed">{renderCopy(para, affiliateUrl, codeToBold)}</p>
+                  ))}
+                </div>
+              </div>
+              <figure className="w-full max-w-xl lg:max-w-none">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md ring-1 ring-black/5 bg-stone-100">
+                  <Image
+                    src={lifestyleImage.src}
+                    alt={lifestyleImage.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 576px, 440px"
+                    className="object-cover"
+                    style={{ objectPosition: lifestyleImage.objectPosition ?? 'center center' }}
+                  />
+                </div>
+                {lifestyleImage.caption && (
+                  <figcaption className="text-xs text-muted mt-2">{lifestyleImage.caption}</figcaption>
+                )}
+              </figure>
+            </section>
+          ) : (
+            <section>
+              <h2 className="text-xl font-bold mb-5">What is {name}?</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
+                {whatItIs.map((para, i) => (
+                  <p key={i} className="text-muted leading-relaxed">{renderCopy(para, affiliateUrl, codeToBold)}</p>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Extra information sections (optional): heading, two-column
               paragraphs and an optional small note, styled like What is [Brand] */}

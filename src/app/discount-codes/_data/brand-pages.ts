@@ -63,6 +63,11 @@ export type BrandPageData = {
   // two-column hero (text and code on the left, image on the right).
   heroHeading?: string
   heroImage?: { src: string; alt: string; badge?: string; objectPosition?: string }
+  // Optional photo of us shown beside the What is [Brand] section, below the
+  // hero so it never pushes the offer down. Use the web-sized copies in
+  // /images/gallery. Keep alt text neutral: do not imply the photo shows the
+  // product unless it clearly does.
+  lifestyleImage?: { src: string; alt: string; caption?: string; objectPosition?: string }
   // Optional YouTube video id shown on the right of the two-column hero. Takes
   // precedence over heroImage. Use for a playable feature video in the hero.
   heroVideoId?: string
@@ -245,6 +250,11 @@ export const djiMicMini: BrandPageData = {
   code: null,
   buttonLabel: 'Shop DJI',
   logoImage: '/logos/djimicmini.webp',
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana1947.jpg',
+    alt: 'Adriana and Dylan filming together during a city trip',
+    objectPosition: 'center 50%',
+  },
   badgeText: 'DJI',
   seoTitle: 'DJI Mic Mini Discount Code 2026 | 25% Off Through Our Link',
   seoDescription:
@@ -302,6 +312,11 @@ export const gomatic: BrandPageData = {
   code: 'PASSPORTSDREAM',
   buttonLabel: 'Shop Gomatic',
   logoImage: '/logos/gomatic.webp',
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana4332.jpg',
+    alt: 'Adriana and Dylan exploring a city on foot',
+    objectPosition: 'center 45%',
+  },
   badgeText: 'Gomatic',
   seoTitle: 'Gomatic Discount Code | 2Passports1Dream',
   seoDescription:
@@ -343,6 +358,11 @@ export const holafly: BrandPageData = {
   code: '2passports1dream',
   buttonLabel: 'Get eSIM',
   logoImage: '/logos/holafly.webp',
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana1395.jpg',
+    alt: 'Adriana and Dylan exploring a city waterfront abroad',
+    objectPosition: 'center 40%',
+  },
   badgeText: 'Holafly',
   seoTitle: 'Holafly eSIM Discount Code | 2Passports1Dream',
   seoDescription:
@@ -427,6 +447,11 @@ export const level8: BrandPageData = {
   code: '2P1D10',
   buttonLabel: 'Shop Level8',
   logoImage: '/logos/Level8.webp',
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana2270.jpg',
+    alt: 'Adriana and Dylan on the deck of a ship at the start of a trip',
+    objectPosition: 'center 40%',
+  },
   badgeText: 'Level8',
   seoTitle: 'Level8 Luggage Discount Code | 2Passports1Dream',
   seoDescription:
@@ -467,6 +492,11 @@ export const ultrahuman: BrandPageData = {
   code: null,
   buttonLabel: 'Shop Ultrahuman',
   logoImage: '/logos/Ultrahuman.webp',
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana5491.jpg',
+    alt: 'Adriana skiing on a sunny day',
+    objectPosition: 'center 55%',
+  },
   badgeText: 'Ultrahuman',
   seoTitle: 'Ultrahuman Smart Ring Discount Code 2026 | Our Latest Offer',
   seoDescription:
@@ -587,6 +617,11 @@ export const currensea: BrandPageData = {
   code: null,
   buttonLabel: 'Get Currensea',
   logoImage: '/logos/Currensea.webp',
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana8719.jpg',
+    alt: 'Adriana and Dylan enjoying a drink abroad',
+    objectPosition: 'center 40%',
+  },
   badgeText: 'Currensea',
   seoTitle: 'Currensea Discount Code 2026 | £10 Free Travel Card Offer',
   seoDescription:
@@ -644,6 +679,11 @@ export const mantaSleep: BrandPageData = {
   code: '2passports10',
   buttonLabel: 'Shop Manta Sleep',
   logoImage: '/logos/mantasleep.png',
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana3664.jpg',
+    alt: 'Adriana and Dylan settling in on a flight',
+    objectPosition: 'center 50%',
+  },
   badgeText: 'Manta Sleep',
   seoTitle: 'Manta Sleep Discount Code | 2Passports1Dream',
   seoDescription:
@@ -685,6 +725,11 @@ export const vessi: BrandPageData = {
   code: null,
   buttonLabel: 'Shop Vessi',
   logoImage: '/logos/vessi.webp',
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana6148 2.jpg',
+    alt: 'Adriana walking at a mountain viewpoint',
+    objectPosition: 'center 55%',
+  },
   badgeText: 'Vessi',
   seoTitle: 'Vessi Discount Code 2026 | 15% Off Your First Order',
   seoDescription:
@@ -742,6 +787,11 @@ export const founderscard: BrandPageData = {
   code: 'VIP2PASSPORTS',
   buttonLabel: 'Visit FoundersCard',
   logoImage: '/logos/Founderscard.avif',
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana1348.jpg',
+    alt: 'Adriana and Dylan settling into their seats on a long-haul flight',
+    objectPosition: 'center 50%',
+  },
   badgeText: 'FoundersCard',
   seoTitle: 'FoundersCard Discount Code | Free Preview and 70% Off Elite Upgrade',
   seoDescription:
@@ -898,6 +948,11 @@ export const simify: BrandPageData = {
   code: 'PASSPORT',
   buttonLabel: 'Visit Simify',
   logoImage: '/logos/simify.png',
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana2162.jpg',
+    alt: 'Adriana and Dylan exploring a busy city street',
+    objectPosition: 'center 45%',
+  },
   badgeText: 'Simify',
   seoTitle: 'Simify Discount Code | 15% Off Travel eSIMs',
   seoDescription:
@@ -1058,6 +1113,11 @@ export const jackery: BrandPageData = {
   secondaryLabel: 'Buy on Amazon',
   boldCodeInCopy: true,
   logoImage: '/logos/jackery.png',
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana6598 2.jpg',
+    alt: 'Adriana with a convertible on a road trip',
+    objectPosition: 'center 60%',
+  },
   badgeText: 'Jackery',
   seoTitle: 'Jackery Discount Code | 5% Off Portable Power Stations',
   seoDescription:
@@ -1432,6 +1492,11 @@ export const ag1: BrandPageData = {
   code: null,
   buttonLabel: 'Visit AG1',
   logoImage: '/logos/ag1.webp',
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana0234.jpg',
+    alt: 'Adriana and Dylan starting the day with a coffee',
+    objectPosition: 'center 45%',
+  },
   badgeText: 'AG1',
   seoTitle: 'AG1 Discount 2026: Extra 20% Off | 2Passports1Dream',
   seoDescription:
@@ -1624,6 +1689,11 @@ export const babbel: BrandPageData = {
   code: 'TWOPASSPORTS',
   buttonLabel: 'Get 20% off Babbel',
   logoImage: '/logos/babbel.webp',
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana5135.jpg',
+    alt: 'Adriana and Dylan together on a winter trip',
+    objectPosition: 'center 40%',
+  },
   badgeText: 'Babbel',
   boldCodeInCopy: true,
   seoTitle: 'Babbel Discount Code 2026: 20% Off Lifetime | 2Passports1Dream',
@@ -1753,6 +1823,11 @@ export const gruns: BrandPageData = {
   code: null,
   buttonLabel: 'Get 55% Off Grüns',
   logoImage: '/logos/gruns.png',
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana1708.jpg',
+    alt: 'Adriana and Dylan having breakfast while travelling',
+    objectPosition: 'center 50%',
+  },
   badgeText: 'Grüns',
   seoTitle: 'Grüns Discount Code 2026 | Get 55% Off',
   seoDescription:
