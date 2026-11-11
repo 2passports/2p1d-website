@@ -179,6 +179,11 @@ export const klook: BrandPageData = {
     ],
     videoId: 'rhjpGldaU78',
     videoUrl: 'https://www.youtube.com/watch?v=rhjpGldaU78',
+    image: {
+      src: '/images/gallery/DylanAdriana4756.jpg',
+      alt: 'At the entrance to Universal Orlando Resort on our Orlando trip',
+      objectPosition: 'center 22%',
+    },
   },
   faqs: [
     {

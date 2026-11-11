@@ -511,6 +511,19 @@ export function BrandPage({
                   {realExample.paragraphs.map((para, i) => (
                     <p key={i} className="text-muted leading-relaxed mb-4 last:mb-0">{para}</p>
                   ))}
+                  {/* Optional photo from the trip itself */}
+                  {realExample.image && (
+                    <div className="relative aspect-[16/10] max-w-md rounded-xl overflow-hidden shadow-md ring-1 ring-black/5 bg-stone-200 mt-6">
+                      <Image
+                        src={realExample.image.src}
+                        alt={realExample.image.alt}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 448px"
+                        className="object-cover"
+                        style={{ objectPosition: realExample.image.objectPosition ?? 'center center' }}
+                      />
+                    </div>
+                  )}
                 </div>
                 {/* Right: the video example */}
                 <div className="space-y-3">

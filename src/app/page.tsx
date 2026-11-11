@@ -6,7 +6,8 @@ import { shorts as staticShorts } from './data/shorts'
 import { SOCIAL_FOLLOWERS } from './data/stats'
 import { fetchYoutubeVideos, formatPublishDate, fetchSubscriberCount } from './lib/youtube'
 import ScrollReveal from './components/ScrollReveal'
-import PhotoGrid from './components/PhotoGrid'
+import RotatingPhotoGrid from './components/RotatingPhotoGrid'
+import { homepageGalleryPhotos } from './data/homepageGallery'
 import DiscountCarousel from './components/DiscountCarousel'
 import LatestVideos from './components/LatestVideos'
 import ShortsRow from './components/ShortsRow'
@@ -54,6 +55,14 @@ const homepageCollageImages = [
   { src: '/images/AdrianaDylanAirboat.jpg', alt: 'Adriana and Dylan on an airboat experience', objectPosition: 'center 35%' },
   { src: '/images/AdrianaUniversal.jpg', alt: 'Adriana at Universal', objectPosition: 'center 30%' },
   { src: '/images/DylanAdrianaCruise.jpg', alt: 'Adriana and Dylan on a cruise with 2Passports1Dream', objectPosition: 'center 35%' },
+  // The wider DylanAdriana#### collection, converted to web JPGs by
+  // scripts/build-homepage-gallery.mjs. RotatingPhotoGrid picks a random six
+  // from this whole pool on each page load, then rotates one slot at a time.
+  ...homepageGalleryPhotos.map((src) => ({
+    src,
+    alt: 'Adriana and Dylan travelling together',
+    objectPosition: 'center 30%',
+  })),
 ]
 
 type DisplayVideo = {
@@ -836,7 +845,7 @@ export default async function Home() {
               Some moments make it into the full videos, and some are the little in-between bits from the road. Follow us on Instagram for more behind-the-scenes travel days, food finds and real-time updates.
             </p>
           </div>
-          <PhotoGrid images={homepageCollageImages} />
+          <RotatingPhotoGrid images={homepageCollageImages} />
           <div className="text-center mt-8">
             <a
               href="https://www.instagram.com/2passports1dream"

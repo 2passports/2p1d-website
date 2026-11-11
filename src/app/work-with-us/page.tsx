@@ -244,20 +244,36 @@ export default async function WorkWithUsPage() {
       {/* Who we are */}
       <section className="py-16">
         <div className={CONTAINER}>
-          <h2 className="text-2xl font-bold mb-5 text-primary">Who we are</h2>
-          <p className="text-muted leading-relaxed max-w-3xl mb-4">
-            We are Adriana and Dylan, full-time travel content creators and the couple behind
-            2Passports1Dream. Adriana is from Sweden and Dylan is from North Wales. We create
-            honest, easy-to-watch travel content covering road trips, cruises, city breaks, food,
-            hotels, first impressions and real travel experiences. Our style is laid-back, curious
-            and straightforward. People watch us because our videos feel real, not like adverts.
-          </p>
-          <p className="text-muted leading-relaxed max-w-3xl mb-10">
-            Everything we make is published on our own 2Passports1Dream channels, and the audience
-            below is our own. Brands partner with us to reach that audience through sponsored
-            content and creator campaigns. We are not a marketing agency, a production company or a
-            content service provider.
-          </p>
+          {/* Copy on the left, a personal photo on the right from lg up.
+              Below lg the photo sits under the copy at a shorter ratio. */}
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-8 lg:gap-12 items-center mb-10">
+            <div>
+              <h2 className="text-2xl font-bold mb-5 text-primary">Who we are</h2>
+              <p className="text-muted leading-relaxed max-w-3xl mb-4">
+                We are Adriana and Dylan, full-time travel content creators and the couple behind
+                2Passports1Dream. Adriana is from Sweden and Dylan is from North Wales. We create
+                honest, easy-to-watch travel content covering road trips, cruises, city breaks, food,
+                hotels, first impressions and real travel experiences. Our style is laid-back, curious
+                and straightforward. People watch us because our videos feel real, not like adverts.
+              </p>
+              <p className="text-muted leading-relaxed max-w-3xl">
+                Everything we make is published on our own 2Passports1Dream channels, and the audience
+                below is our own. Brands partner with us to reach that audience through sponsored
+                content and creator campaigns. We are not a marketing agency, a production company or a
+                content service provider.
+              </p>
+            </div>
+            <div className="relative w-full max-w-xl lg:max-w-none aspect-[3/2] lg:aspect-[4/5] rounded-2xl overflow-hidden shadow-md bg-stone-100">
+              <Image
+                src="/images/gallery/DylanAdriana0251.jpg"
+                alt="Adriana and Dylan together on a beach"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 576px, 320px"
+                className="object-cover"
+                style={{ objectPosition: 'center 55%' }}
+              />
+            </div>
+          </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             <div className="bg-white rounded-2xl p-6 text-center border border-stone-100 shadow-sm">
               <p className="text-2xl font-bold">{subscriberCount}</p>
@@ -346,6 +362,29 @@ export default async function WorkWithUsPage() {
                 <p className="text-sm text-muted leading-relaxed">{item.description}</p>
               </div>
             ))}
+          </div>
+          {/* Behind the scenes: the people brands are partnering with */}
+          <div className="grid grid-cols-2 gap-5 mt-5">
+            <div className="relative aspect-[4/3] sm:aspect-[16/9] rounded-2xl overflow-hidden shadow-sm bg-stone-100">
+              <Image
+                src="/images/gallery/DylanAdriana3471.jpg"
+                alt="Adriana and Dylan recording together in a studio"
+                fill
+                sizes="(max-width: 1152px) 50vw, 540px"
+                className="object-cover"
+                style={{ objectPosition: 'center 55%' }}
+              />
+            </div>
+            <div className="relative aspect-[4/3] sm:aspect-[16/9] rounded-2xl overflow-hidden shadow-sm bg-stone-100">
+              <Image
+                src="/images/gallery/DylanAdriana3420 2.jpg"
+                alt="Adriana and Dylan working together on a laptop"
+                fill
+                sizes="(max-width: 1152px) 50vw, 540px"
+                className="object-cover"
+                style={{ objectPosition: 'center 50%' }}
+              />
+            </div>
           </div>
         </div>
       </section>

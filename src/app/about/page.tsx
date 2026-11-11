@@ -25,12 +25,20 @@ const contentTypes = [
 ]
 
 const aboutCollageImages = [
+  // PhotoGrid shows six of these at a time, moving along one place each day,
+  // so original and newer photos are interleaved to keep every window varied.
   { src: '/images/AdrianaClamChowderSanFrancisco.jpg', alt: 'Adriana trying clam chowder in San Francisco', caption: 'Food moments', objectPosition: 'center 50%' },
+  { src: '/images/gallery/DylanAdriana1741.jpg', alt: 'Dylan at a Texaco station on Route 66', caption: 'Route 66', objectPosition: 'center 30%' },
   { src: '/images/AdrianaDylanCruise.jpg', alt: 'Adriana and Dylan on a cruise', caption: 'Cruise days', objectPosition: 'center 30%' },
+  { src: '/images/gallery/DylanAdriana5242.jpg', alt: 'Adriana and Dylan on a ski lift', caption: 'Ski trips', objectPosition: 'center center' },
   { src: '/images/AdrianaMustang.jpg', alt: 'Adriana with a Mustang on a road trip', caption: 'Road trips', objectPosition: 'center 40%' },
+  { src: '/images/gallery/DylanAdriana5827.jpg', alt: 'Adriana and Dylan at a college football game', caption: 'Game days', objectPosition: 'center 35%' },
   { src: '/images/AdrianaChina.jpg', alt: 'Adriana travelling in China', caption: 'Asia adventures', objectPosition: 'center 30%' },
+  { src: '/images/gallery/DylanAdriana5269.jpg', alt: 'Adriana and Dylan in clear tropical water', caption: 'Beach days', objectPosition: 'center 30%' },
   { src: '/images/AdrianaDylanAirboat.jpg', alt: 'Adriana and Dylan on an airboat experience', caption: 'Quirky experiences', objectPosition: 'center 35%' },
+  { src: '/images/gallery/DylanAdriana3442.jpg', alt: 'Adriana and Dylan by Cloud Gate in Chicago', caption: 'City breaks', objectPosition: 'center 40%' },
   { src: '/images/AdrianaDylanAmericaBuccees.jpg', alt: "Adriana and Dylan at a Buc-ee's stop in America", caption: 'Across America', objectPosition: 'center 25%' },
+  { src: '/images/gallery/DylanAdriana4151.jpg', alt: 'Adriana with a slice of red velvet cheesecake', caption: 'Sweet treats', objectPosition: 'center 40%' },
   { src: '/images/DylanAdrianaCruise.jpg', alt: 'Adriana and Dylan on a cruise with 2Passports1Dream', caption: 'Cruise sunsets', objectPosition: 'center 35%' },
 ]
 
@@ -227,6 +235,30 @@ export default async function AboutPage() {
             </div>
 
             <div className="flex flex-col gap-5">
+              {/* Two photos that match the story: America and cruising */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-md bg-stone-100">
+                  <Image
+                    src="/images/gallery/DylanAdriana1127.jpg"
+                    alt="Adriana and Dylan at the Grand Canyon"
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 270px"
+                    className="object-cover"
+                    style={{ objectPosition: 'center 30%' }}
+                  />
+                </div>
+                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-md bg-stone-100">
+                  <Image
+                    src="/images/gallery/DylanAdriana1523.jpg"
+                    alt="Adriana and Dylan on the deck of a cruise ship"
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 270px"
+                    className="object-cover"
+                    style={{ objectPosition: 'center 35%' }}
+                  />
+                </div>
+              </div>
+
               <blockquote className="bg-[#FFF9EF] border-l-4 border-accent rounded-2xl p-6">
                 <p className="text-foreground leading-relaxed italic">
                   &ldquo;People watch us because our videos feel real. We are not making glossy

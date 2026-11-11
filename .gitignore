@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw original photos (kept locally, too large for git; the site uses the
+# web-sized copies in public/images/gallery)
+*.DNG
+*.dng
+*.HEIC
+*.heic

@@ -312,6 +312,16 @@ export default function TikTokAwards2026Page() {
       {/* Thank you */}
       <section className="py-16 sm:py-20 px-4 bg-[#FFF9EF]">
         <div className="max-w-2xl mx-auto text-center">
+          <div className="relative w-full max-w-sm mx-auto aspect-[4/3] rounded-2xl overflow-hidden shadow-md ring-4 ring-white mb-8 bg-stone-100">
+            <Image
+              src="/images/gallery/DylanAdriana0259.jpg"
+              alt="Adriana and Dylan celebrating together"
+              fill
+              sizes="(max-width: 640px) 100vw, 384px"
+              className="object-cover"
+              style={{ objectPosition: 'center 35%' }}
+            />
+          </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">
             Thank you <span aria-hidden="true">❤️</span>
           </h2>

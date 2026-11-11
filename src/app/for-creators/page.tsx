@@ -535,18 +535,32 @@ export default function ForCreatorsPage() {
       <section className="py-16 bg-surface">
         <div className={CONTAINER}>
           <ScrollReveal>
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-stone-100 shadow-sm max-w-3xl">
-              <h2 className="text-2xl font-bold mb-4 text-primary">Who is Agentio for?</h2>
-              <p className="text-muted leading-relaxed mb-5">
-                Agentio is worth exploring if you already create content and want another way to
-                find and manage paid brand opportunities. It is particularly relevant for YouTube
-                creators, but the platform can also include opportunities involving short-form
-                content and UGC.
-              </p>
-              <p className="text-sm text-muted leading-relaxed border-l-2 border-secondary pl-4">
-                Campaign availability and eligibility vary by creator, audience, channel performance
-                and brand requirements.
-              </p>
+            {/* Card on the left, a photo of us filming on the right from lg up;
+                stacked below lg. */}
+            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-6 lg:gap-10 items-center">
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-stone-100 shadow-sm max-w-3xl">
+                <h2 className="text-2xl font-bold mb-4 text-primary">Who is Agentio for?</h2>
+                <p className="text-muted leading-relaxed mb-5">
+                  Agentio is worth exploring if you already create content and want another way to
+                  find and manage paid brand opportunities. It is particularly relevant for YouTube
+                  creators, but the platform can also include opportunities involving short-form
+                  content and UGC.
+                </p>
+                <p className="text-sm text-muted leading-relaxed border-l-2 border-secondary pl-4">
+                  Campaign availability and eligibility vary by creator, audience, channel performance
+                  and brand requirements.
+                </p>
+              </div>
+              <div className="relative w-full max-w-xl lg:max-w-none aspect-[4/3] rounded-2xl overflow-hidden shadow-md bg-stone-100">
+                <Image
+                  src="/images/gallery/DylanAdriana5024.jpg"
+                  alt="Adriana and Dylan filming together with a microphone"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 576px, 420px"
+                  className="object-cover"
+                  style={{ objectPosition: 'center 45%' }}
+                />
+              </div>
             </div>
           </ScrollReveal>
         </div>

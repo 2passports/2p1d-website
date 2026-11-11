@@ -6,4 +6,4 @@
 // SOCIAL_FOLLOWERS is our total combined following across all platforms. It is
 // counted by hand, so update it here and every page that shows it follows.
 // Used by the homepage, the About page and the Work With Us page.
-export const SOCIAL_FOLLOWERS = '752k+'
+export const SOCIAL_FOLLOWERS = '768k+'
