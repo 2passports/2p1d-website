@@ -3,16 +3,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 // TikTok Awards UK 2026 nomination page.
-// Voting closes on 18 November 2026 and the awards take place on 1 December 2026.
-// Remove or update the voting copy after 18 November 2026.
+// Voting closed on 18 November 2026 and results are announced on 1 December 2026.
+// Update this page after the awards.
 
-const VOTE_URL = 'https://snssdk1180.onelink.me/BAuo/dp3f0xo2'
 const ANNOUNCEMENT_URL = 'https://newsroom.tiktok.com/tiktok-awards-uk-2026?lang=en-GB'
 const TIKTOK_PROFILE_URL = 'https://www.tiktok.com/@2passports1dream'
 
 const pageTitle = '2Passports1Dream Nominated for TikTok Travel Creator of the Year 2026'
 const pageDescription =
-  '2Passports1Dream has been nominated for Travel Creator of the Year at the TikTok Awards UK 2026. Find out how to vote, when voting closes and when the awards take place.'
+  '2Passports1Dream has been nominated for Travel Creator of the Year at the TikTok Awards UK 2026. Voting has now closed and results will be announced on 1 December 2026.'
 const shareImage = {
   url: '/images/tiktok%201-1.JPG',
   width: 1080,
@@ -79,22 +78,6 @@ const eventDetails = [
   },
 ]
 
-const voteSteps = [
-  <>Search &lsquo;TikTok Awards&rsquo; inside the TikTok app</>,
-  <>Find the Travel Creator of the Year category</>,
-  <>
-    Select{' '}
-    <a
-      href={TIKTOK_PROFILE_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="font-semibold text-primary underline underline-offset-4 decoration-primary/30 hover:decoration-primary hover:text-accent transition-colors duration-200"
-    >
-      @2passports1dream
-    </a>
-  </>,
-]
-
 function TikTokIcon({ size = 16 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -103,16 +86,16 @@ function TikTokIcon({ size = 16 }: { size?: number }) {
   )
 }
 
-function VoteButton() {
+function TikTokProfileButton() {
   return (
     <a
-      href={VOTE_URL}
+      href={TIKTOK_PROFILE_URL}
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center justify-center gap-2 bg-accent text-white font-semibold text-sm px-7 py-3.5 rounded-full shadow-md hover:bg-accent-dark hover:-translate-y-0.5 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
       <TikTokIcon />
-      Vote for 2Passports1Dream
+      Follow us on TikTok
     </a>
   )
 }
@@ -134,8 +117,6 @@ function AnnouncementLink() {
     </a>
   )
 }
-
-const eligibilityNote = 'Voting takes place in the TikTok app and is available to eligible users in the UK and Ireland.'
 
 export default function TikTokAwards2026Page() {
   return (
@@ -170,15 +151,14 @@ export default function TikTokAwards2026Page() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                <VoteButton />
+                <TikTokProfileButton />
                 <a
-                  href="#how-to-vote"
+                  href="#voting-closed"
                   className="text-sm font-semibold text-primary hover:text-accent transition-colors duration-200"
                 >
-                  How to vote &darr;
+                  Voting update &darr;
                 </a>
               </div>
-              <p className="text-xs text-muted mt-4">{eligibilityNote}</p>
             </div>
 
             <div className="lg:w-[45%] w-full flex justify-center">
@@ -199,8 +179,8 @@ export default function TikTokAwards2026Page() {
         </div>
       </section>
 
-      {/* How to vote */}
-      <section id="how-to-vote" className="scroll-mt-24 py-14 sm:py-16 px-4 bg-[#FFF9EF]">
+      {/* Voting closed */}
+      <section id="voting-closed" className="scroll-mt-24 py-14 sm:py-16 px-4 bg-[#FFF9EF]">
         <div className="max-w-5xl mx-auto">
           <div className="relative overflow-hidden rounded-3xl bg-white border border-[#F0DDB0] shadow-[0_12px_40px_rgba(23,78,93,0.10)]">
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#25F4EE] via-[#E76F51] to-[#FE2C55]" aria-hidden="true" />
@@ -209,26 +189,16 @@ export default function TikTokAwards2026Page() {
                 <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-3">
                   TikTok Awards voting
                 </p>
-                <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">How to vote for us</h2>
-                <p className="text-base text-foreground leading-relaxed mb-3">
-                  Voting is open now in the TikTok app and closes on{' '}
-                  <strong className="font-semibold text-primary">Wednesday, 18 November 2026</strong>.
+                <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">Voting is now closed</h2>
+                <p className="text-base text-foreground leading-relaxed mb-4">
+                  Thank you so much to everyone who voted for us for Travel Creator of the Year at the
+                  TikTok Awards UK 2026. We&rsquo;re incredibly grateful for all the support.
                 </p>
-                <p className="text-base text-muted leading-relaxed mb-6">
-                  If you&rsquo;re in the UK or Ireland, you can vote through the TikTok Awards voting hub:
+                <p className="text-base text-muted leading-relaxed mb-8">
+                  Results will be announced at the TikTok Awards UK 2026 on{' '}
+                  <strong className="font-semibold text-primary">Tuesday, 1 December 2026</strong>.
                 </p>
-                <ol className="space-y-3 mb-8">
-                  {voteSteps.map((step, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-accent text-white text-sm font-bold flex items-center justify-center">
-                        {i + 1}
-                      </span>
-                      <span className="text-base text-foreground leading-relaxed pt-0.5">{step}</span>
-                    </li>
-                  ))}
-                </ol>
-                <VoteButton />
-                <p className="text-xs text-muted mt-3">{eligibilityNote}</p>
+                <TikTokProfileButton />
               </div>
 
               {/* Phone-style preview of the nomination graphic. Desktop only, so
@@ -339,8 +309,7 @@ export default function TikTokAwards2026Page() {
           <p className="text-lg font-semibold italic text-accent mb-10">Adriana &amp; Dylan</p>
 
           <div className="flex flex-col items-center gap-4">
-            <VoteButton />
-            <p className="text-xs text-muted">{eligibilityNote}</p>
+            <TikTokProfileButton />
             <AnnouncementLink />
             <Link
               href="/"

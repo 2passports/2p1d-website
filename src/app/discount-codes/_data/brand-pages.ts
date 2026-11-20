@@ -25,6 +25,10 @@ export type BrandPageData = {
   // When true, everything inside the hero discount code card is centred.
   // Off by default so other pages are unchanged.
   centerCodeCard?: boolean
+  // When true, the offer text in the "Our [Brand] offer" card and the Offer row
+  // in "Offer at a glance" link to affiliateUrl as sponsored links. Off by
+  // default so other pages are unchanged.
+  linkOfferText?: boolean
   seoTitle: string
   seoDescription: string
   heroTagline: string
@@ -1930,4 +1934,415 @@ export const gruns: BrandPageData = {
   ],
   importantNotes:
     'Offer and subscription pricing can change. Check the Grüns website for the latest price before purchasing. Grüns is a dietary supplement and is not intended to diagnose, treat, cure or prevent any disease.',
+}
+
+export const ekster: BrandPageData = {
+  name: 'Ekster',
+  slug: 'ekster',
+  affiliateUrl:
+    'https://shareitly.com/click?redirect=http%3A%2F%2Fekster.com%2F2passports&dID=1792747294405&hashId=b44e2d18638a9dfc0988a35095ddeb2277501289d7e18431f62665eb4c835d12ad356e&linkName=ekster.com/2passports',
+  offer: 'Up to 60% off + extra 10%',
+  code: '2P1D',
+  buttonLabel: 'Shop Ekster Holiday Sale',
+  logoImage: '/logos/ekster.png',
+  badgeText: 'Ekster',
+  boldCodeInCopy: true,
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana4315.jpg',
+    alt: 'Adriana and Dylan out exploring on a travel day',
+    objectPosition: 'center 35%',
+  },
+  seoTitle: 'Ekster Discount Code 2026 | Extra 10% Off Holiday Sale',
+  seoDescription:
+    'Get up to 60% off Ekster’s Travel Vacuum Kit Pro during the Holiday Sale, plus an extra 10% with code 2P1D until 24 December 2026.',
+  heroHeading: 'Ekster Discount Code: Extra 10% Off',
+  heroTagline:
+    'Holiday Sale: up to 60% off the Travel Vacuum Kit Pro, plus an extra 10% off with code 2P1D at checkout. The sale runs until 24 December 2026.',
+  intro:
+    'Ekster makes travel and everyday carry accessories, and we have featured its Travel Vacuum Kit Pro, Wallet Pro and Tracker Card in our content. During the Holiday Sale the Travel Vacuum Kit Pro is up to 60% off, and our code 2P1D gives you an extra 10% off at checkout.',
+  seoIntro: [
+    'Looking for an Ekster discount code? Shop through our link at [[ekster.com/2passports]] and enter 2P1D at checkout for an extra 10% off, on top of the Holiday Sale pricing.',
+    'The two savings are separate. The Holiday Sale itself offers up to 60% off the Travel Vacuum Kit Pro, and 2P1D then takes an extra 10% off at checkout. The final price depends on what is in your basket, so check it at checkout before paying.',
+  ],
+  whatItIs: [
+    'Ekster is a brand that makes travel and everyday carry accessories, including the Travel Vacuum Kit Pro, slim wallets and tracker cards.',
+    'The Travel Vacuum Kit Pro is designed to compress clothing so it takes up less room in your bag. Ekster says it can save up to 70% of packing space, and the kit includes a TSA-approved pump that is small enough to fit inside a backpack.',
+  ],
+  whyUseful: [
+    'One thing we have noticed while travelling around America is that luggage space is often more limiting than luggage weight. Extra layers for changing weather, things picked up along the way and filming kit all add up, and a bag can feel full long before it gets heavy. That is why the Travel Vacuum Kit Pro appealed to us.',
+    'With the sale running until Christmas Eve, it also works as a gift idea for someone who travels a lot, whether that is the vacuum kit for a regular packer or a slim wallet or tracker card for someone who likes to know where their cards are.',
+  ],
+  bestFor: [
+    'Travellers who run out of bag space before they hit the weight limit',
+    'Backpack and hand luggage trips',
+    'Longer trips with bulky layers',
+    'Anyone who wants a slimmer wallet or a way to track their cards',
+    'Christmas gifts for people who travel often',
+  ],
+  productRangesHeading: 'The Ekster products we have featured',
+  productRangesIntro:
+    'These are the three Ekster products we have featured in our content. Product details are as described by Ekster, so check the current specifications on the Ekster website before buying.',
+  productRanges: [
+    {
+      title: 'Packing',
+      items: [
+        {
+          name: 'Travel Vacuum Kit Pro',
+          description:
+            'Compresses clothing to save packing space, with a TSA-approved pump that fits inside a backpack. Ekster says it can save up to 70% of packing space. Up to 60% off in the Holiday Sale.',
+          linked: true,
+        },
+      ],
+    },
+    {
+      title: 'Everyday carry',
+      items: [
+        {
+          name: 'Wallet Pro',
+          description: 'A slim wallet that holds up to 14 cards, with RFID protection.',
+        },
+        {
+          name: 'Tracker Card',
+          description:
+            'A card-shaped tracker that works with Apple Find My or Google Find Hub, with no tracker subscription required.',
+        },
+      ],
+    },
+  ],
+  howToUseSteps: [
+    'Visit [[Ekster]] through our link.',
+    'Add the Travel Vacuum Kit Pro or other products to your basket.',
+    'Enter 2P1D at checkout for an extra 10% off.',
+    'Check the discount has been applied before paying.',
+  ],
+  faqs: [
+    {
+      question: 'What is the Ekster discount code?',
+      answer:
+        'Our Ekster discount code is 2P1D. Enter it at checkout for an extra 10% off.',
+    },
+    {
+      question: 'How much can I save at Ekster?',
+      answer:
+        'The Holiday Sale offers up to 60% off the Travel Vacuum Kit Pro, and code 2P1D gives an extra 10% off at checkout. These are two separate savings rather than one combined percentage, and the final price depends on your order, so check it at checkout.',
+    },
+    {
+      question: 'When does the Ekster Holiday Sale end?',
+      answer: 'The Ekster Holiday Sale runs until 24 December 2026.',
+    },
+    {
+      question: 'Can I use 2P1D on top of the Holiday Sale?',
+      answer:
+        'Yes. Code 2P1D gives an extra 10% off at checkout in addition to the Holiday Sale pricing. Check the discount has been applied before paying.',
+    },
+    {
+      question: 'How much space does the Travel Vacuum Kit Pro save?',
+      answer:
+        'Ekster says it can save up to 70% of packing space. How much you save in practice will depend on what you pack.',
+    },
+  ],
+  importantNotes:
+    'The Ekster Holiday Sale runs until 24 December 2026. Code 2P1D gives an extra 10% off at checkout, separate from the Holiday Sale pricing, so the two are not a single combined percentage. Products, prices and eligibility can change, so check the final price at checkout before paying.',
+}
+
+export const epidemicSound: BrandPageData = {
+  name: 'Epidemic Sound',
+  slug: 'epidemic-sound',
+  affiliateUrl: 'https://www.epidemicsound.com/referral/9gs48y',
+  offer: 'Free trial',
+  code: null,
+  buttonLabel: 'Start Your Epidemic Sound Free Trial',
+  logoImage: '/logos/epidemicsound.png',
+  badgeText: 'Epidemic Sound',
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana4385.jpg',
+    alt: 'Adriana and Dylan watching the sunset at sea',
+    objectPosition: 'center 45%',
+  },
+  seoTitle: 'Epidemic Sound Free Trial 2026 | 2Passports1Dream',
+  seoDescription:
+    'Try Epidemic Sound through our referral link. We use Epidemic Sound for all the music in our YouTube travel videos.',
+  heroEyebrow: 'Free Trial',
+  heroHeading: 'Epidemic Sound Free Trial',
+  heroOfferCardLabel: 'Free trial through our referral link',
+  heroTagline:
+    'We use Epidemic Sound for all of the music in our YouTube videos and have done since we started using licensed music on the channel. If you’re creating videos and want to try it for yourself, our referral link gives you access to a free trial.',
+  intro:
+    'Epidemic Sound is the only music library we have used for the channel. Every track in our YouTube travel videos comes from it, and it is a service we genuinely like using. This page explains what it is, how we use it and how to start a free trial through our referral link.',
+  seoIntro: [
+    'Looking for an Epidemic Sound discount code? Our current offer is a free trial through our referral link rather than a code, so there is nothing to enter at checkout.',
+    'The trial length and plan details are shown on the Epidemic Sound website when you sign up, so check them there before you start.',
+  ],
+  whatItIs: [
+    'Epidemic Sound is a music and sound effects library for creators. You subscribe to a plan and can use tracks from its catalogue in your content, under the terms of that plan.',
+    'The catalogue can be searched by genre, mood and more, which makes it easier to find something that fits a particular scene rather than scrolling through endless playlists.',
+  ],
+  infoSections: [
+    {
+      heading: 'How we use Epidemic Sound',
+      paragraphs: [
+        'Every travel video has different moods in it. A road trip montage, a quiet sunset, a busy city at night and a slightly chaotic food stop all need different music, and Epidemic Sound is where we find all of it. Being able to search by mood and genre means we can match the music to the scene rather than settling for whatever is closest.',
+        'It also keeps the licensing side of editing simple. The music in our videos all comes from one licensed library, so when we are editing and uploading we are not trying to work out where each track came from.',
+      ],
+    },
+    {
+      heading: 'Licensing for creators',
+      paragraphs: [
+        'Epidemic Sound licenses its music for use in content under the terms of your subscription. Which platforms are covered and what happens to content published while you were subscribed depend on your plan, so read the licence terms for the plan you choose.',
+        'A subscription covers music used from the Epidemic Sound catalogue in line with its terms. It is not blanket protection for everything in a video, so other audio and footage still need to be cleared separately.',
+      ],
+    },
+  ],
+  whyUseful: [
+    'We have never used another music library for the channel, which probably says more than any feature list. It does what we need, and we have stuck with it.',
+    'For creators, having a large licensed library in one place saves a lot of time. Whether you are making YouTube videos, short-form clips or travel edits, it is a simple way to find music that fits without piecing tracks together from different sources.',
+  ],
+  bestFor: [
+    'YouTubers who want licensed music for their videos',
+    'Travel creators matching music to different scenes and moods',
+    'Short-form creators making regular clips',
+    'Anyone who wants music and sound effects in one library',
+  ],
+  howToUseSteps: [
+    'Visit [[Epidemic Sound]] through our referral link.',
+    'Check the free trial details shown on the sign-up page.',
+    'Choose the plan that suits the content you make.',
+    'Check the licence terms and how to cancel before the trial ends.',
+  ],
+  faqs: [
+    {
+      question: 'Does 2Passports1Dream have an Epidemic Sound free trial?',
+      answer:
+        'Yes. Our referral link gives you access to an Epidemic Sound free trial. The trial details are shown on the sign-up page, so check them there before starting.',
+    },
+    {
+      question: 'Do you use Epidemic Sound?',
+      answer:
+        'Yes. We use Epidemic Sound for all of the music in our YouTube videos, and we have never used another music library for the channel.',
+    },
+    {
+      question: 'Is there an Epidemic Sound discount code?',
+      answer:
+        'Our current offer is a free trial through our referral link rather than a discount code, so there is no code to enter.',
+    },
+    {
+      question: 'What do you use Epidemic Sound for?',
+      answer:
+        'We use it to find music for our YouTube travel videos, searching by mood and genre so the music fits each scene, from road trip montages to quieter moments.',
+    },
+    {
+      question: 'Does Epidemic Sound stop all copyright claims?',
+      answer:
+        'Epidemic Sound licenses its own music under the terms of your plan. It does not cover other audio or footage in your videos, so check the licence terms for your plan and the platforms you publish on.',
+    },
+  ],
+  importantNotes:
+    'The free trial is offered through our referral link. Trial length, plan pricing and licence terms are set by Epidemic Sound and can change, so check the details on the sign-up page before starting. If you do not want to continue after the trial, check how and when to cancel.',
+}
+
+export const airalo: BrandPageData = {
+  name: 'Airalo',
+  slug: 'airalo',
+  affiliateUrl: 'https://try.airalo.com/2passports1dream',
+  offer: '$3 off your first eSIM',
+  code: '2PASSPORTS',
+  buttonLabel: 'Get $3 Off Airalo',
+  logoImage: '/logos/airalo.png',
+  badgeText: 'Airalo',
+  boldCodeInCopy: true,
+  linkOfferText: true,
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana5423.jpg',
+    alt: 'Adriana and Dylan exploring a city on their travels',
+    objectPosition: 'center 70%',
+  },
+  seoTitle: 'Airalo Discount Code 2026 | $3 Off First eSIM',
+  seoDescription:
+    'Use Airalo code 2PASSPORTS to get $3 off your first eSIM purchase. See how we use Airalo while travelling.',
+  heroHeading: 'Airalo Discount Code: $3 Off Your First eSIM',
+  heroTagline:
+    'Use code 2PASSPORTS for $3 off your first Airalo eSIM purchase. Airalo is an eSIM app that lets you set up mobile data digitally, so there is no need to hunt for a physical SIM card when you land.',
+  intro:
+    'One of the first things we usually need when we land somewhere is data for maps, bookings and messages. Airalo lets us set up an eSIM digitally rather than hunting for a physical SIM card at the airport.',
+  seoIntro: [
+    'Looking for an Airalo discount code? Enter 2PASSPORTS at checkout through our link for [[$3 off your first eSIM]] purchase.',
+    'The code is for first purchases only. Check your phone supports eSIMs and compare the plan details before buying.',
+  ],
+  whatItIs: [
+    'Airalo is an eSIM app. An eSIM is a digital SIM that is installed onto a compatible phone, so there is no physical SIM card to swap in or out.',
+    'Airalo covers 200+ destinations, with local eSIMs for a single country, regional eSIMs for travelling across several countries and global eSIMs for longer or more varied trips.',
+  ],
+  infoSections: [
+    {
+      heading: 'Can I keep my normal number?',
+      paragraphs: [
+        'Many travellers keep their usual SIM active for calls and texts while using an Airalo eSIM for mobile data. Whether this works for you depends on your phone, your settings and your home network, so check before you travel.',
+        'Plans differ, so check the details of the specific eSIM you choose, including the data allowance, how long it is valid for and whether it includes calls or texts.',
+      ],
+      note:
+        'Not every phone supports eSIMs, and some phones need to be unlocked. Check that your device is compatible before buying.',
+    },
+  ],
+  whyUseful: [
+    'Arriving somewhere new usually means needing data straight away. Maps to find the hotel, messages to let family know we have landed, booking confirmations and translation apps all rely on it.',
+    'Setting up an eSIM digitally means you can usually install it before you travel, rather than queueing for a SIM card at the airport or relying on patchy airport WiFi.',
+  ],
+  bestFor: [
+    'International trips where you want data as soon as you land',
+    'Multi-country trips, using a regional eSIM',
+    'Maps, messages, booking confirmations and translation apps',
+    'Avoiding airport SIM card queues',
+  ],
+  howToUseSteps: [
+    'Check your phone supports eSIMs and is unlocked if needed.',
+    'Visit [[Airalo]] through our link and choose a local, regional or global eSIM.',
+    'Enter 2PASSPORTS at checkout for [[$3 off your first eSIM]] purchase.',
+    'Follow Airalo’s instructions to install the eSIM and turn it on for data when you arrive.',
+  ],
+  faqs: [
+    {
+      question: 'What is the Airalo discount code?',
+      answer:
+        'Our Airalo discount code is 2PASSPORTS. Enter it at checkout for [[$3 off your first eSIM]] purchase.',
+    },
+    {
+      question: 'How much does code 2PASSPORTS save?',
+      answer:
+        'Code 2PASSPORTS gives $3 off your first Airalo eSIM purchase. Check the discount has been applied at checkout.',
+    },
+    {
+      question: 'What is an eSIM?',
+      answer:
+        'An eSIM is a digital SIM that is installed onto a compatible phone, so there is no physical SIM card to swap in or out.',
+    },
+    {
+      question: 'Does Airalo work everywhere?',
+      answer:
+        'Airalo covers 200+ destinations, with local, regional and global eSIMs. Coverage and plans vary by destination, and your phone needs to support eSIMs, so check both before buying.',
+    },
+    {
+      question: 'Can I keep my number while using Airalo?',
+      answer:
+        'Many travellers keep their usual SIM for calls and texts while using an Airalo eSIM for data, but this depends on your phone, settings and home network, so check before you travel.',
+    },
+  ],
+  importantNotes:
+    'Code 2PASSPORTS gives [[$3 off your first eSIM]] purchase only. Not every phone supports eSIMs, and some phones need to be unlocked, so check device compatibility before buying. Plan details, coverage and prices vary by destination and can change, so check them before purchasing.',
+}
+
+export const antigravity: BrandPageData = {
+  name: 'Antigravity',
+  slug: 'antigravity',
+  affiliateUrl:
+    'https://www.antigravity.tech/campaign/black-friday-deals?utm_medium=KOL&utm_term=PASSPORTS',
+  offer: 'Up to 35% off',
+  code: 'PASSPORTS',
+  buttonLabel: 'Shop Antigravity Black Friday Deals',
+  secondaryUrl:
+    'https://www.amazon.com/stores/ANTIGRAVITY/page/18758244-0FED-4515-AEA8-04BC5D8D386F?maas=maas_adg_02FA7883DD6D9FE4527B75C691D39B76_afap_abs&ref_=aa_maas&tag=maas',
+  secondaryLabel: 'Shop Antigravity on Amazon',
+  logoImage: '/logos/antigravity.png',
+  badgeText: 'Antigravity',
+  boldCodeInCopy: true,
+  lifestyleImage: {
+    src: '/images/gallery/DylanAdriana8825.jpg',
+    alt: 'Dylan standing on a canyon viewpoint on a sunny day',
+    objectPosition: 'center 50%',
+  },
+  seoTitle: 'Antigravity Discount Code 2026 | Up to 35% Off',
+  seoDescription:
+    'Use our Antigravity link and code PASSPORTS for Black Friday savings of up to 35%, plus limited-time battery offers.',
+  heroEyebrow: 'Black Friday Deal',
+  heroHeading: 'Antigravity Black Friday Deal: Up to 35% Off',
+  heroTagline:
+    'Antigravity’s Black Friday sale offers up to 35% off, with savings of up to $700 and a free battery for a limited time. Shop through our link and use code PASSPORTS.',
+  intro:
+    'Antigravity makes drones, and we have filmed with the Antigravity A1 while travelling and created content around using it. If you have been thinking about a drone for travel filming, the Black Friday sale is a good time to take a look.',
+  seoIntro: [
+    'Looking for an Antigravity discount code? Use code PASSPORTS through our Black Friday link for savings of up to 35%, or up to $700.',
+    'For a limited time, selected bundles also come with a free battery using a separate bundle code, explained further down this page.',
+  ],
+  whatItIs: [
+    'Antigravity is a drone brand, and the Antigravity A1 is the drone we have filmed with on our travels.',
+    'Antigravity sells its drones in different bundles, including the Explorer, Standard and Infinity bundles, so it is worth comparing what each one includes before you buy.',
+  ],
+  infoSections: [
+    {
+      heading: 'Antigravity Black Friday discount',
+      paragraphs: [
+        'The Antigravity Black Friday sale offers up to 35% off, with savings of up to $700. Shop through our link and use code PASSPORTS.',
+        'There is also a free battery offer on selected bundles for a limited time. Those battery codes are separate from PASSPORTS and only apply to the bundles listed below.',
+      ],
+      note:
+        'No end date has been confirmed for the Black Friday promotion, and the free battery is only available for a limited time, so either could end without notice.',
+    },
+  ],
+  whyUseful: [
+    'Drone footage can show the scale of a place in a way that is hard to capture from the ground, whether that is a coastline, a mountain road or a whole city. Filming with the A1 gave us a different perspective on places we were already filming.',
+    'For travel, gear has to be practical. Anything you carry all day needs to be easy to pack and quick to set up, otherwise it tends to stay in the bag.',
+  ],
+  bestFor: [
+    'Travel creators who want aerial footage',
+    'Scenic destinations, coastlines and road trips',
+    'Anyone who has been waiting for a sale to buy a drone',
+    'Buyers of the Explorer, Standard or Infinity bundles',
+  ],
+  productRangesHeading: 'Free battery bundle codes',
+  productRangesIntro:
+    'For a limited time, Antigravity is offering a free battery with selected bundles. These codes are separate from our main code PASSPORTS and only apply to the bundles listed.',
+  productRanges: [
+    {
+      title: 'Explorer or Standard Bundle',
+      items: [
+        {
+          name: 'Code: SALE26GIFT1',
+          description: 'For a free Standard Flight Battery, for a limited time.',
+        },
+      ],
+    },
+    {
+      title: 'Infinity Bundle',
+      items: [
+        {
+          name: 'Code: SALE26GIFT2',
+          description: 'For a free High-Capacity Flight Battery, for a limited time.',
+        },
+      ],
+    },
+  ],
+  howToUseSteps: [
+    'Visit [[Antigravity]] through our Black Friday link.',
+    'Choose your drone and bundle.',
+    'Enter PASSPORTS at checkout, and the matching battery code if your bundle qualifies.',
+    'Check the discount and any free battery have been applied before paying.',
+  ],
+  faqs: [
+    {
+      question: 'What is the Antigravity discount code?',
+      answer:
+        'Our main Antigravity code is PASSPORTS. Use it through our Black Friday link for savings of up to 35%.',
+    },
+    {
+      question: 'How much is the Antigravity Black Friday discount?',
+      answer:
+        'The Antigravity Black Friday sale offers up to 35% off, with savings of up to $700. The amount you save depends on the product and bundle you choose.',
+    },
+    {
+      question: 'How do the free battery codes work?',
+      answer:
+        'For a limited time, selected bundles come with a free battery when you use the matching bundle code at checkout. The battery codes are separate from the main code PASSPORTS, so check at checkout how they apply to your order.',
+    },
+    {
+      question: 'Which battery code do I use?',
+      answer:
+        'Use SALE26GIFT1 with the Explorer or Standard Bundle for a free Standard Flight Battery, or SALE26GIFT2 with the Infinity Bundle for a free High-Capacity Flight Battery.',
+    },
+    {
+      question: 'Can I buy Antigravity on Amazon?',
+      answer:
+        'Yes, Antigravity has a store on Amazon. Prices and offers on Amazon can differ from the Antigravity website, so compare both before buying.',
+    },
+  ],
+  importantNotes:
+    'Code PASSPORTS is the main Black Friday discount code. The free battery codes only apply to the bundles listed and are available for a limited time. No end date has been confirmed for the promotion, so check the final price, what is included and whether the codes apply at checkout before paying. Always check local drone rules before flying.',
 }

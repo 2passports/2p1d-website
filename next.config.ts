@@ -11,6 +11,17 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [new URL("https://img.youtube.com/**")],
   },
+  async redirects() {
+    return [
+      // The Adriana & Dylan FAQ was merged into the About page. statusCode 301
+      // is set explicitly because permanent: true sends a 308.
+      {
+        source: "/adriana-and-dylan",
+        destination: "/about",
+        statusCode: 301,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

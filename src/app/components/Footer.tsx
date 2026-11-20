@@ -24,6 +24,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm text-white/80">
               <li><Link href="/" className="hover:text-accent transition-colors">Home</Link></li>
               <li><Link href="/about" className="hover:text-accent transition-colors">About</Link></li>
+              <li><Link href="/about#adriana-and-dylan-faq" className="hover:text-accent transition-colors">Adriana &amp; Dylan FAQ</Link></li>
               <li><Link href="/discount-codes" className="hover:text-accent transition-colors">Discount Codes</Link></li>
               <li><Link href="/discount-codes/klook" className="hover:text-accent transition-colors">Klook Discount Code</Link></li>
               <li><Link href="/work-with-us" className="hover:text-accent transition-colors">Work With Us</Link></li>

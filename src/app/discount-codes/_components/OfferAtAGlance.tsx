@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import type { DiscountCode } from '../../data/discount-codes'
+import { SPONSORED_LINK_REL } from '../../lib/links'
 import {
   formatOfferDate,
   offerStatusLabels,
@@ -13,12 +14,15 @@ export function OfferAtAGlance({
   item,
   offer,
   code,
+  offerUrl,
 }: {
   item: DiscountCode
   // Offer and code come from the brand page data, so the block always matches
   // the wording used elsewhere on the same page.
   offer: string
   code: string | null
+  // Optional: when set, the Offer value is shown as an inline sponsored link.
+  offerUrl?: string
 }) {
   const status = offerStatusOf(item)
   const lastChecked = formatOfferDate(item.verifiedDate)
@@ -27,7 +31,22 @@ export function OfferAtAGlance({
 
   const rows: { label: string; value: ReactNode }[] = []
 
-  rows.push({ label: 'Offer', value: offer })
+  rows.push({
+    label: 'Offer',
+    value:
+      offerUrl && showCode ? (
+        <a
+          href={offerUrl}
+          target="_blank"
+          rel={SPONSORED_LINK_REL}
+          className="text-accent font-medium underline underline-offset-2 hover:text-accent-dark transition-colors"
+        >
+          {offer}
+        </a>
+      ) : (
+        offer
+      ),
+  })
   if (showCode) {
     rows.push({
       label: 'Code',

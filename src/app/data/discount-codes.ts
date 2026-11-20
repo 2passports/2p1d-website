@@ -726,6 +726,117 @@ export const discountCodes: DiscountCode[] = [
     personalUseNote: 'Dylan uses Babbel to learn Swedish.',
     eligibility: ['Lifetime subscription only'],
   },
+  {
+    name: 'Ekster',
+    offer: 'Up to 60% off + extra 10%',
+    code: '2P1D',
+    affiliateUrl:
+      'https://shareitly.com/click?redirect=http%3A%2F%2Fekster.com%2F2passports&dID=1792747294405&hashId=b44e2d18638a9dfc0988a35095ddeb2277501289d7e18431f62665eb4c835d12ad356e&linkName=ekster.com/2passports',
+    description:
+      'Ekster makes travel and everyday carry accessories, including the Travel Vacuum Kit Pro, Wallet Pro and Tracker Card. The Holiday Sale offers up to 60% off the Travel Vacuum Kit Pro, and code 2P1D gives an extra 10% off at checkout.',
+    shortDescription:
+      'Travel and everyday carry accessories, including a vacuum packing kit, slim wallets and tracker cards.',
+    whyUseIt:
+      'Luggage space is often more limiting than luggage weight, and compressing clothes can free up room in a backpack or suitcase.',
+    bestFor: 'Packing light, saving bag space, everyday carry and gifts for regular travellers.',
+    personalNote:
+      'Holiday Sale until 24 December 2026: up to 60% off the Travel Vacuum Kit Pro, plus an extra 10% with code 2P1D.',
+    bestForTags: ['Packing space', 'Everyday carry', 'Travel gifts'],
+    buttonLabel: 'Shop Ekster Holiday Sale',
+    slug: 'ekster',
+    badgeText: 'Ekster',
+    logoImage: '/logos/ekster.png',
+    category: 'Luggage and Packing',
+    verifiedDate: '2026-11-20',
+    dateAdded: '2026-11-20',
+    offerStatus: 'limited',
+    offerExpiry: '2026-12-24',
+    termsNote:
+      'Holiday Sale ends 24 December 2026. Code 2P1D gives an extra 10% off at checkout, separate from the sale pricing.',
+  },
+  {
+    name: 'Epidemic Sound',
+    offer: 'Free trial',
+    code: null,
+    affiliateUrl: 'https://www.epidemicsound.com/referral/9gs48y',
+    description:
+      'Epidemic Sound is a music and sound effects library for creators. We use it for all of the music in our YouTube videos, and our referral link gives you access to a free trial.',
+    shortDescription:
+      'A music and sound effects library for creators, with a free trial through our referral link.',
+    whyUseIt:
+      'Every track in our YouTube videos comes from Epidemic Sound, so it is the one tool we use on every single video.',
+    bestFor: 'YouTube videos, travel edits, short-form clips and creators who want licensed music in one place.',
+    personalNote:
+      'We have never used another music library for the channel. Every track in our videos comes from Epidemic Sound.',
+    bestForTags: ['YouTube music', 'Creators', 'Licensed tracks'],
+    buttonLabel: 'Start Your Epidemic Sound Free Trial',
+    slug: 'epidemic-sound',
+    badgeText: 'Epidemic Sound',
+    logoImage: '/logos/epidemicsound.png',
+    category: 'Creator and Business Tools',
+    verifiedDate: '2026-11-20',
+    dateAdded: '2026-11-20',
+    offerStatus: 'active',
+    partnershipType: 'referral',
+    personallyUsed: true,
+    personalUseNote: 'We use Epidemic Sound for all of the music in our YouTube videos.',
+  },
+  {
+    name: 'Airalo',
+    offer: '$3 off your first eSIM',
+    code: '2PASSPORTS',
+    affiliateUrl: 'https://try.airalo.com/2passports1dream',
+    description:
+      'Airalo is an eSIM app covering 200+ destinations, with local, regional and global eSIMs. Use code 2PASSPORTS for $3 off your first eSIM purchase.',
+    shortDescription:
+      'An eSIM app with local, regional and global eSIMs covering 200+ destinations.',
+    whyUseIt:
+      'Having data as soon as we land makes maps, bookings, messages and translation apps work straight away, without hunting for a physical SIM card.',
+    bestFor: 'International trips, multi-country travel, data on arrival and avoiding airport SIM queues.',
+    personalNote:
+      'We use Airalo while travelling to get mobile data without buying a physical SIM card after landing.',
+    bestForTags: ['eSIMs', 'Data on arrival', '200+ destinations'],
+    buttonLabel: 'Get $3 Off Airalo',
+    slug: 'airalo',
+    badgeText: 'Airalo',
+    logoImage: '/logos/airalo.png',
+    category: 'Connectivity and Online Safety',
+    verifiedDate: '2026-11-20',
+    dateAdded: '2026-11-20',
+    offerStatus: 'active',
+    personallyUsed: true,
+    personalUseNote: 'We use Airalo for mobile data while travelling.',
+    eligibility: ['First eSIM purchase only', 'Requires an eSIM-compatible phone'],
+  },
+  {
+    name: 'Antigravity',
+    offer: 'Up to 35% off',
+    code: 'PASSPORTS',
+    affiliateUrl:
+      'https://www.antigravity.tech/campaign/black-friday-deals?utm_medium=KOL&utm_term=PASSPORTS',
+    description:
+      'Antigravity makes drones, including the Antigravity A1 we have filmed with while travelling. Its Black Friday sale offers up to 35% off, with savings of up to $700 and a free battery for a limited time.',
+    shortDescription:
+      'Drones for capturing travel from above, with Black Friday savings of up to 35%.',
+    whyUseIt:
+      'Drone footage can show the scale of a place in a way that is hard to capture from the ground.',
+    bestFor: 'Travel filming, aerial footage, creators and scenic destinations.',
+    personalNote:
+      'Black Friday: up to 35% off with code PASSPORTS, plus a free battery on selected bundles for a limited time.',
+    bestForTags: ['Drone filming', 'Creators', 'Black Friday'],
+    buttonLabel: 'Shop Antigravity Black Friday Deals',
+    slug: 'antigravity',
+    badgeText: 'Antigravity',
+    logoImage: '/logos/antigravity.png',
+    category: 'Creator Gear',
+    verifiedDate: '2026-11-20',
+    dateAdded: '2026-11-20',
+    offerStatus: 'limited',
+    personallyUsed: true,
+    personalUseNote: 'We have filmed with the Antigravity A1 drone while travelling.',
+    termsNote:
+      'Black Friday promotion with no confirmed end date. The free battery offer is for a limited time only.',
+  },
 ]
 
 export const supportLinks: SupportLink[] = [

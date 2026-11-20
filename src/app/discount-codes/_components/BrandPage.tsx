@@ -106,7 +106,7 @@ export function BrandPage({
     videos, videosHeading, videosIntro, boldCodeInCopy, centerCodeCard,
     heroVideoTitle, heroEyebrowFirst, heroEyebrow, heroOfferCardLabel,
     infoSections, whyUsefulHeading, lifestyleImage,
-    productRanges, productRangesHeading, productRangesIntro,
+    productRanges, productRangesHeading, productRangesIntro, linkOfferText,
   } = data
 
   const hasSecondary = Boolean(secondaryUrl && secondaryLabel)
@@ -617,9 +617,20 @@ export function BrandPage({
                   <div>
                     <CopyCodeButton code={code as string} />
                     <div className="mt-3">
-                      <span className="inline-block bg-accent text-white text-sm font-bold px-3.5 py-1.5 rounded-full shadow-sm">
-                        {offer}
-                      </span>
+                      {linkOfferText ? (
+                        <a
+                          href={affiliateUrl}
+                          target="_blank"
+                          rel={SPONSORED_LINK_REL}
+                          className="inline-block bg-accent text-white text-sm font-bold px-3.5 py-1.5 rounded-full shadow-sm underline underline-offset-2 decoration-white/50 hover:bg-accent-dark hover:decoration-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                        >
+                          {offer}
+                        </a>
+                      ) : (
+                        <span className="inline-block bg-accent text-white text-sm font-bold px-3.5 py-1.5 rounded-full shadow-sm">
+                          {offer}
+                        </span>
+                      )}
                     </div>
                   </div>
                 ) : (
@@ -665,7 +676,14 @@ export function BrandPage({
           </section>
 
           {/* Offer at a glance: trust and status details from the central data */}
-          {centralOffer && <OfferAtAGlance item={centralOffer} offer={offer} code={code} />}
+          {centralOffer && (
+            <OfferAtAGlance
+              item={centralOffer}
+              offer={offer}
+              code={code}
+              offerUrl={linkOfferText ? affiliateUrl : undefined}
+            />
+          )}
 
           {/* Why we find it useful + Best for: two cards side by side */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch">

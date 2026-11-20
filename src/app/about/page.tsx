@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { fetchSubscriberCount } from '../lib/youtube'
 import { SOCIAL_FOLLOWERS } from '../data/stats'
 import PhotoGrid from '../components/PhotoGrid'
+import AdrianaDylanFaq, { AboutQuickFacts } from '../components/AdrianaDylanFaq'
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -201,7 +202,7 @@ export default async function AboutPage() {
       </section>
 
       {/* Our story */}
-      <section className="py-16 px-4 lg:py-20">
+      <section className="pt-16 pb-12 px-4 lg:pt-20 lg:pb-14">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
@@ -269,61 +270,14 @@ export default async function AboutPage() {
                   Adriana &amp; Dylan
                 </footer>
               </blockquote>
-
-              <div className="bg-surface rounded-2xl p-6 border border-stone-100">
-                <p className="text-xs font-bold uppercase tracking-widest text-muted mb-2">
-                  Find us on
-                </p>
-                <p className="text-sm text-foreground leading-relaxed">
-                  <a
-                    href="https://www.youtube.com/@2passports1dream"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="2Passports1Dream on YouTube"
-                    className="text-accent font-medium underline underline-offset-2 hover:text-accent-dark transition-colors"
-                  >
-                    YouTube
-                  </a>
-                  ,{' '}
-                  <a
-                    href="https://www.instagram.com/2passports1dream"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="2Passports1Dream on Instagram"
-                    className="text-accent font-medium underline underline-offset-2 hover:text-accent-dark transition-colors"
-                  >
-                    Instagram
-                  </a>
-                  ,{' '}
-                  <a
-                    href="https://www.tiktok.com/@2passports1dream"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="2Passports1Dream on TikTok"
-                    className="text-accent font-medium underline underline-offset-2 hover:text-accent-dark transition-colors"
-                  >
-                    TikTok
-                  </a>
-                  {' '}and{' '}
-                  <a
-                    href="https://www.facebook.com/2passports1dream"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="2Passports1Dream on Facebook"
-                    className="text-accent font-medium underline underline-offset-2 hover:text-accent-dark transition-colors"
-                  >
-                    Facebook
-                  </a>
-                  {' '}under the handle{' '}
-                  <span className="font-semibold text-primary">@2passports1dream</span>. The
-                  YouTube channel has grown to {subscriberCount} subscribers.
-                </p>
-              </div>
             </div>
 
           </div>
         </div>
       </section>
+
+      {/* Quick facts: continues straight on from Our story */}
+      <AboutQuickFacts />
 
       {/* What we explore */}
       <section className="py-16 px-4 lg:py-20 bg-[#FFF9EF]">
@@ -385,6 +339,10 @@ export default async function AboutPage() {
         </div>
       </section>
 
+      {/* Adriana & Dylan: Your Questions Answered. Merged in from the old
+          /adriana-and-dylan page, which now redirects here. */}
+      <AdrianaDylanFaq />
+
       {/* Explore the site */}
       <section className="py-16 px-4 lg:py-20 bg-surface">
         <div className="max-w-6xl mx-auto">
@@ -421,16 +379,19 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* Follow us */}
-      <section className="py-16 px-4">
+      {/* Follow and support. Only YouTube is repeated here: the other social
+          links are already in the hero and the footer. */}
+      <section className="py-16 px-4 lg:py-20">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-3">
             Find us online
           </p>
-          <h2 className="text-3xl font-bold mb-3 text-primary">Follow 2Passports1Dream</h2>
+          <h2 className="text-3xl font-bold mb-3 text-primary">Follow and support 2Passports1Dream</h2>
           <p className="text-muted leading-relaxed mb-8 max-w-lg mx-auto text-sm">
             Subscribe on YouTube so you never miss a new adventure, or follow us on social media
-            for shorter clips and real-time travel updates.
+            for shorter clips and real-time travel updates. If you enjoy our videos and want to
+            support us directly, you can also buy us a coffee. It is a small gesture that genuinely
+            helps us keep going.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <a
@@ -439,52 +400,17 @@ export default async function AboutPage() {
               rel="noopener noreferrer"
               className="bg-accent text-white font-semibold px-6 py-3 rounded-full hover:bg-accent-dark transition-colors text-sm"
             >
-              YouTube
+              Subscribe on YouTube
             </a>
             <a
-              href="https://www.instagram.com/2passports1dream"
+              href="https://buymeacoffee.com/2p1d/"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-stone-300 text-foreground font-semibold px-6 py-3 rounded-full hover:bg-surface transition-colors text-sm"
             >
-              Instagram
-            </a>
-            <a
-              href="https://www.tiktok.com/@2passports1dream"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-stone-300 text-foreground font-semibold px-6 py-3 rounded-full hover:bg-surface transition-colors text-sm"
-            >
-              TikTok
-            </a>
-            <a
-              href="https://www.facebook.com/2passports1dream"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-stone-300 text-foreground font-semibold px-6 py-3 rounded-full hover:bg-surface transition-colors text-sm"
-            >
-              Facebook
+              Buy Us a Coffee
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* Support */}
-      <section className="py-16 px-4 bg-surface">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-3 text-primary">Support the channel</h2>
-          <p className="text-muted leading-relaxed mb-8 max-w-md mx-auto text-sm">
-            If you enjoy our videos and want to support us directly, you can buy us a coffee.
-            It is a small gesture that genuinely helps us keep going.
-          </p>
-          <a
-            href="https://buymeacoffee.com/2p1d/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-accent text-white font-semibold px-8 py-3 rounded-full hover:bg-accent-dark transition-colors text-sm"
-          >
-            Buy Us a Coffee
-          </a>
         </div>
       </section>
     </>

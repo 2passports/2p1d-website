@@ -361,7 +361,8 @@ export default async function Home() {
 
       {/* ----------------------------------------------------------------
           TIKTOK AWARDS UK 2026 NOMINATION
-          Remove or update after 18 November 2026 (when voting closes).
+          Voting closed on 18 November 2026. Results are announced on
+          1 December 2026, so update this section after the awards.
           ---------------------------------------------------------------- */}
       <section className="px-4 py-10 sm:py-12 bg-[#FFF9EF]">
         <div className="max-w-4xl mx-auto">
@@ -384,30 +385,20 @@ export default async function Home() {
                   TikTok Awards UK 2026
                 </p>
                 <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-3">
-                  We&rsquo;ve been nominated! <span aria-hidden="true">🏆</span>
+                  Voting is now closed
                 </h2>
                 <p className="text-sm sm:text-base text-foreground leading-relaxed mb-2">
-                  We&rsquo;ve been nominated for Travel Creator of the Year at the TikTok Awards UK 2026!
-                  If you&rsquo;ve enjoyed following our travels, we&rsquo;d love your vote.
+                  Thank you so much to everyone who voted for us for Travel Creator of the Year at the
+                  TikTok Awards UK 2026. We really appreciate all the support.
                 </p>
                 <p className="text-sm text-muted leading-relaxed mb-5">
-                  Voting is open until 18 November and takes place in the TikTok app.
+                  Results will be announced on{' '}
+                  <strong className="font-semibold text-primary">1 December 2026</strong>.
                 </p>
-                <a
-                  href="https://snssdk1180.onelink.me/BAuo/dp3f0xo2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-accent text-white font-semibold text-sm px-6 py-3 rounded-full shadow-sm hover:bg-accent-dark hover:-translate-y-0.5 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M16.5 3a5.5 5.5 0 004.5 4.5v3a8.5 8.5 0 01-4.5-1.3v6.3a6 6 0 11-6-6c.31 0 .61.03.9.08v3.1a3 3 0 102.1 2.86V3z" />
-                  </svg>
-                  Vote for us on TikTok
-                </a>
-                <div className="mt-3 flex flex-col sm:flex-row sm:flex-wrap items-center sm:items-start gap-x-5 gap-y-2">
+                <div className="flex flex-col sm:flex-row sm:flex-wrap items-center gap-x-5 gap-y-3">
                   <Link
                     href="/tiktok-awards-2026"
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:text-accent-dark transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded-sm"
+                    className="inline-flex items-center justify-center gap-2 bg-accent text-white font-semibold text-sm px-6 py-3 rounded-full shadow-sm hover:bg-accent-dark hover:-translate-y-0.5 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                   >
                     Read more about our nomination
                     <span aria-hidden="true">&rarr;</span>
@@ -421,9 +412,6 @@ export default async function Home() {
                     Read the official TikTok Awards announcement
                   </a>
                 </div>
-                <p className="text-xs text-muted mt-3">
-                  Voting takes place in the TikTok app and is available to eligible users in the UK and Ireland.
-                </p>
               </div>
             </div>
           </div>

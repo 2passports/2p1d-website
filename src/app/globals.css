@@ -180,7 +180,7 @@ body {
 }
 
 .deals-track {
-  animation: dealsMarquee 42s linear infinite;
+  animation: dealsMarquee 49s linear infinite;
 }
 
 .deals-track-wrapper:hover .deals-track {

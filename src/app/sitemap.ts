@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const corePages: MetadataRoute.Sitemap = [
     { url: siteUrl, changeFrequency: 'weekly', priority: 1 },
-    { url: `${siteUrl}/about`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${siteUrl}/about`, lastModified: '2026-11-20', changeFrequency: 'monthly', priority: 0.8 },
     {
       url: `${siteUrl}/discount-codes`,
       ...(hubLastModified ? { lastModified: hubLastModified } : {}),
